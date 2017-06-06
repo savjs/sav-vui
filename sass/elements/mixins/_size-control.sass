@@ -1,0 +1,47 @@
+
+// 默认行高 line-height(1.0~1.2)
+$line-height-default: 1.2 !default
+
+// 默认字体
+$font-size-sm: 12px !default
+$font-size-default: 14px !default
+$font-size-lg: 16px !default
+$font-size-important: false !default
+
+// 默认补白
+$pad-padding-sm: 0.35em !default
+$pad-padding-default: 0.5em !default
+$pad-padding-lg: 0.75em !default
+$pad-padding-important: false !default
+
+// 行高
+=make-line-height-default
+  line-height: $line-height-default
+
+// 字体
+=make-font-size-default($font-size: $font-size-default, $important: $font-size-important)
+  @if $important
+    font-size: $font-size !important
+  @else
+    font-size: $font-size
+=make-font-size-sm($important: $font-size-important)
+  +make-font-size-default($font-size-sm, $important)
+=make-font-size-lg($important: $font-size-important)
+  +make-font-size-default($font-size-lg, $important)
+
+// 内补白
+=make-pad-default($padding: $pad-padding-default, $important: $pad-padding-important)
+  @if $important
+    padding: $padding !important
+  @else
+    padding: $padding
+=make-pad-sm($important: $pad-padding-important)
+  +make-pad-default($pad-padding-sm, $important)
+=make-pad-lg($important: $pad-padding-important)
+  +make-pad-default($pad-padding-lg, $important)
+
+// 默认字体
+=make-size-default
+  +make-line-height-default
+  +make-font-size-default
+  +make-pad-default

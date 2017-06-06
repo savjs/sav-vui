@@ -1,0 +1,53 @@
+@import mixins/_size-control
+
+// 边角
+$button-bd-radius: $form-element-bd-radius !default
+
+// 边框颜色
+$button-default-bd-color: $form-element-bd-color !default
+// 背景颜色
+$button-default-bg-color: $form-element-bg-color !default
+// 禁用色
+$button-disabled-bg-color: $form-element-disabled-bg-color !default
+
+.sav-btn
+  // 需要设成相对的, 方便内嵌或定位
+  position: relative
+  // 块
+  display: inline-block
+  // 去除下划线
+  text-decoration: none
+  // 去除默认焦点
+  outline: none
+  // 去除 Button的默认边框样式 + 去除 Border宽度
+  border: 1px solid transparent
+  // 不可选
+  user-select: none
+  -webkit-user-select: none
+  -moz-user-select: none
+  // 居中对齐
+  vertical-align: middle
+  // 尺寸
+  +make-size-default
+
+  // 鼠标
+  cursor: pointer
+  // 颜色
+  background-color: $button-default-bg-color
+  border-color: $button-default-bd-color
+  border-radius: $button-bd-radius
+
+  &:hover,
+  &:focus
+    background-color: darken($button-default-bg-color, 5)
+
+  &.is-active,
+  &:active
+    background-color: darken($button-default-bg-color, 10)
+
+  &.is-disabled,
+  &:disabled
+    cursor: default
+    background-color: $button-disabled-bg-color !important
+    color: darken($button-disabled-bg-color, 30) !important
+    border-color: darken($button-disabled-bg-color, 15) !important
