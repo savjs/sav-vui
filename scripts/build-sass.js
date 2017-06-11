@@ -3,8 +3,36 @@ const path = require('path')
 const {mkdirAsync, writeFileAsync} = require('./file')
 
 let distCssDir = path.resolve(__dirname, '../dist/css/')
-let vuiCss = path.resolve(distCssDir, 'sav-vui.css')
-let vuiSass = path.resolve(__dirname, '../sass/sav-vui.sass')
+
+let includePaths = [
+  path.resolve(__dirname, '../sass')
+]
+
+mkdirAsync(distCssDir).then(() => {
+  return Promise.all([
+    sassRenderAsync({
+      sourceMap: true,
+      file: path.resolve(__dirname, '../sass/sav-vui.sass'),
+      outFile: path.resolve(distCssDir, 'sav-vui.css'),
+      includePaths
+    }),
+    sassRenderAsync({
+      file: path.resolve(__dirname, '../sass/font-awesome.sass'),
+      outFile: path.resolve(distCssDir, 'font-awesome.css'),
+      includePaths
+    }),
+    sassRenderAsync({
+      file: path.resolve(__dirname, '../sass/photon.sass'),
+      outFile: path.resolve(distCssDir, 'photon.css'),
+      includePaths
+    }),
+  ]).then(() => {
+    console.log('Done')
+  })
+}).catch((err) => {
+  console.error(err)
+  process.exit(1)
+})
 
 function sassRenderAsync (opts) {
   return new Promise((resolve, reject) => {
@@ -12,28 +40,12 @@ function sassRenderAsync (opts) {
       if (err) {
         return reject(err)
       }
-      resolve(result)
+      let {outFile, sourceMap} = opts
+      let ret = [writeFileAsync(outFile, result.css)]
+      if (sourceMap) {
+        ret.push(writeFileAsync(outFile + '.map', result.map))
+      }
+      Promise.all(ret).then(resolve, reject)
     })
   })
 }
-
-mkdirAsync(distCssDir).then(() => {
-  return sassRenderAsync({
-    file: vuiSass,
-    outFile: vuiCss,
-    sourceMap: true,
-    includePaths: [
-      path.resolve(__dirname, '../sass')
-    ]
-  }).then((ret) => {
-    return Promise.all([
-      writeFileAsync(vuiCss, ret.css),
-      writeFileAsync(vuiCss + '.map', ret.map),
-    ])
-  }).then(() => {
-    console.log('Done', vuiCss)
-  })
-}).catch((err) => {
-  console.error(err)
-  process.exit(1)
-})

@@ -1,0 +1,16 @@
+// 清除浮动
+=clearfix
+  &::after
+    clear: both
+    content: ' '
+    display: table
+
+// 水平或垂直居中(定宽或定高)
+=center($width, $height: 0)
+  position: absolute
+  @if $height != 0
+    left: calc(50% - (#{$width} / 2))
+    top: calc(50% - (#{$height} / 2))
+  @else
+    left: calc(50% - (#{$width} / 2))
+    top: calc(50% - (#{$width} / 2))

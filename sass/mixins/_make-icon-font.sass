@@ -22,11 +22,9 @@
     +make-icon-class-icomoon($font-family)
 
 // icomoon 风格
-=make-icon-class-icomoon($font-family: false)
+=make-icon-class-icomoon($font-family)
   // use !important to prevent issues with browser extensions that change fonts
-  @if $font-family
-    //实际上是不用的,这是只是为了保证完整性
-    font-family: '#{$font-family}' !important
+  font-family: '#{$font-family}' !important
   speak: none
   font-style: normal
   font-weight: normal
@@ -40,3 +38,10 @@
   // 要支持 transform 需要设置
   display: inline-block
   transform: translate(0, 0)
+
+// 添加字体库
+=make-icon-font-library($icon-font-class, $icon-font-family, $icon-font-path, $icon-font-file, $icon-font-version)
+  // 添加字体
+  +make-icon-font-face($icon-font-family, $icon-font-path, $icon-font-file, $icon-font-version)
+  // 添加类前缀, 关联字体
+  +make-icon-class($icon-font-class, $icon-font-family)

@@ -1,18 +1,8 @@
-@import '../mixins/_size-control'
 
 $button-bd-radius: $form-element-bd-radius !default
 $button-bd-color: $form-element-bd-color !default
 $button-bg-color: $form-element-bg-color !default
 $button-disabled-bg-color: $form-element-disabled-bg-color !default
-
-=center($width, $height: 0)
-  position: absolute
-  @if $height != 0
-    left: calc(50% - (#{$width} / 2))
-    top: calc(50% - (#{$height} / 2))
-  @else
-    left: calc(50% - (#{$width} / 2))
-    top: calc(50% - (#{$width} / 2))
 
 .sav-btn
   // 需要设成相对的, 方便内嵌或定位
@@ -58,36 +48,14 @@ $button-disabled-bg-color: $form-element-disabled-bg-color !default
     border-color: darken($button-disabled-bg-color, 15) !important
     // 去除阴影效果
     box-shadow: none !important
-  .sav-icon
-    height: 1em
-    width: 1em
-    text-align: center
-    &:first-child
-      margin-left: 0
-      margin-right: 0.2em
-    &:last-child
-      margin-left: 0.2em
-      margin-right: 0
-    &:first-child:last-child
-      margin-left: 0
-      margin-right: 0
+  // 图标
+  > .as-icon
+    +make-icon-addon
+  // 加载中
   &.is-loading
     pointer-events: none
     color: transparent !important
     &::after
-      animation: spinAround 500ms infinite linear
-      border: 2px solid white
-      border-radius: 290486px
-      border-right-color: transparent
-      border-top-color: transparent
-      content: ''
-      display: block
-      height: 1em
-      width: 1em
-      +center(1em)
-
-@keyframes spinAround
-  from
-    transform: rotate(0deg)
-  to
-    transform: rotate(359deg)
+      +make-icon-loader
+      +make-spin-around
+      +center(1.2em)

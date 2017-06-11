@@ -4,24 +4,50 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="../dist/css/sav-vui.css">
+  <link rel="stylesheet" type="text/css" href="../dist/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="../dist/css/photon.css">
 </head>
 <body>
-  <button class="sav-btn">Sav-Btn</button>
-  <button class="sav-btn"><i class="sav-icon fa-plus"></i><span>Sav-Btn</span></button>
-  <button class="sav-btn"><span>Sav-Btn</span><i class="sav-icon fa-plus"></i></button>
-  <button class="sav-btn"><i class="sav-icon fa-plus"></i><span>Sav-Btn</span><i class="sav-icon fa-github"></i></button>
-  <button class="sav-btn"><i class="sav-icon fa-plus"></i></button>
-  <br>
-  <br>
-  <a class="sav-btn">Sav-Btn</a>
-  <a class="sav-btn"><i class="sav-icon fa-plus"></i><span>Sav-Btn</span></a>
-  <a class="sav-btn"><span>Sav-Btn</span><i class="sav-icon fa-plus"></i></a>
-  <a class="sav-btn"><i class="sav-icon fa-plus"></i><span>Sav-Btn</span><i class="sav-icon fa-github"></i></a>
-  <a class="sav-btn"><i class="sav-icon fa-plus"></i></a>
-
-  <br>
-  <br>
-  <input class="sav-input" type="text" />
-  <input class="sav-input" type="number" />
+  <div id="app">
+    <div>
+      <h4>按钮(button)</h4>
+      <button class="sav-btn">Sav-Btn</button>
+      <button class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+      <button class="sav-btn"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
+      <button class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
+      <button class="sav-btn"><i class="as-icon fa-plus"></i></button>
+      <button class="sav-btn is-loading">Submit</button>
+      <button class="sav-btn is-loading" disabled>Submit</button>
+      <button class="sav-btn" disabled><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
+    </div>
+    <div>
+      <h4>按钮(a)</h4>
+      <a class="sav-btn">Sav-Btn</a>
+      <a class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
+      <a class="sav-btn"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+      <a class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
+      <a class="sav-btn"><i class="as-icon fa-plus"></i></a>
+      <a class="sav-btn is-loading">Submit</a>
+      <a class="sav-btn is-loading is-disabled">Submit</a>
+      <a class="sav-btn is-disabled"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+    </div>
+    <div>
+      <h4>输入框(text)</h4>
+      <input class="sav-input" type="text" placeholder="text" />
+      <input class="sav-input" type="text" />
+      <input class="sav-input" type="text" value="username" />
+      <input class="sav-input" type="text" value="disabled" disabled />
+      <input class="sav-input" type="text" value="readonly" readonly />
+    </div>
+    <div>
+      <h4>输入框(number)</h4>
+      <input class="sav-input" type="number" placeholder="number" />
+      <input class="sav-input" type="number" />
+      <input class="sav-input" type="number" value="123" />
+      <input class="sav-input" type="number" value="465" disabled />
+      <input class="sav-input" type="number" value="123" readonly />
+    </div>
+  </div>
+  <!-- <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script> -->
 </body>
 </html>

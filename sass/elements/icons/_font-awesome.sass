@@ -1,5 +1,4 @@
 @import icons-font-awesome
-@import icon-mixin
 
 $icon-font-fontawesome-class: 'fa'
 $icon-font-fontawesome-family: 'FontAwesome'
@@ -7,11 +6,7 @@ $icon-font-fontawesome-file: 'fontawesome-webfont'
 $icon-font-fontawesome-version: '4.7.0'
 $icon-font-fontawesome-path: '../fonts' !default
 
-// 添加字体
-+make-icon-font-face($icon-font-fontawesome-family, $icon-font-fontawesome-path, $icon-font-fontawesome-file, $icon-font-fontawesome-version)
-
-// 添加类前缀, 关联字体
-+make-icon-class($icon-font-fontawesome-class, $icon-font-fontawesome-family)
-
+// 添加字库
++make-icon-font-library($icon-font-fontawesome-class, $icon-font-fontawesome-family, $icon-font-fontawesome-path, $icon-font-fontawesome-file, $icon-font-fontawesome-version)
 // 导出字体文件
 +make-icons-font-awesome

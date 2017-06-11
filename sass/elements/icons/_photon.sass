@@ -1,5 +1,4 @@
 @import icons-photon
-@import icon-mixin
 
 $icon-font-photon-class: 'pt'
 $icon-font-photon-family: 'photon-entypo'
@@ -7,11 +6,7 @@ $icon-font-photon-file: 'photon-entypo'
 $icon-font-photon-version: '0.1.2'
 $icon-font-photon-path: '../fonts' !default
 
-// 添加字体
-+make-icon-font-face($icon-font-photon-family, $icon-font-photon-path, $icon-font-photon-file, $icon-font-photon-version)
-
-// 添加类前缀, 关联字体
-+make-icon-class($icon-font-photon-class, $icon-font-photon-family)
-
+// 添加字库
++make-icon-font-library($icon-font-photon-class, $icon-font-photon-family, $icon-font-photon-path, $icon-font-photon-file, $icon-font-photon-version)
 // 导出字体文件
 +make-icons-photon

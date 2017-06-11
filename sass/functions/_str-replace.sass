@@ -1,0 +1,11 @@
+// 字符串替换
+@function str-replace($string, $old, $new)
+  $str_index: str-index($string, $old)
+  @if $str_index != null and $str_index > 0
+    $str_index: -1 + $str_index
+    $str_new: str-slice($string, 0, $str_index)
+    $str_new: str-insert($str_new, $new, str-length($str_new) + 1)
+    $str_new: str-insert($str_new, str-slice($string, $str_index + str-length($old) + 1, str-length($string)), str-length($str_new) + 1)
+    @return str-replace($str_new, $old, $new)
+
+  @return $string
