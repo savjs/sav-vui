@@ -1,25 +1,33 @@
-@import mixins/_size-control
+@import '../mixins/_size-control'
 
-$input-bd-radius: $default-bd-radius !default
-$input-bd-color: $default-bd-color !default
-$input-disabled-bg-color: $default-disabled-bg-color !default
+$input-bd-radius: $form-element-bd-radius !default
+$input-bd-color: $form-element-bd-color !default
+$input-disabled-bg-color: $form-element-disabled-bg-color !default
 
 .sav-input
-  +make-size-default
-
+  // 边框
   border: 1px solid $input-bd-color
+  // 圆角
   border-radius: $input-bd-radius
-  outline: none
+  // 居中对齐
   vertical-align: middle
+  // 重置盒模型
   box-sizing: border-box
+  // 去除焦点框
+  outline: none
+  // 尺寸
+  +make-size-default
+  // 字体
+  font-family: $form-element-font-family
 
   &:hover,
   &:focus
     background-color: lighten($input-bd-color, 20)
-    border-color: darken($input-bd-color, 30)
+    border-color: darken($input-bd-color, 10)
 
   &:disabled
     background-color: $input-disabled-bg-color !important
     color: darken($input-disabled-bg-color, 30) !important
     border-color: darken($input-disabled-bg-color, 15) !important
+    // 去除阴影效果
     box-shadow: none !important

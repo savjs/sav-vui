@@ -1,7 +1,7 @@
 // 字体
 =make-icon-font-face($font-name, $font-path, $font-file, $version)
   @font-face
-    font-family: "#{$font-name}"
+    font-family: '#{$font-name}'
     // @if true {
     //     src: url('#{$font-path}/#{$font-file}.eot?v=#{$version}');
     //     src: url('#{$font-path}/#{$font-file}.eot?#iefix&v=#{$version}') format('embedded-opentype'),
@@ -9,14 +9,14 @@
     //          url('#{$font-path}/#{$font-file}.ttf?v=#{$version}') format('truetype'),
     //          url('#{$font-path}/#{$font-file}.svg?v=#{$version}#regular') format('svg');
     // }
-    src: url("#{$font-path}/#{$font-file}.woff?v=#{$version}") format("woff")
+    src: url('#{$font-path}/#{$font-file}.woff?v=#{$version}') format('woff')
     font-weight: normal
     font-style: normal
 
 // 关联字体
 =make-icon-class($prefix, $font-family)
-  [class^="#{$prefix}-"],
-  [class*=" #{$prefix}-"]
+  [class^='#{$prefix}-'],
+  [class*=' #{$prefix}-']
     // use !important to prevent issues with browser extensions that change fonts
     // font-family: '#{$font-family}' !important;
     +make-icon-class-icomoon($font-family)
@@ -26,7 +26,7 @@
   // use !important to prevent issues with browser extensions that change fonts
   @if $font-family
     //实际上是不用的,这是只是为了保证完整性
-    font-family: "#{$font-family}" !important
+    font-family: '#{$font-family}' !important
   speak: none
   font-style: normal
   font-weight: normal

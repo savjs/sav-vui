@@ -1,14 +1,18 @@
-@import mixins/_size-control
+@import '../mixins/_size-control'
 
-// 边角
 $button-bd-radius: $form-element-bd-radius !default
-
-// 边框颜色
-$button-default-bd-color: $form-element-bd-color !default
-// 背景颜色
-$button-default-bg-color: $form-element-bg-color !default
-// 禁用色
+$button-bd-color: $form-element-bd-color !default
+$button-bg-color: $form-element-bg-color !default
 $button-disabled-bg-color: $form-element-disabled-bg-color !default
+
+=center($width, $height: 0)
+  position: absolute
+  @if $height != 0
+    left: calc(50% - (#{$width} / 2))
+    top: calc(50% - (#{$height} / 2))
+  @else
+    left: calc(50% - (#{$width} / 2))
+    top: calc(50% - (#{$width} / 2))
 
 .sav-btn
   // 需要设成相对的, 方便内嵌或定位
@@ -29,21 +33,22 @@ $button-disabled-bg-color: $form-element-disabled-bg-color !default
   vertical-align: middle
   // 尺寸
   +make-size-default
-
+  // 字体
+  font-family: $form-element-font-family
   // 鼠标
   cursor: pointer
   // 颜色
-  background-color: $button-default-bg-color
-  border-color: $button-default-bd-color
+  background-color: $button-bg-color
+  border-color: $button-bd-color
   border-radius: $button-bd-radius
 
   &:hover,
   &:focus
-    background-color: darken($button-default-bg-color, 5)
+    background-color: darken($button-bg-color, 5)
 
   &.is-active,
   &:active
-    background-color: darken($button-default-bg-color, 10)
+    background-color: darken($button-bg-color, 10)
 
   &.is-disabled,
   &:disabled
@@ -51,3 +56,38 @@ $button-disabled-bg-color: $form-element-disabled-bg-color !default
     background-color: $button-disabled-bg-color !important
     color: darken($button-disabled-bg-color, 30) !important
     border-color: darken($button-disabled-bg-color, 15) !important
+    // 去除阴影效果
+    box-shadow: none !important
+  .sav-icon
+    height: 1em
+    width: 1em
+    text-align: center
+    &:first-child
+      margin-left: 0
+      margin-right: 0.2em
+    &:last-child
+      margin-left: 0.2em
+      margin-right: 0
+    &:first-child:last-child
+      margin-left: 0
+      margin-right: 0
+  &.is-loading
+    pointer-events: none
+    color: transparent !important
+    &::after
+      animation: spinAround 500ms infinite linear
+      border: 2px solid white
+      border-radius: 290486px
+      border-right-color: transparent
+      border-top-color: transparent
+      content: ''
+      display: block
+      height: 1em
+      width: 1em
+      +center(1em)
+
+@keyframes spinAround
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(359deg)
