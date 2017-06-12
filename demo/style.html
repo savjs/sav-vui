@@ -104,6 +104,32 @@
         :readonly="readonlyValue || null"
         :disabled="disabledValue || null" />
     </div>
+    <div>
+      <h4>单选框(radio)</h4>
+      <label :class="['sav-radio', isColor, isSize]">
+        <input type="radio" name="radio1" value="radio-val-1" 
+          :disabled="disabledValue || null" />
+        <span class="as-text">Sav-Radio</span>
+      </label>
+      <label :class="['sav-radio', isColor, isSize]">
+        <input type="radio" name="radio1" value="radio-val-2"
+          :disabled="disabledValue || null" />
+        <span class="as-text">Sav-Radio</span>
+      </label>
+    </div>
+    <div>
+      <h4>复选框(check)</h4>
+      <label :class="['sav-check', isColor, isSize]">
+        <input type="checkbox" value="check-val-1"
+          :disabled="disabledValue || null" />
+        <span class="as-text">Sav-Radio</span>
+      </label>
+      <label :class="['sav-check', isColor, isSize]">
+        <input type="checkbox" value="check-val-2"
+          :disabled="disabledValue || null" />
+        <span class="as-text">Sav-Radio</span>
+      </label>
+    </div>
   </div>
   <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script>
   <script type="text/javascript">

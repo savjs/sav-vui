@@ -1,0 +1,58 @@
+
+$radio-bd-color: darken($form-element-bd-color, 20) !default
+$radio-disabled-bg-color: $form-element-disabled-bg-color !default
+
+.sav-radio
+  // 需要设成相对的, 方便内嵌或定位
+  position: relative
+  // 盒子
+  box-sizing: border-box
+  // 块
+  display: inline-block
+  // 尺寸
+  +make-size-default
+  // 不可选
+  -webkit-user-select: none
+  -moz-user-select: none
+  user-select: none
+  > input
+    margin: 0
+    padding: 0
+    opacity: 0
+    // 选中
+    &:checked + .as-text::after
+      background-color: $radio-bd-color
+      -webkit-transform: scale(0.5)
+      transform: scale(0.5)
+    // 获得焦点
+    &:focus + .as-text::before
+      -webkit-transform: scale(1.1)
+      transform: scale(1.1)
+    // 禁用
+    &:disabled + .as-text
+      color: darken($radio-disabled-bg-color, 30) !important
+    &:disabled + .as-text:before
+      border-color: darken($radio-disabled-bg-color, 15) !important
+    &:disabled:checked + .as-text:after
+      background-color: darken($radio-disabled-bg-color, 15) !important
+  > .as-text
+    position: relative
+    padding-left: 0.5em
+    vertical-align: middle
+    &::before,
+    &::after
+      box-sizing: content-box
+      position: absolute
+      content: ""
+      top: 0
+      left: -1.5em
+      width: 1em
+      height: 1em
+      border: 2px solid transparent
+      transition: 0.28s ease
+      border-radius: 1em
+    &::before
+      border-color: $radio-bd-color
+    &::after
+      -webkit-transform: scale(0)
+      transform: scale(0)

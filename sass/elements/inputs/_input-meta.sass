@@ -1,5 +1,10 @@
+.sav-input
+  // 尺寸
+  &.is-small
+    +make-size-sm
+  &.is-large
+    +make-size-lg
 // 颜色
-
 @each $theme-type, $theme-color in $is-theme-result-colors
   .sav-input.#{$theme-type}
     border-color: $theme-color
