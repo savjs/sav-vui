@@ -45,3 +45,29 @@ $pad-padding-important: false !default
   +make-line-height-default
   +make-font-size-default
   +make-pad-default
+
+// 小号
+=make-size-sm
+  +make-font-size-sm
+  +make-pad-sm
+
+// 大号
+=make-size-lg
+  +make-font-size-lg
+  +make-pad-lg
+
+// 矩形
+$element-line-height-default: floor($font-size-default * $line-height-default) + 2px !default
+=make-square-default
+  width: calc(#{$element-line-height-default} + #{$pad-padding-default} *2)
+  height: calc(#{$element-line-height-default} + #{$pad-padding-default} *2)
+
+$element-line-height-sm: floor($font-size-sm * $line-height-default) + 2px !default
+=make-square-sm
+  width: calc(#{$element-line-height-sm} + #{$pad-padding-sm} *2)
+  height: calc(#{$element-line-height-sm} + #{$pad-padding-sm} *2)
+
+$element-line-height-lg: floor($font-size-lg * $line-height-default) + 2px !default
+=make-square-lg
+  width: calc(#{$element-line-height-lg} + #{$pad-padding-lg} *2)
+  height: calc(#{$element-line-height-lg} + #{$pad-padding-lg} *2)

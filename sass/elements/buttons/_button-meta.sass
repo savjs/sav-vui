@@ -1,0 +1,37 @@
+.sav-btn
+  // 方形
+  &.is-square,
+  &.is-circle,
+    +make-square-default
+    &.is-small
+      +make-square-sm
+    &.is-large
+      +make-square-lg
+  // 圆形
+  &.is-circle,
+    border-radius: 50%
+  // 尺寸
+  &.is-small
+    +make-size-sm
+  &.is-large
+    +make-size-lg
+
+// 颜色
+=make-button-variant($text-color, $color)
+  color: $text-color
+  border-color: darken($color, 2)
+  background-color: $color
+  &:hover,
+  &:focus
+    background-color: darken($color, 6)
+  &.is-active,
+  &:active
+    background-color: darken($color, 10)
+  // 加载中
+  &.is-loading::after
+    border-left-color: $text-color
+    border-bottom-color: $text-color
+
+@each $theme-type, $theme-color in $is-theme-colors
+  .sav-btn.#{$theme-type}
+    +make-button-variant($is-text-light-color, $theme-color)

@@ -7,6 +7,8 @@ $button-disabled-bg-color: $form-element-disabled-bg-color !default
 .sav-btn
   // 需要设成相对的, 方便内嵌或定位
   position: relative
+  // 盒子
+  box-sizing: border-box
   // 块
   display: inline-block
   // 去除下划线
@@ -16,11 +18,12 @@ $button-disabled-bg-color: $form-element-disabled-bg-color !default
   // 去除 Button的默认边框样式 + 去除 Border宽度
   border: 1px solid transparent
   // 不可选
-  user-select: none
   -webkit-user-select: none
   -moz-user-select: none
+  user-select: none
   // 居中对齐
   vertical-align: middle
+  text-align: center
   // 尺寸
   +make-size-default
   // 字体

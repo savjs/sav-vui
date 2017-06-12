@@ -9,8 +9,8 @@
 =center($width, $height: 0)
   position: absolute
   @if $height != 0
-    left: calc(50% - (#{$width} / 2))
-    top: calc(50% - (#{$height} / 2))
+    left: calc(50% - (#{$width} / 2) - 0.5px)
+    top: calc(50% - (#{$height} / 2) - 0.5px)
   @else
-    left: calc(50% - (#{$width} / 2))
-    top: calc(50% - (#{$width} / 2))
+    left: calc(50% - (#{$width} / 2) - 0.5px)
+    top: calc(50% - (#{$width} / 2) - 0.5px)

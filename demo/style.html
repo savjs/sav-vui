@@ -6,48 +6,125 @@
   <link rel="stylesheet" type="text/css" href="../dist/css/sav-vui.css">
   <link rel="stylesheet" type="text/css" href="../dist/css/font-awesome.css">
   <link rel="stylesheet" type="text/css" href="../dist/css/photon.css">
+  <style type="text/css">
+    .control-panel {
+      position: fixed;
+      right: 5px;
+      top: 5px;
+      border: 1px solid gray;
+    }
+    .control-panel h4{
+      margin: 5px;
+    }
+    .control-panel .cp-it label{
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
+    <div class="control-panel">
+      <div class="cp-it">
+        <h4>element</h4>
+        <div class="cp-body">
+          <label><input type="checkbox" v-model="disabledValue" >is-disabled</label>
+        </div>
+      </div>
+      <div class="cp-it">
+        <h4>color</h4>
+        <div class="cp-body">
+          <label><input type="radio" v-model="isColor" value="">defalut</label>
+          <label><input type="radio" v-model="isColor" value="is-primary">is-primary</label>
+          <label><input type="radio" v-model="isColor" value="is-secondary">is-secondary</label>
+          <label><input type="radio" v-model="isColor" value="is-success">is-success</label>
+          <label><input type="radio" v-model="isColor" value="is-warn">is-warn</label>
+          <label><input type="radio" v-model="isColor" value="is-error">is-error</label>
+        </div>
+      </div>
+      <div class="cp-it">
+        <h4>size</h4>
+        <div class="cp-body">
+          <label><input type="radio" v-model="isSize" value="">defalut</label>
+          <label><input type="radio" v-model="isSize" value="is-small">is-small</label>
+          <label><input type="radio" v-model="isSize" value="is-large">is-large</label>
+        </div>
+      </div>
+      <div class="cp-it">
+        <h4>button</h4>
+        <div class="cp-body">
+          <label><input type="checkbox" v-model="loadingValue" >is-loading</label>
+        </div>
+      </div>
+      <div class="cp-it">
+        <h4>input</h4>
+        <div class="cp-body">
+          <label><input type="checkbox" v-model="readonlyValue" >readonly</label>
+        </div>
+      </div>
+    </div>
     <div>
       <h4>按钮(button)</h4>
-      <button class="sav-btn">Sav-Btn</button>
-      <button class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
-      <button class="sav-btn"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
-      <button class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
-      <button class="sav-btn"><i class="as-icon fa-plus"></i></button>
-      <button class="sav-btn is-loading">Submit</button>
-      <button class="sav-btn is-loading" disabled>Submit</button>
-      <button class="sav-btn" disabled><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]">Sav-Btn</button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-square']"><i class="as-icon fa-plus"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-circle']"><i class="as-icon fa-plus"></i></button>
     </div>
     <div>
       <h4>按钮(a)</h4>
-      <a class="sav-btn">Sav-Btn</a>
-      <a class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
-      <a class="sav-btn"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
-      <a class="sav-btn"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
-      <a class="sav-btn"><i class="as-icon fa-plus"></i></a>
-      <a class="sav-btn is-loading">Submit</a>
-      <a class="sav-btn is-loading is-disabled">Submit</a>
-      <a class="sav-btn is-disabled"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]">Sav-Btn</a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-square']"><i class="as-icon fa-plus"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-circle']"><i class="as-icon fa-plus"></i></a>
     </div>
     <div>
       <h4>输入框(text)</h4>
-      <input class="sav-input" type="text" placeholder="text" />
-      <input class="sav-input" type="text" />
-      <input class="sav-input" type="text" value="username" />
-      <input class="sav-input" type="text" value="disabled" disabled />
-      <input class="sav-input" type="text" value="readonly" readonly />
+      <input :class="['sav-input', isColor, isSize]" type="text" placeholder="text" 
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
+      <input :class="['sav-input', isColor, isSize]" type="text" 
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
+      <input :class="['sav-input', isColor, isSize]" type="text" value="text"
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
     </div>
     <div>
       <h4>输入框(number)</h4>
-      <input class="sav-input" type="number" placeholder="number" />
-      <input class="sav-input" type="number" />
-      <input class="sav-input" type="number" value="123" />
-      <input class="sav-input" type="number" value="465" disabled />
-      <input class="sav-input" type="number" value="123" readonly />
+      <input :class="['sav-input', isColor, isSize]" type="number" placeholder="number" 
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
+      <input :class="['sav-input', isColor, isSize]" type="number" 
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
+      <input :class="['sav-input', isColor, isSize]" type="number" value="123"
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
     </div>
   </div>
-  <!-- <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script> -->
+  <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        isColor: '',
+        isSize: '',
+        loadingValue: false,
+        disabledValue: false,
+        readonlyValue: false,
+      },
+      computed: {
+        isLoading () {
+          return this.loadingValue ? 'is-loading' : ''
+        },
+        isDisabled () {
+          return this.disabledValue ? 'is-disabled' : ''
+        }
+      }
+    })
+  </script>
 </body>
 </html>
