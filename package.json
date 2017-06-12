@@ -5,6 +5,7 @@
   "main": "dist/sav-vui.js",
   "scripts": {
     "watch-sass": "watch -p \"+(sass)/**/*.sass\" -c \"npm run build-sass\"",
+    "lint-sass": "standard-sass",
     "build-vui": "node scripts/build-components",
     "build-sass": "node scripts/build-sass",
     "build-icon": "node scripts/build-icon",
@@ -29,7 +30,7 @@
     "node-sass": "^4.5.3",
     "photon": "github:connors/photon",
     "rollup-standalone": "^0.42.6",
-    "standard-sass": "0.0.3",
+    "standard-sass": "0.0.6",
     "vue": "^2.3.4",
     "vue-router": "^2.5.3",
     "watch-cli": "^0.2.1"

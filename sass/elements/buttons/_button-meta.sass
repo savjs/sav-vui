@@ -1,18 +1,21 @@
 .sav-btn
   // 方形
   &.is-square,
-  &.is-circle,
+  &.is-circle
     +make-square-default
+
     &.is-small
       +make-square-sm
+
     &.is-large
       +make-square-lg
-  // 圆形
-  &.is-circle,
+// 圆形
+  &.is-circle 
     border-radius: 50%
-  // 尺寸
+// 尺寸
   &.is-small
     +make-size-sm
+
   &.is-large
     +make-size-lg
 

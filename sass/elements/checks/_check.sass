@@ -31,10 +31,10 @@ $check-disabled-bg-color: $form-element-disabled-bg-color !default
     // 禁用
     &:disabled + .as-text
       color: darken($check-disabled-bg-color, 30) !important
-    &:disabled + .as-text:before
+    &:disabled + .as-text::before
       background-color: transparent !important
       border-color: darken($check-disabled-bg-color, 15) !important
-    &:disabled:checked + .as-text:after
+    &:disabled:checked + .as-text::after
       border-left-color: darken($check-disabled-bg-color, 15) !important
       border-bottom-color: darken($check-disabled-bg-color, 15) !important
   > .as-text
@@ -43,7 +43,7 @@ $check-disabled-bg-color: $form-element-disabled-bg-color !default
     vertical-align: middle
     &::before
       box-sizing: content-box
-      content: ""
+      content: ''
       position: absolute
       left: -1.5em
       top: 0
@@ -64,7 +64,7 @@ $check-disabled-bg-color: $form-element-disabled-bg-color !default
       width: 1em
       height: 0.5em
       border-bottom-left-radius: 4px
-      content: ""
+      content: ''
       -webkit-transform: rotate(-52deg) scale(0.7) translateX(-1px) translateY(-1px)
       transform: rotate(-52deg) scale(0.7) translateX(-1px) translateY(-1px)
       opacity: 0
