@@ -1,3 +1,4 @@
+
 .sav-btn
   // 方形
   &.is-square,
@@ -10,14 +11,13 @@
     &.is-large
       +make-square-lg
 // 圆形
-  &.is-circle 
-    border-radius: 50%
+.sav-btn.is-circle
+  border-radius: 50%
 // 尺寸
-  &.is-small
-    +make-size-sm
-
-  &.is-large
-    +make-size-lg
+.sav-btn.is-small
+  +make-size-sm
+.sav-btn.is-large
+  +make-size-lg
 
 // 颜色
 =make-button-variant($text-color, $color)

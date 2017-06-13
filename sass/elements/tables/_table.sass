@@ -1,0 +1,33 @@
+
+$table-bd-radius: $form-element-bd-radius !default
+$table-text-color: $form-element-text-color !default
+$table-bd-color: $form-element-bd-color !default
+$table-bg-color: $form-element-bg-color !default
+
+$table-even-bg-color: darken($table-bg-color, 2) !default
+$table-hover-bg-color: darken($table-bg-color, 6) !default
+$table-active-bg-color: darken($table-bg-color, 8) !default
+
+.sav-table
+  +make-table
+  border: 1px solid $table-bd-color
+  border-radius: $table-bd-radius
+  background-color: $table-bg-color
+  th
+    color: $table-text-color
+
+  th, td
+    +make-size-default
+
+  > thead
+    tr
+      border-bottom: 1px solid $table-bd-color
+  > tbody
+    tr
+      border-bottom: 1px solid $table-bd-color
+      &:nth-child(even)
+        background-color: $table-even-bg-color
+      &:hover
+        background-color: $table-hover-bg-color
+      &.is-active
+        background-color: $table-active-bg-color
