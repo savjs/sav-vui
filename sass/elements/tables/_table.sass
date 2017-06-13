@@ -1,8 +1,7 @@
 
-$table-bd-radius: $form-element-bd-radius !default
-$table-text-color: $form-element-text-color !default
-$table-bd-color: $form-element-bd-color !default
-$table-bg-color: $form-element-bg-color !default
+$table-text-color: $element-text-color !default
+$table-bd-color: $element-bd-color !default
+$table-bg-color: $element-bg-color !default
 
 $table-even-bg-color: darken($table-bg-color, 2) !default
 $table-hover-bg-color: darken($table-bg-color, 6) !default
@@ -11,10 +10,7 @@ $table-active-bg-color: darken($table-bg-color, 8) !default
 .sav-table
   +make-table
   border: 1px solid $table-bd-color
-  border-radius: $table-bd-radius
   background-color: $table-bg-color
-  th
-    color: $table-text-color
 
   th, td
     +make-size-default
