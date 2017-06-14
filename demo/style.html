@@ -68,9 +68,12 @@
         <h4>align</h4>
         <div class="cp-body">
           <label><input type="radio" v-model="isAlign" value="">defalut</label>
-          <label><input type="radio" v-model="isAlign" value="is-center">is-center</label>
+          <label><input type="radio" v-model="isAlign" value="is-left">is-left</label>
           <label><input type="radio" v-model="isAlign" value="is-right">is-right</label>
+          <label><input type="radio" v-model="isAlign" value="is-center">is-center</label>
           <label><input type="radio" v-model="isAlign" value="is-fill">is-fill</label>
+          <label><input type="radio" v-model="isAlign" value="is-around">is-around</label>
+          <label><input type="radio" v-model="isAlign" value="is-between">is-between</label>
         </div>
       </div>
     </div>
@@ -134,12 +137,12 @@
       <label :class="['sav-check', isColor, isSize]">
         <input type="checkbox" value="check-val-1"
           :disabled="disabledValue || null" />
-        <span class="as-text">Sav-Radio</span>
+        <span class="as-text">Sav-Check</span>
       </label>
       <label :class="['sav-check', isColor, isSize]">
         <input type="checkbox" value="check-val-2"
           :disabled="disabledValue || null" />
-        <span class="as-text">Sav-Radio</span>
+        <span class="as-text">Sav-Check</span>
       </label>
     </div>
     <div>
@@ -211,17 +214,23 @@
       </div>
     </div>
     <div>
-      <h4>布局(level)[]</h4>
-      <div class="sav-level">
-        <div :class="['as-item', isAlign]">
-          <div :class="['sav-group', 'sav-tab' ,'is-toggle', isColor, isSize]">
-            <a class="as-item"><i class="as-icon fa-picture-o"></i><span>Pictures</span></a>
-            <a class="as-item is-active" href="#test"><i class="as-icon fa-music"></i><span>Music</span></a>
-            <a class="as-item" >Videos</a>
-            <a class="as-item" >Images</a>
-            <a class="as-item" >Documents</a>
-          </div>
-        </div>
+      <h4>布局(flex)[align]</h4>
+      <div :class="['sav-flex', isAlign]">
+        <button :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+        <a :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+        <input :class="['as-item', 'sav-input', isColor, isSize]" type="text" value="text"
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" />
+        <label :class="['sav-radio', isColor, isSize]">
+          <input type="radio" name="radio1" value="radio-val-x" 
+            :disabled="disabledValue || null" />
+          <span class="as-text">Sav-Radio</span>
+        </label>
+        <label :class="['sav-check', isColor, isSize]">
+          <input type="checkbox" value="check-val-x"
+            :disabled="disabledValue || null" />
+          <span class="as-text">Sav-Check</span>
+        </label>
       </div>
     </div>
   </div>
