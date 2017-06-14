@@ -14,3 +14,21 @@
   @else
     left: calc(50% - (#{$width} / 2) - 0.5px)
     top: calc(50% - (#{$width} / 2) - 0.5px)
+
+// 不可选择
+=unselectable
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+=stripa
+  // 去除下划线
+  text-decoration: none
+  // 去除默认焦点
+  outline: none
+
+=resetul
+  list-style: none
+  margin: 0
+  padding: 0

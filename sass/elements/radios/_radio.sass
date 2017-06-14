@@ -3,18 +3,7 @@ $radio-bd-color: darken($element-bd-color, 20) !default
 $radio-disabled-bg-color: $element-disabled-bg-color !default
 
 .sav-radio
-  // 需要设成相对的, 方便内嵌或定位
-  position: relative
-  // 盒子
-  box-sizing: border-box
-  // 块
-  display: inline-block
-  // 尺寸
-  +make-size-default
-  // 不可选
-  -webkit-user-select: none
-  -moz-user-select: none
-  user-select: none
+  +make-element-default
   > input
     margin: 0
     padding: 0

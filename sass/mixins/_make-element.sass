@@ -1,0 +1,18 @@
+
+// 砖头元素
+=make-element-brick
+  // 需要设成相对的, 方便内嵌或定位
+  position: relative
+  // 盒子
+  box-sizing: border-box
+  // 块
+  display: inline-block
+
+// 元素
+=make-element-default
+  // 尺寸
+  +make-size-default
+  // 不可选
+  +unselectable
+  // 砖头元素
+  +make-element-brick

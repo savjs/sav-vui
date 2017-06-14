@@ -1,0 +1,24 @@
+
+.sav-tab
+  .as-item
+    .as-icon
+      &:first-child
+        margin-right: 0.5em
+      &:last-child
+        margin-left: 0.5em
+
+  &.is-small
+    .as-item // 修正
+      margin-bottom: -1px
+
+@each $theme-type, $theme-color in $is-theme-colors
+  .sav-tab.#{$theme-type}
+    .as-item.is-active
+      color: $theme-color
+      border-bottom-color: $theme-color
+      box-shadow: inset 0 -1px 0 0 $theme-color
+    &.is-toggle
+      .as-item.is-active
+        color: $is-text-light-color
+        background-color: $theme-color
+        border-color: $theme-color

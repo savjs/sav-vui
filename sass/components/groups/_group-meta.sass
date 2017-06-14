@@ -1,0 +1,20 @@
+
+.sav-group
+  // 尺寸
+  &.is-small
+    > .as-item
+      +make-size-sm
+
+  &.is-large
+    > .as-item
+      +make-size-lg
+
+  &.is-center
+    justify-content: center
+
+  &.is-right
+    justify-content: flex-end
+
+  &.is-fill
+    > .as-item
+      flex-grow: 1

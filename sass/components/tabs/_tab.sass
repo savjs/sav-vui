@@ -1,0 +1,56 @@
+
+$tab-text-color: $element-text-color !default
+$tab-bd-radius: $element-bd-radius !default
+$tab-bd-color: $element-bd-color !default
+$tab-bg-color: $element-bg-color !default
+$tab-hover-bd-color: darken($tab-bd-color, 30) !default
+$tab-active-bd-color: darken($tab-bd-color, 40) !default
+
+.sav-tab
+  +unselectable
+  border-bottom: 1px solid $tab-bd-color
+
+  .as-item
+    border-bottom: 1px solid $tab-bd-color
+    color: $tab-text-color
+    margin-bottom: -1px
+    &:hover
+      border-bottom-color: $tab-hover-bd-color
+
+    &.is-active
+      border-bottom-color: $tab-active-bd-color
+      color: darken($tab-text-color, 40)
+      box-shadow: inset 0 -1px 0 0 $tab-active-bd-color
+
+  &.is-boxed
+    .as-item
+      margin-bottom: -2px
+      &.is-active
+        border: 1px solid $tab-bd-color
+        border-radius: $tab-bd-radius $tab-bd-radius 0 0
+        background-color: $tab-bg-color !important
+        border-bottom-color: transparent !important
+        box-shadow: none !important
+
+  &.is-toggle
+    border-bottom: 0
+
+    .as-item
+      border: 1px solid $tab-bd-color
+      margin-bottom: 0
+      &:hover
+        background-color: darken($button-bg-color, 5)
+      + .as-item
+        margin-left: -1px
+
+      &.is-active
+        z-index: 1
+        background-color: darken($tab-bg-color, 10)
+        box-shadow: none !important
+
+      &:first-child
+        border-radius: $tab-bd-radius 0 0 $tab-bd-radius
+
+      &:last-child
+        border-radius: 0 $tab-bd-radius $tab-bd-radius 0
+
