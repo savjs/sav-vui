@@ -1,0 +1,52 @@
+
+$dropdown-bg-color: $element-bg-color !default
+$dropdown-bd-color: $element-bd-color !default
+
+.sav-dropdown
+  position: relative
+  display: inline-block
+
+  .as-dropview
+    position: absolute
+    box-sizing: border-box
+    z-index: 1000
+    top: 100%
+    margin-top: -1px
+    text-align: left
+    overflow-y: auto
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175)
+    visibility: hidden
+    opacity: 0
+    background-color: $dropdown-bg-color
+    border-radius: 0
+    border: 1px solid $dropdown-bd-color
+    // 滚动条
+    +make-webkit-scrollbar
+
+  &.is-open
+    .as-dropview
+      visibility: visible
+      opacity: 1
+
+  &.is-left
+    .as-dropview
+      left: 0
+
+  &.is-right
+    .as-dropview
+      right: 0
+
+  &.is-center
+    .as-dropview
+      left: -50%
+
+  &.is-fill
+    .as-dropview
+      width: 100%
+
+  &.is-top
+    .as-dropview
+      bottom: 100%
+      top: auto
+      margin-bottom: -1px
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.175)

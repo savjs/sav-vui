@@ -159,6 +159,28 @@
       </label>
     </div>
     <div>
+      <h4>弹出框(dropdown)[align]</h4>
+      <div :class="['sav-flex', 'is-around']">
+        <span :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]" 
+          @mouseenter="isDropDown = true" @mouseleave="isDropDown = false">
+          <button :class="['sav-btn', isLoading, isSize, isDisabled || isColor]">
+            <span>Vue-Custom-Events</span><i class="as-icon is-icon-caret"></i>
+          </button>
+          <div class="as-dropview is-drop-content">
+            <div>
+              Position
+              <div><label><input type="radio" v-model="isDropAlign" value="is-left">is-left</label></div>
+              <div><label><input type="radio" v-model="isDropAlign" value="is-right">is-right</label></div>
+              <div><label><input type="radio" v-model="isDropAlign" value="is-center">is-center</label></div>
+              <div><label><input type="radio" v-model="isDropAlign" value="is-fill">is-fill</label></div>
+              <br>
+              <div><label><input type="checkbox" v-model="isDropTop" >is-top</label></div>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div>
       <h4>表格(table)</h4>
         <table :class="['sav-table', isSize]">
           <thead>
@@ -256,9 +278,12 @@
         isColor: '',
         isSize: '',
         isAlign: '',
+        isDropAlign: '',
         loadingValue: false,
         disabledValue: false,
         readonlyValue: false,
+        isDropTop: false,
+        isDropDown: false
       },
       computed: {
         isLoading () {
@@ -266,6 +291,9 @@
         },
         isDisabled () {
           return this.disabledValue ? 'is-disabled' : ''
+        },
+        isDropOpen () {
+          return this.isDropDown ? 'is-open' : ''
         }
       }
     })
