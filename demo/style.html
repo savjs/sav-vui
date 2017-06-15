@@ -96,6 +96,19 @@
       <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-circle']"><i class="as-icon fa-plus"></i></a>
     </div>
     <div>
+      <h4>css图标(icon)</h4>
+      <a :class="['sav-btn', isLoading, isSize, isDisabled || (isColor + ' has-hover-open') ]"><span>caret</span><i class="as-icon is-icon-caret"></i></a>
+      <a :class="['sav-btn', isLoading, isSize, isDisabled || (isColor + ' has-hover-open') ]"><span>arrow</span><i class="as-icon is-icon-arrow"></i></a>
+      <a :class="['sav-btn', isLoading, isSize, isDisabled || 'has-hover-open']"><span>caret</span><i :class="['as-icon is-icon-caret', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isLoading, isSize, isDisabled || 'has-hover-open']"><span>arrow</span><i :class="['as-icon is-icon-arrow', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isDisabled || isColor, isLoading, isSize]"><span>right</span><i class="as-icon is-icon-right"></i></a>
+      <a :class="['sav-btn', isDisabled || isColor, isLoading, isSize]"><span>close</span><i class="as-icon is-icon-close"></i></a>
+      <a :class="['sav-btn', isDisabled, isLoading, isSize]"><span>right</span><i :class="['as-icon is-icon-right', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isDisabled, isLoading, isSize]"><span>close</span><i :class="['as-icon is-icon-close', isDisabled || isColor]"></i></a>
+
+      <button :class="['sav-btn', isDisabled || isColor, isLoading, isSize, 'is-circle']"><i class="as-icon is-icon-close"></i></button>
+    </div>
+    <div>
       <h4>输入框(text)</h4>
       <input :class="['sav-input', isColor, isSize]" type="text" placeholder="text" 
         :readonly="readonlyValue || null"

@@ -1,0 +1,34 @@
+
+@each $theme-type, $theme-color in $is-theme-colors
+  .#{$theme-type}
+    .is-icon-arrow
+      &::after
+        border-left-color: $is-text-light-color
+        border-top-color: $is-text-light-color
+    .is-icon-caret
+      &::after
+        border-top-color: $is-text-light-color
+    .is-icon-right
+      &::after
+        border-left-color: $is-text-light-color
+        border-bottom-color: $is-text-light-color
+    .is-icon-close
+      &::before,
+      &::after
+        background-color: $is-text-light-color
+
+    &.is-icon-arrow
+      &::after
+        border-left-color: $theme-color
+        border-top-color: $theme-color
+    &.is-icon-caret
+      &::after
+        border-top-color: $theme-color
+    &.is-icon-right
+      &::after
+        border-left-color: $theme-color
+        border-bottom-color: $theme-color
+    &.is-icon-close
+      &::before,
+      &::after
+        background-color: $theme-color

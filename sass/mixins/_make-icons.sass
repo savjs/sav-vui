@@ -15,7 +15,6 @@
 =make-icon-addon
   height: 1em
   width: 1em
-  text-align: center
   &:first-child
     margin-left: 0
     margin-right: 0.2em
@@ -25,3 +24,79 @@
   &:first-child:last-child
     margin-left: 0
     margin-right: 0
+
+// 特殊ICON容器
+=make-icon-wrap
+  text-align: left
+  display: inline-block
+  position: relative
+  width: 1em
+  height: 1em
+  vertical-align: middle
+
+// 下三角
+=make-icon-caret($color)
+  border: 0.45em solid transparent
+  position: absolute
+  top: 0.3em
+  content: ''
+  transition: all 0.3s
+  box-sizing: border-box
+  @if $color
+    border-top-color: $color
+
+// 对号
+=make-icon-right($color)
+  border: 2px solid transparent
+  position: absolute
+  width: 1em
+  height: 0.55em
+  min-height: 8px
+  content: ''
+  -webkit-transform: rotate(-55deg)
+  transform: rotate(-55deg)
+  box-sizing: border-box
+  @if $color
+    border-left-color: $color
+    border-bottom-color: $color
+
+// 下箭头
+=make-icon-arrow ($color)
+  border: 2px solid transparent
+  position: absolute
+  width: 0.7em
+  height: 0.72em
+  top: -0.1em
+  left: 0.15em
+  content: ''
+  border-radius: 2px
+  transform: rotate(222deg)
+  // http://www.zhangxinxu.com/wordpress/2015/05/css3-transform-affect/
+  // chrome 和 safri 需要加上这个才能防止被其他 transform 影响到, 否则可能会抖动
+  -webkit-transform: rotate(222deg) translate3d(0,0,0)
+  -webkit-transition: all 0.3s
+  transition: all 0.3s
+  box-sizing: border-box
+  @if $color
+    border-left-color: $color
+    border-top-color: $color
+
+// 关闭按钮
+=make-icon-close($color)
+  &::before,
+  &::after
+    position: absolute
+    content: ''
+    width: 100%
+    top: 0.3em
+    height: 2px
+    @if $color
+      background-color: $color
+
+  &::before
+    -webkit-transform: rotate(45deg)
+    transform: rotate(45deg)
+
+  &::after
+    -webkit-transform: rotate(-45deg)
+    transform: rotate(-45deg)
