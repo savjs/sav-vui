@@ -6,7 +6,7 @@ $dropdown-bd-color: $element-bd-color !default
   position: relative
   display: inline-block
 
-  .as-dropview
+  > .as-dropview
     position: absolute
     box-sizing: border-box
     z-index: 1000
@@ -24,28 +24,24 @@ $dropdown-bd-color: $element-bd-color !default
     +make-webkit-scrollbar
 
   &.is-open
-    .as-dropview
+    > .as-dropview
       visibility: visible
       opacity: 1
 
   &.is-left
-    .as-dropview
+    > .as-dropview
       left: 0
 
   &.is-right
-    .as-dropview
+    > .as-dropview
       right: 0
 
-  &.is-center
-    .as-dropview
-      left: -50%
-
   &.is-fill
-    .as-dropview
+    > .as-dropview
       width: 100%
 
   &.is-top
-    .as-dropview
+    > .as-dropview
       bottom: 100%
       top: auto
       margin-bottom: -1px

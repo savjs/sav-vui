@@ -161,7 +161,7 @@
     <div>
       <h4>弹出框(dropdown)[align]</h4>
       <div :class="['sav-flex', 'is-around']">
-        <span :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]" 
+        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]" 
           @mouseenter="isDropDown = true" @mouseleave="isDropDown = false">
           <button :class="['sav-btn', isLoading, isSize, isDisabled || isColor]">
             <span>Vue-Custom-Events</span><i class="as-icon is-icon-caret"></i>
@@ -171,13 +171,33 @@
               Position
               <div><label><input type="radio" v-model="isDropAlign" value="is-left">is-left</label></div>
               <div><label><input type="radio" v-model="isDropAlign" value="is-right">is-right</label></div>
-              <div><label><input type="radio" v-model="isDropAlign" value="is-center">is-center</label></div>
               <div><label><input type="radio" v-model="isDropAlign" value="is-fill">is-fill</label></div>
               <br>
               <div><label><input type="checkbox" v-model="isDropTop" >is-top</label></div>
             </div>
           </div>
-        </span>
+        </div>
+        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]"
+          @mouseenter="isDropDown = true" @mouseleave="isDropDown = false">
+          <button :class="['sav-btn', isLoading, isSize, isDisabled || isColor]">
+            <span>select</span><i class="as-icon is-icon-caret"></i>
+          </button>
+          <ul class="as-dropview is-drop-select">
+            <li class="as-item"><a >select-item-1</a></li>
+            <li class="as-item"><a >select-item-2</a></li>
+            <li class="as-item is-active">
+              <a>select-item-3</a>
+              <i :class="['as-icon is-icon-right', isColor]"></i>
+            </li>
+            <li class="as-item"><a >select-item-4</a></li>
+            <li class="as-item"><a >select-item-5</a></li>
+            <li class="as-item"><i :class="['as-icon fa-google', isColor]"></i><a >select-item-6</a></li>
+            <li class="as-item"><i :class="['as-icon fa-github', isColor]"></i><a >select-item-7</a></li>
+            <li class="as-item"><a >select-item-8</a></li>
+            <li class="as-item"><a >select-item-9</a></li>
+            <li class="as-item"><a >select-item-10</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div>
