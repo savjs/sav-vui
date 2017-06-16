@@ -160,8 +160,8 @@
     </div>
     <div>
       <h4>弹出框(dropdown)[align]</h4>
-      <div :class="['sav-flex', 'is-around']">
-        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]" 
+      <div :class="['sav-flex-block', 'is-around']">
+        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top', isDropExpand && 'is-expand' ]" 
           @mouseenter="isDropDown = true" @mouseleave="isDropDown = false">
           <button :class="['sav-btn', isLoading, isSize, isDisabled || isColor]">
             <span>dropdown-panel</span><i class="as-icon is-icon-caret"></i>
@@ -174,10 +174,11 @@
               <div><label><input type="radio" v-model="isDropAlign" value="is-fill">is-fill</label></div>
               <br>
               <div><label><input type="checkbox" v-model="isDropTop" >is-top</label></div>
+              <div><label><input type="checkbox" v-model="isDropExpand" value="is-expand">is-expand</label></div>
             </div>
           </div>
         </div>
-        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]"
+        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top', isDropExpand && 'is-expand' ]"
           @mouseenter="isDropDown = true" @mouseleave="isDropDown = false">
           <button :class="['sav-btn', isLoading, isSize, isDisabled || isColor]">
             <span>dropdown-select</span><i class="as-icon is-icon-caret"></i>
@@ -198,7 +199,7 @@
             <li class="as-item"><a >select-item-10</a></li>
           </ul>
         </div>
-        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top' ]"
+        <div :class="['sav-dropdown', isDropOpen, isDropAlign, isDropTop && 'is-top', isDropExpand && 'is-expand' ]"
           @mouseenter="isDropDown = true" @mouseleave="isDropDown = false">
           <input :class="['sav-input', isColor, isSize]" type="text" placeholder="dropdown-input" 
             :readonly="readonlyValue || null"
@@ -290,8 +291,8 @@
       </div>
     </div>
     <div>
-      <h4>布局(flex)[align]</h4>
-      <div :class="['sav-flex', isAlign]">
+      <h4>布局(flex-block)[align]</h4>
+      <div :class="['sav-flex-block', isAlign]">
         <button :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
         <a :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
         <input :class="['as-item', 'sav-input', isColor, isSize]" type="text" value="text"
@@ -309,6 +310,32 @@
         </label>
       </div>
     </div>
+    <div>
+      <h4>布局(flex-row)</h4>
+      <div :class="['sav-flex-row']">
+        <div class="flex-left">
+          <div :class="['sav-flex-block', isAlign]">
+            <button :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+            <a :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+            <input :class="['as-item', 'sav-input', isColor, isSize]" type="text" value="text"
+            :readonly="readonlyValue || null"
+            :disabled="disabledValue || null" />
+          </div>
+        </div>
+        <div class="flex-right">
+          <label :class="['sav-radio', isColor, isSize]">
+            <input type="radio" name="radio1" value="radio-val-x" 
+              :disabled="disabledValue || null" />
+            <span class="as-text">Sav-Radio</span>
+          </label>
+          <label :class="['sav-check', isColor, isSize]">
+            <input type="checkbox" value="check-val-x"
+              :disabled="disabledValue || null" />
+            <span class="as-text">Sav-Check</span>
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
   <footer class="footer"></footer>
   <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script>
@@ -324,6 +351,7 @@
         disabledValue: false,
         readonlyValue: false,
         isDropTop: false,
+        isDropExpand: false,
         isDropDown: false
       },
       computed: {

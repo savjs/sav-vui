@@ -1,6 +1,6 @@
 
-// 单行flex布局
-.sav-flex
+// flex行块布局
+.sav-flex-block
   display: flex
   flex-direction: row
   flex-wrap: wrap
@@ -20,3 +20,33 @@
   &.is-fill
     > .as-item
       flex-grow: 1
+
+// flex行布局
+.sav-flex-row
+  align-items: stretch
+  display: flex
+  position: relative
+  > .as-item
+    align-items: stretch
+    display: flex
+    flex-shrink: 0
+    > .sav-flex-block
+      flex-grow: 1
+
+  > .flex-left,
+  > .flex-right
+    flex-grow: 1
+    max-width: 100%
+    overflow: auto
+  > .flex-center
+    flex-grow: 0
+    justify-content: center
+    margin-left: auto
+    margin-right: auto
+
+  > .flex-left
+    justify-content: flex-start
+    white-space: nowrap
+
+  > .flex-right
+    justify-content: flex-end
