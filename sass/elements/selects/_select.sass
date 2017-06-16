@@ -7,14 +7,17 @@ $select-active-bg-color: darken($select-bg-color, 10) !default
 .is-drop-select
   +resetul
   max-height: 240px
+
   >.as-item
     +make-size-default
     +unselectable
     padding: 0.5em 1em
     cursor: default
     white-space: nowrap
+
     > .as-icon
       +make-icon-addon
+
     &:hover,
     &:focus
       background-color: $select-hover-bg-color

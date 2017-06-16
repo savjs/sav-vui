@@ -3,13 +3,12 @@ $input-bd-radius: $element-bd-radius !default
 $input-bd-color: $element-bd-color !default
 $input-disabled-bg-color: $element-disabled-bg-color !default
 
-.sav-input
+.sav-input,
+.sav-text
   // 边框
   border: 1px solid $input-bd-color
   // 圆角
   border-radius: $input-bd-radius
-  // 居中对齐
-  vertical-align: middle
   // 重置盒模型
   box-sizing: border-box
   // 去除焦点框
@@ -30,3 +29,14 @@ $input-disabled-bg-color: $element-disabled-bg-color !default
     border-color: darken($input-disabled-bg-color, 15) !important
     // 去除阴影效果
     box-shadow: none !important
+
+.sav-input
+  // 居中对齐
+  vertical-align: middle
+  &:disabled
+    color: darken($input-disabled-bg-color, 30) !important
+
+.sav-text
+  resize: vertical
+  &:disabled
+    resize: none

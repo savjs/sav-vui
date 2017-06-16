@@ -133,6 +133,12 @@
         :disabled="disabledValue || null" />
     </div>
     <div>
+      <h4>文本框(text)</h4>
+      <textarea :class="['sav-text', isColor, isSize]" placeholder="textarea" 
+        :readonly="readonlyValue || null"
+        :disabled="disabledValue || null" ></textarea>
+    </div>
+    <div>
       <h4>单选框(radio)</h4>
       <label :class="['sav-radio', isColor, isSize]">
         <input type="radio" name="radio1" value="radio-val-1" 
@@ -314,13 +320,12 @@
       <h4>布局(flex-row)</h4>
       <div :class="['sav-flex-row']">
         <div class="flex-left">
-          <div :class="['sav-flex-block', isAlign]">
-            <button :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
-            <a :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+          <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+        </div>
+        <div class="flex-center">
             <input :class="['as-item', 'sav-input', isColor, isSize]" type="text" value="text"
             :readonly="readonlyValue || null"
             :disabled="disabledValue || null" />
-          </div>
         </div>
         <div class="flex-right">
           <label :class="['sav-radio', isColor, isSize]">

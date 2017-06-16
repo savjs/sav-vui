@@ -10,7 +10,7 @@ $tab-active-bd-color: darken($tab-bd-color, 40) !default
   +unselectable
   border-bottom: 1px solid $tab-bd-color
 
-  .as-item
+  >.as-item
     border-bottom: 1px solid $tab-bd-color
     color: $tab-text-color
     margin-bottom: -1px
@@ -23,8 +23,8 @@ $tab-active-bd-color: darken($tab-bd-color, 40) !default
       box-shadow: inset 0 -1px 0 0 $tab-active-bd-color
 
   &.is-boxed
-    .as-item
-      margin-bottom: -2px
+    >.as-item
+      margin-bottom: -1px
       &.is-active
         border: 1px solid $tab-bd-color
         border-radius: $tab-bd-radius $tab-bd-radius 0 0
@@ -35,7 +35,7 @@ $tab-active-bd-color: darken($tab-bd-color, 40) !default
   &.is-toggle
     border-bottom: 0
 
-    .as-item
+    >.as-item
       border: 1px solid $tab-bd-color
       margin-bottom: 0
       &:hover

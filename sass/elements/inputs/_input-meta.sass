@@ -1,4 +1,6 @@
-.sav-input
+
+.sav-input,
+.sav-text
   // 尺寸
   &.is-small
     +make-size-sm
@@ -8,7 +10,8 @@
 
 // 颜色
 @each $theme-type, $theme-color in $is-theme-result-colors
-  .sav-input.#{$theme-type}
+  .sav-input.#{$theme-type},
+  .sav-text.#{$theme-type}
     border-color: $theme-color
     &:focus
       background-color: lighten($input-bd-color, 30)
