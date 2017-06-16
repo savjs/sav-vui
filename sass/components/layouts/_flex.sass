@@ -26,7 +26,10 @@
   align-items: stretch
   display: flex
   position: relative
-  > .as-item
+
+  > .flex-left,
+  > .flex-right,
+  > .flex-center
     align-items: stretch
     display: flex
     flex-shrink: 0
@@ -38,6 +41,7 @@
     flex-grow: 1
     max-width: 100%
     overflow: auto
+
   > .flex-center
     flex-grow: 0
     justify-content: center
