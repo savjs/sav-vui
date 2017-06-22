@@ -76,6 +76,14 @@
           <label><input type="radio" v-model="isAlign" value="is-between">is-between</label>
         </div>
       </div>
+      <div class="cp-it">
+        <h4>form-align</h4>
+        <div class="cp-body">
+          <label><input type="radio" v-model="isFormAlign" value="">defalut</label>
+          <label><input type="radio" v-model="isFormAlign" value="is-horizontal">is-horizontal</label>
+          <label><input type="radio" v-model="isFormAlign" value="is-vertical">is-vertical</label>
+        </div>
+      </div>
     </div>
     <div>
       <h4>按钮(button)</h4>
@@ -341,6 +349,53 @@
         </div>
       </div>
     </div>
+    <div>
+      <h4>表单(form)</h4>
+      <div :class="['sav-flex-block', isAlign]">
+        <form :class="['sav-form', isFormAlign, isAlign, isDisabled]" @submit.prevent="noSubmit">
+          <label class="sav-field">
+            <span class="sav-label">用户名</span>
+            <div class="field-body">
+              <input :class="['sav-input', isColor, isSize]" type="text" value="username"
+                :readonly="readonlyValue || null"
+                :disabled="disabledValue || null" />
+            </div>
+          </label>
+          <div class="sav-field">
+            <label class="sav-label">性别</label>
+            <div class="field-body">
+              <label :class="['sav-radio', isColor, isSize]">
+                <input type="radio" value="sex-val-female" name="sex"
+                  :disabled="disabledValue || null" />
+                <span class="as-text">男</span>
+              </label>
+              <label :class="['sav-radio', isColor, isSize]">
+                <input type="radio" value="sex-val-male" name="sex"
+                  :disabled="disabledValue || null" />
+                <span class="as-text">女</span>
+              </label>
+            </div>
+          </div>
+          <label class="sav-field">
+            <span class="sav-label"></span>
+            <div class="field-body">
+              <label :class="['sav-check', isColor, isSize]">
+                <input type="checkbox" value="check-val-x"
+                  :disabled="disabledValue || null" />
+                <span class="as-text">记住密码</span>
+              </label>
+            </div>
+          </label>
+          <div class="sav-field">
+            <label class="sav-label"></label>
+            <div class="field-body">
+              <button :class="['field-item sav-btn', isColor, isLoading, isDisabled, isSize]">提交</button>
+              <button :class="['field-item sav-btn', isDisabled, isSize]">取消</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
   <footer class="footer"></footer>
   <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script>
@@ -352,6 +407,7 @@
         isSize: '',
         isAlign: '',
         isDropAlign: '',
+        isFormAlign: '',
         loadingValue: false,
         disabledValue: false,
         readonlyValue: false,
@@ -369,6 +425,9 @@
         isDropOpen () {
           return this.isDropDown ? 'is-open' : ''
         }
+      },
+      methods: {
+        noSubmit () {}
       }
     })
   </script>

@@ -22,13 +22,25 @@
   -ms-user-select: none
   user-select: none
 
+// 处理a标签
 =stripa
   // 去除下划线
   text-decoration: none
   // 去除默认焦点
   outline: none
 
+// 重置ul
 =resetul
   list-style: none
   margin: 0
   padding: 0
+
+// 行块
+=block-row
+  &:not(:last-child)
+    margin-bottom: 0.5rem
+
+// 列块
+=block-col
+  &:not(:last-child)
+    margin-right: 0.5rem

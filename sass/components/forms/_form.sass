@@ -1,0 +1,45 @@
+
+.sav-field
+  display: flex
+  justify-content: center
+
+  &.is-body,
+  >.field-body
+    display: flex
+    flex: 1
+    >.field-item
+      +block-col
+
+.sav-form
+  &.is-horizontal
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    >.sav-field
+      +block-col
+  &.is-vertical
+    display: block
+    >.sav-field
+      +block-row
+      >.sav-label
+        min-width: 4em
+        margin-right: 1.5rem
+        text-align: right
+  &.is-left
+    justify-content: flex-start
+  &.is-right
+    justify-content: flex-end
+  &.is-center
+    justify-content: center
+  &.is-around
+    flex: 1
+    justify-content: space-around
+  &.is-between
+    justify-content: space-between
+  &.is-fill
+    flex: 1
+    > .sav-field
+      flex-grow: 1
+  &.is-disabled
+    .sav-label
+      color: darken($element-disabled-bg-color, 30) !important
