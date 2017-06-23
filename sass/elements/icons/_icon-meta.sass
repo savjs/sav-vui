@@ -1,21 +1,31 @@
 
+=make-icons-variant($color)
+  .is-icon-arrow
+    &::after
+      border-left-color: $color
+      border-top-color: $color
+  .is-icon-caret
+    &::after
+      border-top-color: $color
+  .is-icon-right
+    &::after
+      border-left-color: $color
+      border-bottom-color: $color
+  .is-icon-close
+    &::before,
+    &::after
+      background-color: $color
+
 @each $theme-type, $theme-color in $is-theme-colors
   .#{$theme-type}
-    .is-icon-arrow
-      &::after
-        border-left-color: $is-text-light-color
-        border-top-color: $is-text-light-color
-    .is-icon-caret
-      &::after
-        border-top-color: $is-text-light-color
-    .is-icon-right
-      &::after
-        border-left-color: $is-text-light-color
-        border-bottom-color: $is-text-light-color
-    .is-icon-close
-      &::before,
-      &::after
-        background-color: $is-text-light-color
+    +make-icons-variant($is-text-light-color)
+    &.is-outline
+      +make-icons-variant($theme-color)
+      &:hover,
+      &:focus,
+      &.is-active,
+      &:active
+        +make-icons-variant($is-text-light-color)
 
     &.is-icon-arrow
       &::after

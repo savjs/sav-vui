@@ -25,6 +25,16 @@
 
 // 颜色
 =make-button-variant($text-color, $color)
+  &.is-outline
+    color: $color
+    background-color: $text-color
+    border-color: darken($color, 2)
+    &:hover,
+    &:focus
+      color: $text-color
+    &.is-active,
+    &:active
+      color: $text-color
   color: $text-color
   border-color: darken($color, 2)
   background-color: $color

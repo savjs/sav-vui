@@ -1,0 +1,8 @@
+
+@each $theme-type, $theme-color in $is-theme-colors
+  .nav-item.is-tab.#{$theme-type}
+    &:hover
+      border-bottom-color: $theme-color
+    &.is-active
+      border-bottom-color: $theme-color
+      color: $theme-color

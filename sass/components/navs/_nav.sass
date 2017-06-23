@@ -1,0 +1,47 @@
+
+$nav-height: 3.25rem !default
+$nav-font-size: 1rem !default
+
+$nav-bd-color: $element-bd-color !default
+$nav-bg-color: $element-bg-color !default
+$nav-text-color: $element-text-color !default
+
+// 顶部导航
+
+.sav-nav
+  align-items: stretch
+  display: flex
+  position: relative
+  text-align: center
+  &.has-shadow
+    box-shadow: 0 2px 3px rgba(black, 0.1)
+
+.nav-item
+  align-items: center
+  display: flex
+  flex-grow: 0
+  flex-shrink: 0
+  font-size: $nav-font-size
+  justify-content: center
+  line-height: 1.5
+  padding: 0.5rem 0.75rem
+  > img
+    max-height: 1.75rem
+
+a.nav-item
+  color: $nav-text-color
+  cursor: $element-cursor
+
+  &.is-tab
+    border-bottom: 1px solid transparent
+    border-top: 1px solid transparent
+    padding-bottom: calc(0.75rem - 1px)
+    padding-left: 1rem
+    padding-right: 1rem
+    padding-top: calc(0.75rem - 1px)
+    &:hover
+      border-bottom-color: $nav-bd-color
+      border-top-color: transparent
+    &.is-active
+      border-bottom: 3px solid $nav-bd-color
+      padding-bottom: calc(0.75rem - 3px)

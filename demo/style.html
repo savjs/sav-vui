@@ -11,7 +11,11 @@
       position: fixed;
       right: 5px;
       top: 5px;
-      border: 1px solid gray;
+      z-index: 99999;
+      display: flex;
+      border: 1px solid #d6d6d6;
+      background-color: whitesmoke;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
     .control-panel h4{
       margin: 5px;
@@ -31,12 +35,13 @@
         <h4>element</h4>
         <div class="cp-body">
           <label><input type="checkbox" v-model="disabledValue" >is-disabled</label>
+          <label><input type="checkbox" v-model="activeValue" >is-active</label>
         </div>
       </div>
       <div class="cp-it">
         <h4>color</h4>
         <div class="cp-body">
-          <label><input type="radio" v-model="isColor" value="">defalut</label>
+          <label><input type="radio" v-model="isColor" value="">none</label>
           <label><input type="radio" v-model="isColor" value="is-primary">is-primary</label>
           <label><input type="radio" v-model="isColor" value="is-secondary">is-secondary</label>
           <label><input type="radio" v-model="isColor" value="is-success">is-success</label>
@@ -47,7 +52,7 @@
       <div class="cp-it">
         <h4>size</h4>
         <div class="cp-body">
-          <label><input type="radio" v-model="isSize" value="">defalut</label>
+          <label><input type="radio" v-model="isSize" value="">none</label>
           <label><input type="radio" v-model="isSize" value="is-small">is-small</label>
           <label><input type="radio" v-model="isSize" value="is-large">is-large</label>
         </div>
@@ -67,7 +72,7 @@
       <div class="cp-it">
         <h4>align</h4>
         <div class="cp-body">
-          <label><input type="radio" v-model="isAlign" value="">defalut</label>
+          <label><input type="radio" v-model="isAlign" value="">none</label>
           <label><input type="radio" v-model="isAlign" value="is-left">is-left</label>
           <label><input type="radio" v-model="isAlign" value="is-right">is-right</label>
           <label><input type="radio" v-model="isAlign" value="is-center">is-center</label>
@@ -79,42 +84,50 @@
       <div class="cp-it">
         <h4>form-align</h4>
         <div class="cp-body">
-          <label><input type="radio" v-model="isFormAlign" value="">defalut</label>
+          <label><input type="radio" v-model="isFormAlign" value="">none</label>
           <label><input type="radio" v-model="isFormAlign" value="is-horizontal">is-horizontal</label>
           <label><input type="radio" v-model="isFormAlign" value="is-vertical">is-vertical</label>
+        </div>
+      </div>
+
+      <div class="cp-it">
+        <h4>nav</h4>
+        <div class="cp-body">
+          <label><input type="radio" v-model="hasShadow" value="">none</label>
+          <label><input type="radio" v-model="hasShadow" value="has-shadow">has-shadow</label>
         </div>
       </div>
     </div>
     <div>
       <h4>按钮(button)</h4>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]">Sav-Btn</button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-square']"><i class="as-icon fa-plus"></i></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-circle']"><i class="as-icon fa-plus"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Sav-Btn</button>
+      <button :class="['sav-btn is-outline', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-square']"><i class="as-icon fa-plus"></i></button>
+      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-circle']"><i class="as-icon fa-plus"></i></button>
     </div>
     <div>
       <h4>按钮(a)</h4>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]">Sav-Btn</a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-square']"><i class="as-icon fa-plus"></i></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, 'is-circle']"><i class="as-icon fa-plus"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Sav-Btn</a>
+      <a :class="['sav-btn is-outline', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-square']"><i class="as-icon fa-plus"></i></a>
+      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-circle']"><i class="as-icon pt-note"></i></a>
     </div>
     <div>
       <h4>css图标(icon)</h4>
-      <a :class="['sav-btn', isLoading, isSize, isDisabled || (isColor + ' has-hover-open') ]"><span>caret</span><i class="as-icon is-icon-caret"></i></a>
-      <a :class="['sav-btn', isLoading, isSize, isDisabled || (isColor + ' has-hover-open') ]"><span>arrow</span><i class="as-icon is-icon-arrow"></i></a>
-      <a :class="['sav-btn', isLoading, isSize, isDisabled || 'has-hover-open']"><span>caret</span><i :class="['as-icon is-icon-caret', isDisabled || isColor]"></i></a>
-      <a :class="['sav-btn', isLoading, isSize, isDisabled || 'has-hover-open']"><span>arrow</span><i :class="['as-icon is-icon-arrow', isDisabled || isColor]"></i></a>
-      <a :class="['sav-btn', isDisabled || isColor, isLoading, isSize]"><span>right</span><i class="as-icon is-icon-right"></i></a>
-      <a :class="['sav-btn', isDisabled || isColor, isLoading, isSize]"><span>close</span><i class="as-icon is-icon-close"></i></a>
-      <a :class="['sav-btn', isDisabled, isLoading, isSize]"><span>right</span><i :class="['as-icon is-icon-right', isDisabled || isColor]"></i></a>
-      <a :class="['sav-btn', isDisabled, isLoading, isSize]"><span>close</span><i :class="['as-icon is-icon-close', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isActive, isLoading, isSize, isDisabled || (isColor + ' has-hover-open') ]"><span>caret</span><i class="as-icon is-icon-caret"></i></a>
+      <a :class="['sav-btn is-outline', isActive, isLoading, isSize, isDisabled || (isColor + ' has-hover-open') ]"><span>arrow</span><i class="as-icon is-icon-arrow"></i></a>
+      <a :class="['sav-btn', isActive, isLoading, isSize, isDisabled || 'has-hover-open']"><span>caret</span><i :class="['as-icon is-icon-caret', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isActive, isLoading, isSize, isDisabled || 'has-hover-open']"><span>arrow</span><i :class="['as-icon is-icon-arrow', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isDisabled || isColor, isActive, isLoading, isSize]"><span>right</span><i class="as-icon is-icon-right"></i></a>
+      <a :class="['sav-btn', isDisabled || isColor, isActive, isLoading, isSize]"><span>close</span><i class="as-icon is-icon-close"></i></a>
+      <a :class="['sav-btn', isDisabled, isActive, isLoading, isSize]"><span>right</span><i :class="['as-icon is-icon-right', isDisabled || isColor]"></i></a>
+      <a :class="['sav-btn', isDisabled, isActive, isLoading, isSize]"><span>close</span><i :class="['as-icon is-icon-close', isDisabled || isColor]"></i></a>
 
-      <button :class="['sav-btn', isDisabled || isColor, isLoading, isSize, 'is-circle']"><i class="as-icon is-icon-close"></i></button>
+      <button :class="['sav-btn', isDisabled || isColor, isActive, isLoading, isSize, 'is-circle']"><i class="as-icon is-icon-close"></i></button>
     </div>
     <div>
       <h4>输入框(text)</h4>
@@ -307,8 +320,8 @@
     <div>
       <h4>布局(flex-block)[align]</h4>
       <div :class="['sav-flex-block', isAlign]">
-        <button :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
-        <a :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+        <button :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+        <a :class="['as-item', 'sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
         <input :class="['as-item', 'sav-input', isColor, isSize]" type="text" value="text"
         :readonly="readonlyValue || null"
         :disabled="disabledValue || null" />
@@ -328,7 +341,7 @@
       <h4>布局(flex-row)</h4>
       <div :class="['sav-flex-row']">
         <div class="flex-left">
-          <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+          <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
         </div>
         <div class="flex-center">
             <input :class="['as-item', 'sav-input', isColor, isSize]" type="text" value="text"
@@ -354,7 +367,7 @@
       <div :class="['sav-flex-block', isAlign]">
         <form :class="['sav-form', isFormAlign, isAlign, isDisabled]" @submit.prevent="noSubmit">
           <label class="sav-field">
-            <span class="sav-label">用户名</span>
+            <span :class="['sav-label', isSize]">用户名</span>
             <div class="field-body">
               <input :class="['sav-input', isColor, isSize]" type="text" value="username"
                 :readonly="readonlyValue || null"
@@ -362,7 +375,7 @@
             </div>
           </label>
           <div class="sav-field">
-            <label class="sav-label">性别</label>
+            <label :class="['sav-label', isSize]">性别</label>
             <div class="field-body">
               <label :class="['sav-radio', isColor, isSize]">
                 <input type="radio" value="sex-val-female" name="sex"
@@ -377,7 +390,7 @@
             </div>
           </div>
           <label class="sav-field">
-            <span class="sav-label"></span>
+            <span :class="['sav-label', isSize]"></span>
             <div class="field-body">
               <label :class="['sav-check', isColor, isSize]">
                 <input type="checkbox" value="check-val-x"
@@ -387,15 +400,38 @@
             </div>
           </label>
           <div class="sav-field">
-            <label class="sav-label"></label>
+            <label :class="['sav-label', isSize]"></label>
             <div class="field-body">
-              <button :class="['field-item sav-btn', isColor, isLoading, isDisabled, isSize]">提交</button>
-              <button :class="['field-item sav-btn', isDisabled, isSize]">取消</button>
+              <button :class="['field-item sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">提交</button>
+              <button :class="['field-item sav-btn', isDisabled, isSize, isActive]">取消</button>
             </div>
           </div>
         </form>
       </div>
     </div>
+
+    <div>
+      <h4>导航(nav)</h4>
+      <div :class="['sav-flex-row', 'sav-nav', hasShadow]">
+        <div class="flex-left">
+          <a class="nav-item">
+            <img src="http://bulma.io/images/bulma-logo.png" alt="Bulma logo">
+          </a>
+          <a :class="['nav-item is-tab', isColor]">Home</a>
+          <a :class="['nav-item is-tab is-active', isColor]">Articles</a>
+          <a :class="['nav-item is-tab', isColor]">About</a>
+        </div>
+        <div class="flex-right">
+          <form :class="['sav-form nav-item', isFormAlign, isAlign, isDisabled]" @submit.prevent="noSubmit">
+            <div class="sav-field is-body">
+              <button :class="['field-item sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Login</button>
+              <button :class="['field-item sav-btn', isDisabled, isSize, isActive]">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
   </div>
   <footer class="footer"></footer>
   <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script>
@@ -408,8 +444,10 @@
         isAlign: '',
         isDropAlign: '',
         isFormAlign: '',
+        hasShadow: 'has-shadow',
         loadingValue: false,
         disabledValue: false,
+        activeValue: false,
         readonlyValue: false,
         isDropTop: false,
         isDropExpand: false,
@@ -421,6 +459,9 @@
         },
         isDisabled () {
           return this.disabledValue ? 'is-disabled' : ''
+        },
+        isActive () {
+          return this.activeValue ? 'is-active' : ''
         },
         isDropOpen () {
           return this.isDropDown ? 'is-open' : ''

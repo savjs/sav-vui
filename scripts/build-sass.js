@@ -8,20 +8,26 @@ let includePaths = [
   path.resolve(__dirname, '../sass')
 ]
 
+// nested, expanded, compact, compressed
+let outputStyle = 'expanded'
+
 mkdirAsync(distCssDir).then(() => {
   return Promise.all([
     sassRenderAsync({
+      outputStyle,
       sourceMap: true,
       file: path.resolve(__dirname, '../sass/sav-vui.sass'),
       outFile: path.resolve(distCssDir, 'sav-vui.css'),
       includePaths
     }),
     sassRenderAsync({
+      outputStyle,
       file: path.resolve(__dirname, '../sass/font-awesome.sass'),
       outFile: path.resolve(distCssDir, 'font-awesome.css'),
       includePaths
     }),
     sassRenderAsync({
+      outputStyle,
       file: path.resolve(__dirname, '../sass/photon.sass'),
       outFile: path.resolve(distCssDir, 'photon.css'),
       includePaths
