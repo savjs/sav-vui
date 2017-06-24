@@ -1,15 +1,33 @@
 
 .sav-tab
+  // 尺寸
+  &.is-small
+    > .as-item
+      +make-size-sm
+
+  &.is-large
+    > .as-item
+      +make-size-lg
+
+  &.is-center
+    justify-content: center
+  &.is-right
+    justify-content: flex-end
+  &.is-around
+    justify-content: space-around
+  &.is-between
+    justify-content: space-between
+
+  &.is-fill
+    > .as-item
+      flex-grow: 1
+
   >.as-item
     >.as-icon
       &:first-child
         margin-right: 0.5em
       &:last-child
         margin-left: 0.5em
-
-  &.is-boxed.is-small
-    >.as-item // 修正
-      margin-bottom: -2px
 
 @each $theme-type, $theme-color in $is-theme-colors
   .sav-tab.#{$theme-type}

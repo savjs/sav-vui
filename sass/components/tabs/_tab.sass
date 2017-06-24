@@ -7,13 +7,28 @@ $tab-hover-bd-color: darken($tab-bd-color, 30) !default
 $tab-active-bd-color: darken($tab-bd-color, 40) !default
 
 .sav-tab
+  display: flex
+  flex: 1
+  justify-content: flex-start
+  align-items: center
+  +resetul
   +unselectable
   border-bottom: 1px solid $tab-bd-color
 
   >.as-item
+    display: flex
+    justify-content: center
+    +make-size-default
+    vertical-align: middle
+    cursor: $element-cursor
     border-bottom: 1px solid $tab-bd-color
     color: $tab-text-color
     margin-bottom: -1px
+
+    &,
+    > a
+      +stripa
+    
     &:hover
       border-bottom-color: $tab-hover-bd-color
 
@@ -24,13 +39,16 @@ $tab-active-bd-color: darken($tab-bd-color, 40) !default
 
   &.is-boxed
     >.as-item
-      margin-bottom: -1px
+      margin-bottom: -2px
       &.is-active
         border: 1px solid $tab-bd-color
         border-radius: $tab-bd-radius $tab-bd-radius 0 0
         background-color: $tab-bg-color !important
         border-bottom-color: transparent !important
         box-shadow: none !important
+    &.is-small
+      >.as-item // 修正
+        margin-bottom: -1px
 
   &.is-toggle
     border-bottom: 0

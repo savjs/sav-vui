@@ -4,6 +4,7 @@ $check-disabled-bg-color: $element-disabled-bg-color !default
 
 .sav-check
   +make-element-default
+  cursor: $element-cursor
   > input
     margin: 0
     padding: 0
@@ -30,6 +31,7 @@ $check-disabled-bg-color: $element-disabled-bg-color !default
     position: relative
     vertical-align: middle
     display: inline-block
+    display: inline-flex
     margin: 1px 0
     &::before
       box-sizing: content-box

@@ -283,17 +283,8 @@
         </table>
     </div>
     <div>
-      <h4>分组(group)[size, align]</h4>
-      <ul :class="['sav-group', isAlign, isColor, isSize]">
-        <li class="as-item is-active"><a>Pictures</a></li>
-        <li class="as-item"><a href="#test">Music</a></li>
-        <li class="as-item"><a>Videos</a></li>
-        <li class="as-item"><a>Documents</a></li>
-      </ul>
-    </div>
-    <div>
-      <h4>标签页(tab:group)[color]</h4>
-      <div :class="['sav-group', 'sav-tab', isAlign, isColor, isSize]">
+      <h4>标签页(tab)[color]</h4>
+      <div :class="['sav-tab', isAlign, isColor, isSize]">
         <a class="as-item is-active"><i class="as-icon fa-picture-o"></i><span>Pictures</span></a>
         <a class="as-item" href="#test"><i class="as-icon fa-music"></i><span>Music</span></a>
         <a class="as-item" >Videos</a>
@@ -301,7 +292,7 @@
         <a class="as-item" >Documents</a>
       </div>
       <br>
-      <div :class="['sav-group', 'sav-tab' ,'is-boxed', isAlign, isColor, isSize]">
+      <div :class="['sav-tab' ,'is-boxed', isAlign, isColor, isSize]">
         <a class="as-item"><i class="as-icon fa-picture-o"></i><span>Pictures</span></a>
         <a class="as-item is-active" href="#test"><i class="as-icon fa-music"></i><span>Music</span></a>
         <a class="as-item" >Videos</a>
@@ -309,7 +300,7 @@
         <a class="as-item" >Documents</a>
       </div>
       <br>
-      <div :class="['sav-group', 'sav-tab' ,'is-toggle', isAlign, isColor, isSize]">
+      <div :class="['sav-tab' ,'is-toggle', isAlign, isColor, isSize]">
         <a class="as-item"><i class="as-icon fa-picture-o"></i><span>Pictures</span></a>
         <a class="as-item is-active" href="#test"><i class="as-icon fa-music"></i><span>Music</span></a>
         <a class="as-item" >Videos</a>
@@ -454,21 +445,21 @@
         isDropDown: false
       },
       computed: {
-        isLoading () {
+        isLoading: function () {
           return this.loadingValue ? 'is-loading' : ''
         },
-        isDisabled () {
+        isDisabled: function () {
           return this.disabledValue ? 'is-disabled' : ''
         },
-        isActive () {
+        isActive: function () {
           return this.activeValue ? 'is-active' : ''
         },
-        isDropOpen () {
+        isDropOpen: function () {
           return this.isDropDown ? 'is-open' : ''
         }
       },
       methods: {
-        noSubmit () {}
+        noSubmit: function () {}
       }
     })
   </script>
