@@ -1,0 +1,31 @@
+{
+  "name": "sav-vui-admin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run cv && npm-run-all -p build-sass build-prod",
+    "build-prod": "cross-env NODE_ENV=production rollup-cli -c views/build-client.js",
+    "build-sass": "cross-env NODE_ENV=production node views/build-sass.js",
+    "build-local": "cross-env NODE_ENV=development IS_MOCK=1 IS_LOCAL=1 IS_DEV=1 rollup-cli -c views/build-client.js",
+    "build-sass-local": "cross-env NODE_ENV=development node views/build-sass.js",
+    "watch": "npm run cv && npm-run-all -p build-sass-local build-local && npm-run-all -p watch-cv watch-sass watch-local",
+    "watch-local": "watch -p \"+(views|contract)/**/*.+(js|vue)\" -c \"npm run build-local\"",
+    "watch-cv": "watch -p \"+(interface)/**/*.js\" -c \"npm run cv\"",
+    "watch-sass": "watch -p \"+(sass)/**/*.sass\" -c \"npm run build-sass-local\"",
+    "cv": "sav-cli -p ./interface -d ./contract -v ./views -s ./sass -S action"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cross-env": "^5.0.1",
+    "npm-run-all": "^4.0.2",
+    "rollup-standalone": "^0.42.9",
+    "sav": "0.0.13",
+    "sav-flux": "0.0.16",
+    "sav-schema": "0.0.17",
+    "vue": "^2.3.4",
+    "vue-router": "^2.6.0",
+    "watch-cli": "^0.2.1"
+  }
+}
