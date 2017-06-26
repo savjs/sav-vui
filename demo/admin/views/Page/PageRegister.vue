@@ -2,19 +2,20 @@
   <div class="page-register">
     <sav-form>
       <sav-field labelText="您的帐号">
-        <input v-focus type="text" v-model="username" />
+        <input class="sav-input" v-focus type="text" v-model="username" />
       </sav-field>
       <sav-field labelText="您的昵称">
-        <input type="text" v-model="nickname" />
+        <input class="sav-input" type="text" v-model="nickname" />
       </sav-field>
       <sav-field labelText="您的密码">
-        <input type="password" v-model="password" />
+        <input class="sav-input" type="password" v-model="password" />
       </sav-field>
       <sav-field labelText="确认秘密">
-        <input type="password" v-model="confirmPassword" />
+        <input class="sav-input" type="password" v-model="confirmPassword" />
       </sav-field>
       <sav-field :isLabel="false">
         <button class="field-item sav-btn is-primary" @click="$router.back()">注册</button>
+        <sav-btn class="field-item" :to="{name:'HomeIndex'}">返回</sav-btn>
       </sav-field>
     </sav-form>
   </div>

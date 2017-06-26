@@ -3,6 +3,7 @@ $button-bd-radius: $element-bd-radius !default
 $button-bd-color: $element-bd-color !default
 $button-bg-color: $element-bg-color !default
 $button-disabled-bg-color: $element-disabled-bg-color !default
+$button-text-color: $is-text-darken-color !default
 
 .sav-btn
   +make-element-default
@@ -23,6 +24,7 @@ $button-disabled-bg-color: $element-disabled-bg-color !default
   background-color: $button-bg-color
   border-color: $button-bd-color
   border-radius: $button-bd-radius
+  color: $button-text-color
 
   &:hover,
   &:focus
@@ -30,10 +32,12 @@ $button-disabled-bg-color: $element-disabled-bg-color !default
 
   &.is-active,
   &:active
+    color: $button-text-color
     background-color: darken($button-bg-color, 10)
 
   &.is-disabled,
   &:disabled
+    pointer-events: none
     cursor: default
     background-color: $button-disabled-bg-color !important
     color: darken($button-disabled-bg-color, 30) !important
