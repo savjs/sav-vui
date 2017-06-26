@@ -15,7 +15,6 @@
       </sav-field>
       <sav-field :isLabel="false">
         <button class="field-item sav-btn is-primary" @click="$router.back()">注册</button>
-        <sav-btn class="field-item" :to="{name:'HomeIndex'}">返回</sav-btn>
       </sav-field>
     </sav-form>
   </div>
