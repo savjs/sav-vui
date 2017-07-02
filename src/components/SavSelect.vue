@@ -1,0 +1,70 @@
+<template>
+  <sav-dropdown :open="innerOpen"
+    @mouseenter.native="disabled || hover && (innerOpen = true)"
+    @mouseleave.native="disabled || (innerOpen = false)"
+    >
+    <sav-btn :class="[colorModify, sizeModify]" :disabled="disabled"
+      @click.native="innerOpen = !innerOpen">
+      <span>{{textSelected || placeholder}}</span>
+      <sav-icon icon="is-icon-caret"></sav-icon>
+    </sav-btn>
+    <ul class="is-drop-select" slot="dropview">
+      <li v-for="opt in options" key="valueField"
+        @click="selectItem(opt)"
+        :class="['as-item', {
+          'is-active': opt[valueField] == value
+        }]">
+          <span>{{opt[textField]}}</span>
+          <sav-icon :class="[colorModify]" icon="is-icon-right" v-if="opt[valueField] == value"></sav-icon>
+        </li>
+    </ul>
+  </sav-dropdown>
+</template>
+<script>
+  import SavBtn from './SavBtn.vue'
+  import SavIcon from './SavIcon.vue'
+  import SavDropdown from './SavDropdown.vue'
+  import mixins from '../mixins/element.js'
+  import option from '../mixins/option.js'
+  export default {
+    mixins: [...mixins, option],
+    components: {
+      SavBtn,
+      SavIcon,
+      SavDropdown
+    },
+    data () {
+      return {
+        innerOpen : false
+      }
+    },
+    computed: {
+      textSelected () {
+        let text
+        this.options.some((it) => {
+          if (it[this.valueField] == this.value) {
+            text = it[this.textField]
+            return true
+          }
+        })
+        return text
+      }
+    },
+    props: {
+      placeholder: {
+        type: String,
+        default: '请选择'
+      },
+      hover: {
+        type: [Boolean, String],
+        default: false
+      }
+    },
+    methods: {
+      selectItem (item) {
+        this.innerOpen = false
+        this.$emit('input', item.value)
+      }
+    }
+  }
+</script>

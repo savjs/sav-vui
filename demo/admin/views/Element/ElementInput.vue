@@ -1,11 +1,11 @@
 <template>
-  <div class="element-tabs">
-    ElementTabs
+  <div class="element-input">
+    ElementInput
   </div>
 </template>
 <script>
   export default {
-    name: 'ElementTabs',
+    name: 'ElementInput',
     getters: [
     ],
     actions: [

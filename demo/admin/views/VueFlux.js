@@ -7,10 +7,12 @@ import Vue from 'vue'
 import {Flux, FluxVue} from 'sav-flux'
 
 import SavComponents from '../../../src/index.js'
+import SavModifies from '../../../src/modify.js'
 
 Vue.use(VueRouter)
 Vue.use(FluxVue)
 Vue.use(SavComponents)
+Vue.use(SavModifies)
 
 export {Vue}
 export {VueRouter}

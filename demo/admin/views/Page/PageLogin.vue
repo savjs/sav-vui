@@ -1,27 +1,16 @@
 <template>
   <div class="page-login">
-    <div class="sav-flex-block is-center">
-      <form class="sav-form is-vertical">
-        <label class="sav-field">
-          <span class="sav-label">您的帐号</span>
-            <div class="field-body">
-              <input class="sav-input" type="text" v-model="username"/>
-            </div>
-        </label>
-        <label class="sav-field">
-          <span class="sav-label">您的密码</span>
-            <div class="field-body">
-              <input class="sav-input" type="password" v-model="username"/>
-            </div>
-        </label>
-        <div class="sav-field">
-          <label class="sav-label"></label>
-          <div class="field-body">
-            <button class="field-item sav-btn is-primary" @click="$router.back()">登录</button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <sav-form>
+      <sav-field labelText="您的帐号">
+        <input class="sav-input" v-focus type="text" v-model="username" />
+      </sav-field>
+      <sav-field labelText="您的密码">
+        <input class="sav-input" type="password" v-model="password" />
+      </sav-field>
+      <sav-field :isLabel="false">
+        <button class="field-item sav-btn is-primary" @click="$router.back()">登录</button>
+      </sav-field>
+    </sav-form>
   </div>
 </template>
 <script>

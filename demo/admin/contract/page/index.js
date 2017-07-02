@@ -3,5 +3,6 @@
 module.exports = {
   Element: require('./Element'),
   Home: require('./Home'),
+  Layout: require('./Layout'),
   Page: require('./Page')
 }

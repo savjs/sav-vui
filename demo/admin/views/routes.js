@@ -2,10 +2,18 @@
 
 /* eslint quotes: ["off"] */
 import Element from './Element/Element.vue'
-import ElementTabs from './Element/ElementTabs.vue'
-import ElementButtons from './Element/ElementButtons.vue'
+import ElementTab from './Element/ElementTab.vue'
+import ElementBtn from './Element/ElementBtn.vue'
+import ElementInput from './Element/ElementInput.vue'
+import ElementRadio from './Element/ElementRadio.vue'
+import ElementCheck from './Element/ElementCheck.vue'
+import ElementSelect from './Element/ElementSelect.vue'
+import ElementIndex from './Element/ElementIndex.vue'
 import Home from './Home/Home.vue'
 import HomeIndex from './Home/HomeIndex.vue'
+import Layout from './Layout/Layout.vue'
+import LayoutTile from './Layout/LayoutTile.vue'
+import LayoutIndex from './Layout/LayoutIndex.vue'
 import Page from './Page/Page.vue'
 import PageLogin from './Page/PageLogin.vue'
 import PageRegister from './Page/PageRegister.vue'
@@ -16,14 +24,39 @@ export default [
     path: "/element",
     children: [
       {
-        component: ElementTabs,
-        name: "ElementTabs",
-        path: "tabs"
+        component: ElementTab,
+        name: "ElementTab",
+        path: "tab"
       },
       {
-        component: ElementButtons,
-        name: "ElementButtons",
-        path: "buttons"
+        component: ElementBtn,
+        name: "ElementBtn",
+        path: "btn"
+      },
+      {
+        component: ElementInput,
+        name: "ElementInput",
+        path: "input"
+      },
+      {
+        component: ElementRadio,
+        name: "ElementRadio",
+        path: "radio"
+      },
+      {
+        component: ElementCheck,
+        name: "ElementCheck",
+        path: "check"
+      },
+      {
+        component: ElementSelect,
+        name: "ElementSelect",
+        path: "select"
+      },
+      {
+        component: ElementIndex,
+        name: "ElementIndex",
+        path: ""
       }
     ]
   },
@@ -34,6 +67,22 @@ export default [
       {
         component: HomeIndex,
         name: "HomeIndex",
+        path: ""
+      }
+    ]
+  },
+  {
+    component: Layout,
+    path: "/layout",
+    children: [
+      {
+        component: LayoutTile,
+        name: "LayoutTile",
+        path: "tile"
+      },
+      {
+        component: LayoutIndex,
+        name: "LayoutIndex",
         path: ""
       }
     ]

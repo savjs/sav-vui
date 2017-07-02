@@ -1,0 +1,21 @@
+
+$tile-padding: 0.5rem !default
+
+.sav-tile
+  align-items: stretch
+  display: flex
+  flex-basis: 0
+  flex-grow: 1
+  flex-shrink: 1
+  min-height: min-content
+  &.is-block
+    display: block
+  &.is-vertical
+    flex-direction: column
+
+  +make-flex-modify
+
+  @for $i from 1 through 12
+    &.is-#{$i}
+      flex: none
+      width: ($i / 12) * 100%

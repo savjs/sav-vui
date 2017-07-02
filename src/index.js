@@ -2,10 +2,14 @@ import SavBtn from './components/SavBtn.vue'
 import SavInput from './components/SavInput.vue'
 import SavText from './components/SavText.vue'
 import SavCheck from './components/SavCheck.vue'
+import SavCheckGroup from './components/SavCheckGroup.vue'
 import SavRadio from './components/SavRadio.vue'
+import SavRadioGroup from './components/SavRadioGroup.vue'
 import SavIcon from './components/SavIcon.vue'
 import SavField from './components/SavField.vue'
 import SavForm from './components/SavForm.vue'
+import SavTile from './components/SavTile.vue'
+import SavSelect from './components/SavSelect.vue'
 
 import directives from './directives/index.js'
 
@@ -23,10 +27,14 @@ let components = {
   SavInput,
   SavText,
   SavCheck,
+  SavCheckGroup,
   SavRadio,
+  SavRadioGroup,
   SavIcon,
   SavField,
-  SavForm
+  SavForm,
+  SavSelect,
+  SavTile
 }
 
 Object.defineProperty(components, 'install', {

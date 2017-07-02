@@ -38,6 +38,7 @@ let flux = new Flux({
 // #endif
 // #if IS_MOCK
   mockState: true,
+  mockAllowNoResponse: true, // 允许没有Response
 // #endif
   strict: true
 })

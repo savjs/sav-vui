@@ -1,5 +1,5 @@
 <template>
-  <div class="element">
+  <div class="layout">
     <nav-header></nav-header>
     <router-view></router-view>
   </div>
@@ -7,7 +7,7 @@
 <script>
   import NavHeader from '../layouts/NavHeader.vue'
   export default {
-    name: 'Element',
+    name: 'Layout',
     getters: [
     ],
     actions: [

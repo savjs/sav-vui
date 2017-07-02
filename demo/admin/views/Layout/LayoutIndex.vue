@@ -1,11 +1,11 @@
 <template>
-  <div class="element-buttons">
-    ElementButtons
+  <div class="layout-index">
+    LayoutIndex
   </div>
 </template>
 <script>
   export default {
-    name: 'ElementButtons',
+    name: 'LayoutIndex',
     getters: [
     ],
     actions: [
