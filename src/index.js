@@ -43,4 +43,8 @@ Object.defineProperty(components, 'install', {
   configurable: true
 })
 
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(components)
+}
+
 export default components
