@@ -10,7 +10,7 @@
     "build-local": "cross-env NODE_ENV=development IS_MOCK=1 IS_LOCAL=1 IS_DEV=1 rollup-cli -c views/build-client.js",
     "build-sass-local": "cross-env NODE_ENV=development node views/build-sass.js",
     "watch": "npm run cv && npm-run-all -p build-sass-local build-local && npm-run-all -p watch-cv watch-sass watch-local",
-    "watch-local": "watch -p \"../../src/**/*.+(js|vue)\" -p \"+(views|contract)/**/*.+(js|vue)\" -c \"npm run build-local\"",
+    "watch-local": "watch -p \"../../src/**/*.+(js|vue)\" -p \"+(views|contract|docs)/**/*.+(js|vue)\" -c \"npm run build-local\"",
     "watch-cv": "watch -p \"+(interface)/**/*.js\" -c \"npm run cv\"",
     "watch-sass": "watch -p \"+(sass)/**/*.sass\" -c \"npm run build-sass-local\"",
     "cv": "sav-cli -p ./interface -d ./contract -v ./views -s ./sass -S modal"

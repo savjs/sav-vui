@@ -9,16 +9,8 @@
     &:not(:last-child)
       margin-right: 0.5rem
 
-  &.is-left
-    justify-content: flex-start
-  &.is-right
-    justify-content: flex-end
-  &.is-center
-    justify-content: center
-  &.is-around
-    justify-content: space-around
-  &.is-between
-    justify-content: space-between
+  +make-flex-modify
+
   &.is-fill
     > .as-item
       flex-grow: 1

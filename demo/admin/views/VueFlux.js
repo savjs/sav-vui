@@ -8,11 +8,13 @@ import {Flux, FluxVue} from 'sav-flux'
 
 import SavComponents from '../../../src/index.js'
 import SavModifies from '../../../src/modify.js'
+import docs from '../docs'
 
 Vue.use(VueRouter)
 Vue.use(FluxVue)
 Vue.use(SavComponents)
 Vue.use(SavModifies)
+Vue.use(docs)
 
 export {Vue}
 export {VueRouter}

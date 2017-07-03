@@ -46,7 +46,20 @@ module.exports = executeRollup({
   },
   replaces: {
     'process.env.NODE_ENV': IS_PROD ? '"production"' : '"development"'
-  }
+  },
+  patterns: [
+    {
+      match: /docs(\/|\\)elements/,
+      test: /'@\$(.+)\$@'/g,
+      replace (text, file) {
+        let fileData = fse.readFileSync(path.resolve(__dirname, '../docs', file)).toString()
+        fileData = JSON.stringify(fileData)
+        let component = path.basename(file, '.vue')
+        let ret = `'${file}', component: '${component}' ,content: ${fileData}`
+        return ret
+      }
+    }
+  ]
 })
 
 fse.ensureDir('static/js').then(() => {
