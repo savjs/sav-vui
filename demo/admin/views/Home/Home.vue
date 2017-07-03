@@ -1,11 +1,11 @@
 <template>
-  <div class="home">
+  <div class="page-home">
     <nav-header></nav-header>
-    <router-view></router-view>
+    <router-view class="view-container"></router-view>
   </div>
 </template>
 <script>
-  import NavHeader from '../layouts/NavHeader.vue'
+  import NavHeader from '../common/NavHeader.vue'
   export default {
     name: 'Home',
     getters: [

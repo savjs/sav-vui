@@ -7,6 +7,10 @@ module.exports = {
       method: "GET",
       title: "tile"
     },
+    grid: {
+      method: "GET",
+      title: "grid"
+    },
     index: {
       method: "GET",
       title: "布局",

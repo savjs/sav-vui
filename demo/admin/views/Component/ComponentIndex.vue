@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <router-view class="page-container"></router-view>
+  <div class="component-index">
+    ComponentIndex
   </div>
 </template>
 <script>
   export default {
-    name: 'App',
+    name: 'ComponentIndex',
     getters: [
     ],
     actions: [

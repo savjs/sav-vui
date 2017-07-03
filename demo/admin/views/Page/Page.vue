@@ -1,6 +1,6 @@
 <template>
-  <div class="page">
-    <router-view></router-view>
+  <div class="page-page">
+    <router-view class="view-container"></router-view>
   </div>
 </template>
 <script>

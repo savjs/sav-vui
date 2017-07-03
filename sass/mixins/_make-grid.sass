@@ -1,0 +1,39 @@
+=make-grid-row($gutter)
+  position: relative
+  display: block
+  margin-left: $gutter / -2
+  margin-right: $gutter / -2
+  height: auto
+
+  +clearfix
+
+=make-grid-row-flex
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+
+  &:before,
+  &:after
+    display: flex
+
+=make-grid-cols($grid-columns, $gutter)
+  $grid_cols: ()
+  .sav-col
+    @for $i from 1 through $grid-columns
+      $grid_cols: append($grid_cols, ".sav-col.is-#{$i}", comma)
+
+      &.is-#{$i}
+        display: block
+        box-sizing: border-box
+        width: percentage($i / $grid-columns)
+
+      &.is-offset-#{$i}
+        margin-left: percentage($i / $grid-columns)
+
+  #{$grid_cols}
+    float: left
+    position: relative
+    box-sizing: border-box
+    min-height: 1px
+    padding-right: $gutter / 2
+    padding-left: $gutter / 2

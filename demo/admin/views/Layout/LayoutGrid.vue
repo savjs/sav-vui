@@ -1,11 +1,11 @@
 <template>
-  <div id="app">
-    <router-view class="page-container"></router-view>
+  <div class="layout-grid">
+    LayoutGrid
   </div>
 </template>
 <script>
   export default {
-    name: 'App',
+    name: 'LayoutGrid',
     getters: [
     ],
     actions: [

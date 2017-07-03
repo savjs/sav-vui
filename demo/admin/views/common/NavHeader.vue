@@ -6,6 +6,7 @@
       </router-link>
       <router-link class="nav-item is-tab is-secondary" :to="{name: 'HomeIndex'}" exact>Home</router-link>
       <router-link class="nav-item is-tab is-secondary" :to="{name: 'ElementIndex'}">Elements</router-link>
+      <router-link class="nav-item is-tab is-secondary" :to="{name: 'ComponentIndex'}">Components</router-link>
       <router-link class="nav-item is-tab is-secondary" :to="{name: 'LayoutIndex'}">Layouts</router-link>
     </div>
     <div class="flex-center"></div>

@@ -8,6 +8,11 @@ export default class Layout {
   tile () {}
 
   @get({
+    title: 'grid'
+  })
+  grid () {}
+
+  @get({
     title: "布局",
     path: '',
   })
