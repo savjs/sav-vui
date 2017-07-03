@@ -2,10 +2,25 @@
 $grid-gutter-width: 0 !default
 $grid-size: 12 !default
 
-.sav-grid-row
-  +make-grid-row($grid-gutter-width)
+.sav-row
+  position: relative
+  height: auto
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+    // &::before,
+    // &::after
+    //   display: flex
+  &.is-float
+    display: block
+    @if $grid-gutter-width != 0
+      margin-left: $grid-gutter-width / -2
+      margin-right: $grid-gutter-width / -2
+    +clearfix
 
-.sav-flex-grid-row
-  +make-grid-row-flex
-
-+make-grid-cols($grid-size, $grid-gutter-width)
+  @for $i from 1 through $grid-size
+    &.has-#{$i} 
+      > .sav-col
+        width: percentage( 1 / $i )
+  >
+    +make-grid-cols($grid-size, $grid-gutter-width)

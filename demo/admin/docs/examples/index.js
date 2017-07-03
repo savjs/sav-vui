@@ -1,5 +1,7 @@
-import GridRowModify from './grid/GridRowModify.vue'
 import BtnModify from './button/BtnModify.vue'
+import GridRow from './grid/GridRow.vue'
+import GridCol from './grid/GridCol.vue'
+import GridColOffset from './grid/GridColOffset.vue'
 
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
@@ -9,7 +11,9 @@ export function install (Vue) {
 
 let components = {
   BtnModify,
-  GridRowModify
+  GridRow,
+  GridCol,
+  GridColOffset
 }
 
 Object.defineProperty(components, 'install', {
