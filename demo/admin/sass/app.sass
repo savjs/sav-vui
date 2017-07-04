@@ -11,4 +11,42 @@
     max-width: none
     width: auto
 
+.doc-example
+  border: 1px solid #ccc
+  border-radius: 4px
+  margin-bottom: 1em
+  position: relative
+  transition: all .2s ease-in-out
+
+  .example-demo
+    padding: 0.5em
+    border-right: 1px dashed #ccc
+
+    .example-title
+      margin: 0.5em
+      border-left: 2px solid #ccc
+      padding-left: 0.5em
+      font-size: 16px
+
+    .example-comment
+      margin: 0.5em
+      font-size: 14px
+
+    .example-component
+      border-top: 1px dashed #ccc
+      padding-top: 0.5em
+
+  .example-code
+    padding: 0.5em
+    > pre
+      margin: 0
+    .copy-example
+      border-radius: 0 0 3px 3px
+      padding: 2px 5px
+      position: absolute
+      top: 5px
+      right: 0
+      color: #b2b2b2
+      cursor: pointer
+
 @import '_pages.sass'

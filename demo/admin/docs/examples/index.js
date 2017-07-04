@@ -1,3 +1,4 @@
+import Example from './Example.vue'
 import BtnModify from './button/BtnModify.vue'
 import GridRow from './grid/GridRow.vue'
 import GridCol from './grid/GridCol.vue'
@@ -13,7 +14,8 @@ let components = {
   BtnModify,
   GridRow,
   GridCol,
-  GridColOffset
+  GridColOffset,
+  Example
 }
 
 Object.defineProperty(components, 'install', {

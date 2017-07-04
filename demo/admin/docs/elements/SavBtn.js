@@ -29,6 +29,8 @@ export let SavBtn = {
   examples: [
     {
       name: 'type',
+      title: '简单的按钮例子',
+      comment: `...详细说明`,
       file: '@$examples/button/BtnModify.vue$@'
     }
   ]
