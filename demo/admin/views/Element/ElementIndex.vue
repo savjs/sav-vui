@@ -1,6 +1,7 @@
 <template>
   <div class="element-index">
     ElementIndex
+    <api></api>
     <example 
       comment="comment: 样例的详细说明" 
       title="title: 样例的标题" 

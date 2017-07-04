@@ -1,4 +1,5 @@
 import Example from './Example.vue'
+import Api from './Api.vue'
 import BtnModify from './button/BtnModify.vue'
 import GridRow from './grid/GridRow.vue'
 import GridCol from './grid/GridCol.vue'
@@ -15,6 +16,7 @@ let components = {
   GridRow,
   GridCol,
   GridColOffset,
+  Api,
   Example
 }
 
