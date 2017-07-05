@@ -1,9 +1,7 @@
 <template>
   <div class="doc-api">
-    <sav-tab-nav>
-      <a class="as-item is-active">Hello</a>
-      <a class="as-item">World</a>
-    </sav-tab-nav>
+    <sav-tab v-model="currentTab" :options="options">
+    </sav-tab>
   </div>
 </template>
 <script>
@@ -20,6 +18,16 @@
       events: {
         type: Array,
         default: Array
+      },
+    },
+    data () {
+      return {
+        currentTab: 'prop',
+        options: [
+          {text: 'props', value: 'prop'},
+          {text: 'slots', value: 'slot'},
+          {text: 'events', value: 'event'}
+        ]
       }
     }
   }

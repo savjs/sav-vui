@@ -11,3 +11,22 @@ export function makeOptions(arr) {
     }
   })
 }
+
+const TransitionEndEvent = {
+  WebkitTransition : 'webkitTransitionEnd',
+  MozTransition    : 'transitionend',
+  OTransition      : 'oTransitionEnd otransitionend',
+  transition       : 'transitionend'
+}
+
+export function transitionEndTest () {
+  const el = document.createElement('bootstrap')
+  for (const name in TransitionEndEvent) {
+    if (el.style[name] !== undefined) {
+      return {
+        end: TransitionEndEvent[name]
+      }
+    }
+  }
+  return false
+}
