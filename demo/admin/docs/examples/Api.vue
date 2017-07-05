@@ -1,9 +1,9 @@
 <template>
   <div class="doc-api">
-    <sav-tab type="boxed">
+    <sav-tab-nav>
       <a class="as-item is-active">Hello</a>
       <a class="as-item">World</a>
-    </sav-tab>
+    </sav-tab-nav>
   </div>
 </template>
 <script>

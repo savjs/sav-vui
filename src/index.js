@@ -13,6 +13,7 @@ import SavSelect from './components/SavSelect.vue'
 import SavRow from './components/SavRow.vue'
 import SavCol from './components/SavCol.vue'
 import SavTab from './components/SavTab.vue'
+import SavTabNav from './components/SavTabNav.vue'
 
 import directives from './directives/index.js'
 
@@ -40,7 +41,8 @@ let components = {
   SavTile,
   SavRow,
   SavCol,
-  SavTab
+  SavTab,
+  SavTabNav
 }
 
 Object.defineProperty(components, 'install', {
