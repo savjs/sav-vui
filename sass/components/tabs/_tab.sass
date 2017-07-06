@@ -72,3 +72,11 @@ $tab-active-bd-color: darken($tab-bd-color, 40) !default
       &:last-child
         border-radius: 0 $tab-bd-radius $tab-bd-radius 0
 
+.sav-tab-contents
+  > .as-item
+    visibility: hidden
+    opacity: 0
+
+    &.is-active
+      visibility: visible
+      opacity: 1

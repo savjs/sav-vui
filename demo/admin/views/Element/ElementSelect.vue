@@ -40,9 +40,9 @@
         current: 'my-component',
         currentTab: 'prop',
         options: [
-          {text: 'props', value: 'prop'},
-          {text: 'slots', value: 'slot'},
-          {text: 'events', value: 'event'}
+          {text: 'props', value: 'prop', content: '属性列表'},
+          {text: 'slots', value: 'slot', content: '插槽列表'},
+          {text: 'events', value: 'event', content: '事件列表'}
         ]
       }
     },

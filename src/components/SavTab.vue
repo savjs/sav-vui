@@ -14,14 +14,26 @@
         @change="changeTab"
         ></component>
     </div>
-    <div class="sav-tab-body">
-      <slot></slot>
+    <div class="sav-tab-contents">
+      <component
+        v-for="option in options"
+        :is="contentComponent"
+        :option="option"
+        :contentField="contentField"
+        :class="['as-item', {
+          'is-active': option[valueField] == value
+        }]"
+        ></component>
     </div>
   </div>
 </template>
 
 <component name="navItem">
   <a @click.prevent="changeValue(option[valueField])">{{option[textField]}}</a>
+</component>
+
+<component name="contentItem">
+  <div>{{option[contentField]}}</div>
 </component>
 
 <script>
@@ -32,6 +44,14 @@
       navComponent: {
         type: [String, Object],
         default: 'navItem'
+      },
+      contentComponent: {
+        type: [String, Object],
+        default: 'contentItem'
+      },
+      contentField: {
+        type: String,
+        default: 'content'
       }
     },
     methods: {
@@ -49,6 +69,10 @@
             }
           }
         }
+      },
+      contentItem: {
+        mixins: createMixins(['option']),
+        props: ['contentField']
       }
     }
   }
