@@ -9,6 +9,7 @@
       content="var x = 10"></example>
   </div>
 </template>
+
 <script>
   export default {
     name: 'ElementIndex',

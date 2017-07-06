@@ -7,9 +7,9 @@
   </button>
 </template>
 <script>
-  import mixins from '../mixins/element.js'
+  import {elements} from '../mixin'
   export default {
-    mixins,
+    mixins: elements,
     props: {
       to: {
         type: [Boolean, Object],

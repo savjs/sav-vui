@@ -4,9 +4,8 @@
   </div>
 </template>
 <script>
-  import offset from '../mixins/offset.js'
-  import col from '../mixins/col.js'
+  import {createMixins} from '../mixin'
   export default {
-    mixins: [col, offset]
+    mixins: createMixins(['col', 'offset'])
   }
 </script>

@@ -11,11 +11,10 @@
   </span>
 </template>
 <script>
-  import mixins from '../mixins/element.js'
-  import option from '../mixins/option.js'
-  let radioId = 0
+  import {elements, options} from '../mixin'
+  let incId = 0
   export default {
-    mixins: [...mixins, option],
+    mixins: [...elements, ...options],
     props: {
       inputName: {
         type: String,
@@ -24,7 +23,7 @@
     },
     data () {
       return {
-        innerName: 'srn-' + radioId++
+        innerName: 'srn-' + incId++
       }
     },
     methods: {

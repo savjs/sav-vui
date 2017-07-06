@@ -16,8 +16,11 @@ import SavTab from './components/SavTab.vue'
 import SavTabNav from './components/SavTabNav.vue'
 
 import directives from './directives/index.js'
+import {componentMixin} from './componentMixin.js'
 
 export function install (Vue) {
+  componentMixin(Vue)
+
   Object.keys(directives).forEach((it) => {
     Vue.directive(it, directives[it])
   })

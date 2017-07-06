@@ -10,9 +10,9 @@
   </label>
 </template>
 <script>
-  import mixins from '../mixins/element.js'
+  import {elements} from '../mixin'
   export default {
-    mixins,
+    mixins: elements,
     props: {
       value: {
         type: [Array, Boolean],

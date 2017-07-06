@@ -29,7 +29,7 @@
     "fs-extra": "^3.0.1",
     "node-sass": "^4.5.3",
     "photon": "github:connors/photon",
-    "rollup-standalone": "^0.42.6",
+    "rollup-standalone": "future",
     "standard-sass": "0.0.6",
     "vue": "^2.3.4",
     "vue-router": "^2.5.3",

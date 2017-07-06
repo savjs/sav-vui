@@ -1,39 +1,37 @@
 <template>
   <div :class="['sav-tab']">
-    <div v-for="option in options"
-      :class="['sav-tab-nav', colorModify, sizeModify, flexModify, typeModify]">
+    <div :class="['sav-tab-nav', colorModify, sizeModify, flexModify, typeModify]">
       <component
-        :is="nav" 
-        :tab-value="value"
-        :tab-option="option"
+        v-for="option in options"
+        :is="navComponent"
+        :value="value"
+        :option="option"
+        :textField="textField"
+        :valueField="valueField"
+        :class="['as-item', {
+          'is-active': option[valueField] == value
+        }]"
         @change="changeTab"
         ></component>
     </div>
-    <div class="sav-tab-container">
+    <div class="sav-tab-body">
       <slot></slot>
     </div>
-    <tab-nav-template inline-template>
-      <a :class="['as-item', {
-        'is-active': tabOption[textField] == tabValue
-      }]" @click.prevent="changeValue(tabOption[valueField])">{{tabOption[textField]}}</a>
-    </tab-nav-template>
   </div>
 </template>
-<component name="tabNavTemplate">
-  <div class="xxx"></div>
+
+<component name="navItem">
+  <a @click.prevent="changeValue(option[valueField])">{{option[textField]}}</a>
 </component>
+
 <script>
-  import color from '../mixins/color.js'
-  import size from '../mixins/size.js'
-  import flex from '../mixins/flex.js'
-  import type from '../mixins/type.js'
-  import option from '../mixins/option.js'
+  import {createMixins} from '../mixin.js'
   export default {
-    mixins: [color, size, flex, type, option],
+    mixins: createMixins(['color', 'size', 'flex', 'type', 'value', 'options', 'textField', 'valueField']),
     props: {
       navComponent: {
         type: [String, Object],
-        default: 'tabNavTemplate'
+        default: 'navItem'
       }
     },
     methods: {
@@ -41,22 +39,12 @@
         this.$emit('input', value)
       }
     },
-    created () {
-      console.log(this)
-    },
     components: {
-      tabNavTemplate: {
-        props: {
-          tabValue: {
-            default: String
-          },
-          tabOption: {
-            default: Object
-          }
-        },
+      navItem: {
+        mixins: createMixins(['value', 'option', 'textField', 'valueField']),
         methods: {
           changeValue (newValue) {
-            if (this.tabValue !== newValue) {
+            if (this.value !== newValue) {
               this.$emit('change', newValue)
             }
           }
