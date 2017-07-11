@@ -15,7 +15,7 @@
     props: {
       lang: {
         type: String,
-        default: 'javascript'
+        default: 'vue'
       }
     },
     data () {
@@ -25,8 +25,7 @@
       }
     },
     mounted () {
-      this.code = this.$refs.code.innerHTML.replace(/\n/, '');
-      this.$refs.code.innerHTML = this.code;
+      this.code = this.$refs.code.innerHTML;
       hljs.highlightBlock(this.$refs.code);
     },
     methods: {

@@ -58,6 +58,9 @@ export default {
     colModify () {
       return trust(this.col) ? `is-${this.col}` : ''
     },
+    offsetModify () {
+      return trust(this.offset) ? `is-offset-${this.offset}` : ''
+    },
     colorModify () {
       return trust(this.color) ? `is-${this.color}` : ''
     },

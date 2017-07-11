@@ -24,10 +24,9 @@
   import SavBtn from './SavBtn.vue'
   import SavIcon from './SavIcon.vue'
   import SavDropdown from './SavDropdown.vue'
-  import mixins from '../mixins/element.js'
-  import option from '../mixins/option.js'
+  import {createMixins} from '../mixin'
   export default {
-    mixins: [...mixins, option],
+    mixins: createMixins(['color', 'size', 'textField', 'valueField', 'options', 'value']),
     components: {
       SavBtn,
       SavIcon,

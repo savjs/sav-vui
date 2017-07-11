@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="as-control">
-      <sav-check v-model="float">浮动布局</sav-check>
+      <sav-check v-model="float">行浮动</sav-check>
     </div>
     <div class="as-preview">
       <sav-row :float="float" v-for="x in gridSize">

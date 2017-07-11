@@ -1,4 +1,4 @@
-export let SavGrid = {
+export let SavRow = {
   examples: [
     {
       name: 'GridRow',

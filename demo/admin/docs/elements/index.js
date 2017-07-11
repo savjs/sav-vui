@@ -1,2 +1,3 @@
 export * from './SavBtn.js'
-export * from './SavGrid.js'
+export * from './SavRow.js'
+export * from './SavCol.js'

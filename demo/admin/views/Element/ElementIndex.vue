@@ -1,12 +1,8 @@
 <template>
   <div class="element-index">
-    ElementIndex
-    <api></api>
-    <example 
-      comment="comment: 样例的详细说明0" 
-      title="title: 样例的标题" 
-      component="BtnModify" 
-      content="var x = 10"></example>
+    <api api="SavRow"></api>
+    <api api="SavCol"></api>
+    <api api="SavBtn"></api>
   </div>
 </template>
 

@@ -7,10 +7,9 @@
   </div>
 </template>
 <script>
-  import flex from '../mixins/flex.js'
-  import col from '../mixins/col.js'
+  import {createMixins} from '../mixin.js'
   export default {
-    mixins: [flex, col],
+    mixins: createMixins(['flex', 'col']),
     props: {
       block: {
         default: false

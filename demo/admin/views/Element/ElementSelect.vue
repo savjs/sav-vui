@@ -10,7 +10,7 @@
 <component name="my-tab-nav">
   <a @click="changeValue(option.value)">
     <span>{{option.text}}</span>
-    <span v-if="toggle">({{option.value}})</span>
+    <span>({{num}})</span>
   </a>
 </component>
 
@@ -72,7 +72,7 @@
         extends: 'SavTab.navItem',
         data () {
           return {
-            toggle: false
+            num: 0
           }
         },
         methods: {
@@ -80,7 +80,7 @@
             if (this.value !== newValue) {
               this.$emit('change', newValue)
             }
-            this.toggle = !this.toggle
+            this.num++
           }
         }
       }

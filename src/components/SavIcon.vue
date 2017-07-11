@@ -2,10 +2,9 @@
   <i :class="['as-icon', icon, colorModify, sizeModify]"></i>
 </template>
 <script>
-  import color from '../mixins/color.js'
-  import size from '../mixins/size.js'
+  import {createMixins} from '../mixin'
   export default {
-    mixins: [color, size],
+    mixins: createMixins(['color', 'size']),
     props: {
       icon: {
         type: String,

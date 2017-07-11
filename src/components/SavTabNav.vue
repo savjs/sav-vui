@@ -4,11 +4,8 @@
   </div>
 </template>
 <script>
-  import color from '../mixins/color.js'
-  import size from '../mixins/size.js'
-  import flex from '../mixins/flex.js'
-  import type from '../mixins/type.js'
+  import {createMixins} from '../mixin.js'
   export default {
-    mixins: [color, size, flex, type],
+    mixins: createMixins(['color', 'size', 'flex', 'type']),
   }
 </script>
