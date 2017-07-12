@@ -3,10 +3,6 @@
 /* eslint quotes: ["off"] */
 module.exports = {
   routes: {
-    select: {
-      method: "GET",
-      title: "选择框"
-    },
     index: {
       method: "GET",
       title: "元素",

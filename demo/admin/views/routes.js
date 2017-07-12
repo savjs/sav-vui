@@ -4,7 +4,6 @@
 import Component from './Component/Component.vue'
 import ComponentIndex from './Component/ComponentIndex.vue'
 import Element from './Element/Element.vue'
-import ElementSelect from './Element/ElementSelect.vue'
 import ElementIndex from './Element/ElementIndex.vue'
 import Home from './Home/Home.vue'
 import HomeIndex from './Home/HomeIndex.vue'
@@ -30,11 +29,6 @@ export default [
     component: Element,
     path: "/element",
     children: [
-      {
-        component: ElementSelect,
-        name: "ElementSelect",
-        path: "select"
-      },
       {
         component: ElementIndex,
         name: "ElementIndex",
