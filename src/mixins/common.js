@@ -27,7 +27,7 @@ export default {
       default: 0
     },
     value: {
-      type: [String, Number, Array],
+      type: [String, Number, Boolean, Object, Array],
       default: ''
     },
     textField: {

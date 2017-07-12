@@ -1,6 +1,13 @@
 <template>
   <div>
     <div class="doc-sections">
+      <span>API</span>
+    </div>
+    <div class="doc-apis">
+      <sav-tab v-model="currentTab" :options="options" color="primary"
+        :contentComponent="$options.components.apiContent"></sav-tab>
+    </div>
+    <div class="doc-sections">
       <span>Examples</span>
     </div>
     <example v-for="example in current.examples"
@@ -9,13 +16,6 @@
       :content = "example.content"
       :comment = "example.comment"
       ></example>
-    <div class="doc-sections">
-      <span>API</span>
-    </div>
-    <div class="doc-apis">
-      <sav-tab v-model="currentTab" :options="options" color="primary"
-        :contentComponent="$options.components.apiContent"></sav-tab>
-    </div>
   </div>
 </template>
 

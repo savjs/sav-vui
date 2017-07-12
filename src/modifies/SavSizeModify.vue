@@ -7,8 +7,8 @@
   export default {
     props: {
       value: {
-        type: [String],
-        default: ''
+        type: [Boolean, String],
+        default: false
       }
     },
     data () {
@@ -16,7 +16,7 @@
         options: [
           {
             text: '大小',
-            value: ''
+            value: false
           }
         ].concat(makeOptions(['small', 'large']))
       }

@@ -1,8 +1,7 @@
 <template>
   <div class="element-index">
-    <api api="SavRow"></api>
-    <api api="SavCol"></api>
-    <api api="SavBtn"></api>
+    <sav-select v-model="current" :options="elements"></sav-select>
+    <api :api="current"></api>
   </div>
 </template>
 
@@ -10,8 +9,12 @@
   export default {
     name: 'ElementIndex',
     getters: [
+      'elements'
     ],
-    actions: [
-    ]
+    data () {
+      return {
+        current: 'SavBtn'
+      }
+    }
   }
 </script>

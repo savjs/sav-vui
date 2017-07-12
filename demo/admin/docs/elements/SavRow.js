@@ -1,4 +1,5 @@
 export let SavRow = {
+  shortName: '栅格-行',
   examples: [
     {
       name: 'GridRow',

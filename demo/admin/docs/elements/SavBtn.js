@@ -1,4 +1,5 @@
 export let SavBtn = {
+  shortName: '按钮',
   mixins: ['size', 'color', 'defaultSlot'],
   props: [
     {

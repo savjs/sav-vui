@@ -11,6 +11,34 @@ function applyMixins (state, Vue) {
   for (let name in state) {
     state[name] = applyMixin(state[name], name, Vue)
   }
+  applyGroups(state)
+}
+
+function mapGroups (groups) {
+  return groups.map(value => {
+    let text = Elements[value].shortName || value
+    return {
+      text: `${value} - ${text}`,
+      value
+    }
+  })
+}
+
+function applyGroups (state) {
+  state.elements = mapGroups([
+    'SavBtn',
+    'SavRadio',
+    'SavRadioGroup',
+    'SavCheck'
+  ])
+  state.layouts = mapGroups([
+    'SavRow',
+    'SavCol'
+  ])
+  state.components = mapGroups([
+  ])
+
+  state.lists = state.elements.concat(state.layouts).concat(state.components)
 }
 
 let arrKeys = [
@@ -24,6 +52,7 @@ function applyMixin (it, name, Vue) {
   if (!it.props) {
     it.props = []
   }
+  it.name = name
   if (Array.isArray(it.mixins) && it.mixins.length) {
     let ret = {}
     arrKeys.forEach((name) => ret[name] = [])
@@ -85,7 +114,7 @@ function applyMixin (it, name, Vue) {
         }
       }
     })
-    console.log(name, props, componentProps)
+    // console.log(name, props, componentProps)
     // console.log(name, component.options.props)
   }
   return it

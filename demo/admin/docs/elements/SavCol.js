@@ -1,4 +1,5 @@
 export let SavCol = {
+  shortName: '栅格-列',
   examples: [
     {
       name: 'GridCol',

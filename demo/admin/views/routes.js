@@ -4,11 +4,6 @@
 import Component from './Component/Component.vue'
 import ComponentIndex from './Component/ComponentIndex.vue'
 import Element from './Element/Element.vue'
-import ElementTab from './Element/ElementTab.vue'
-import ElementBtn from './Element/ElementBtn.vue'
-import ElementInput from './Element/ElementInput.vue'
-import ElementRadio from './Element/ElementRadio.vue'
-import ElementCheck from './Element/ElementCheck.vue'
 import ElementSelect from './Element/ElementSelect.vue'
 import ElementIndex from './Element/ElementIndex.vue'
 import Home from './Home/Home.vue'
@@ -37,31 +32,6 @@ export default [
     component: Element,
     path: "/element",
     children: [
-      {
-        component: ElementTab,
-        name: "ElementTab",
-        path: "tab"
-      },
-      {
-        component: ElementBtn,
-        name: "ElementBtn",
-        path: "btn"
-      },
-      {
-        component: ElementInput,
-        name: "ElementInput",
-        path: "input"
-      },
-      {
-        component: ElementRadio,
-        name: "ElementRadio",
-        path: "radio"
-      },
-      {
-        component: ElementCheck,
-        name: "ElementCheck",
-        path: "check"
-      },
       {
         component: ElementSelect,
         name: "ElementSelect",

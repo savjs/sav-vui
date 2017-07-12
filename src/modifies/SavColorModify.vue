@@ -8,8 +8,8 @@
   export default {
     props: {
       value: {
-        type: [String],
-        default: ''
+        type: [Boolean, String],
+        default: false
       }
     },
     data () {
@@ -17,7 +17,7 @@
         options: [
           {
             text: '颜色',
-            value: ''
+            value: false
           },
         ].concat(makeOptions(['primary', 'secondary', 'success', 'warn', 'error']))
       }
