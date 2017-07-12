@@ -14,6 +14,11 @@ import RadioGroup from './radio/RadioGroup.vue'
 import CheckBasic from './check/CheckBasic.vue'
 import CheckBoolean from './check/CheckBoolean.vue'
 
+import TabModify from './tab/TabModify.vue'
+import TabComponent from './tab/TabComponent.vue'
+
+import TileBasic from './tile/TileBasic.vue'
+
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
@@ -33,6 +38,11 @@ let components = {
 
   CheckBasic,
   CheckBoolean,
+
+  TabModify,
+  TabComponent,
+
+  TileBasic,
 
   Api,
   Example

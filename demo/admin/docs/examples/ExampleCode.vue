@@ -1,6 +1,6 @@
 <template>
   <div>
-    <pre><code :class="lang" ref="code"><slot></slot></code></pre>
+    <pre><code :class="lang" ref="code" v-text="content"></code></pre>
     <span class="copy-example" @click="clip">
       <sav-icon icon="fa-clipboard" v-show="!copied"></sav-icon>
       <sav-icon icon="is-icon-right" v-show="copied" :color="copied && 'success'"></sav-icon>
@@ -16,25 +16,32 @@
       lang: {
         type: String,
         default: 'vue'
+      },
+      content: {
+        type: String,
+        default: ''
       }
     },
     data () {
       return {
-        code: '',
         copied: false
       }
     },
+    updated () {
+      this.highlight() // @NOTE 会有效率问题, 目前也没好的方案
+    },
     mounted () {
-      this.code = this.$refs.code.innerHTML;
-      hljs.highlightBlock(this.$refs.code);
+      this.highlight()
     },
     methods: {
+      highlight () {
+        hljs.highlightBlock(this.$refs.code)
+      },
       clip () {
-        const code = this.code.replace(/&lt;/g,'<')
-          .replace(/&gt;/g, '>')
-          .replace(/&amp;/g, '&')
+        const code = this.content
         const clipboard = new Clipboard('.copy-example', {
           text () {
+            // return this.content // @NOTE 这里必须用个变量接一下, 直接写不行
             return code
           }
         })
@@ -42,8 +49,8 @@
             e.clearSelection()
             clipboard.destroy()
             this.copied = true
-            setTimeout(() => {
-                this.copied = false
+            setTimeout(() => { // @NOTE 貌似VM的refs也被复用了
+              this.copied = false
             }, 2000)
         })
       }

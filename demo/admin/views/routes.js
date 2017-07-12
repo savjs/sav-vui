@@ -9,8 +9,6 @@ import ElementIndex from './Element/ElementIndex.vue'
 import Home from './Home/Home.vue'
 import HomeIndex from './Home/HomeIndex.vue'
 import Layout from './Layout/Layout.vue'
-import LayoutTile from './Layout/LayoutTile.vue'
-import LayoutGrid from './Layout/LayoutGrid.vue'
 import LayoutIndex from './Layout/LayoutIndex.vue'
 import Page from './Page/Page.vue'
 import PageLogin from './Page/PageLogin.vue'
@@ -59,16 +57,6 @@ export default [
     component: Layout,
     path: "/layout",
     children: [
-      {
-        component: LayoutTile,
-        name: "LayoutTile",
-        path: "tile"
-      },
-      {
-        component: LayoutGrid,
-        name: "LayoutGrid",
-        path: "grid"
-      },
       {
         component: LayoutIndex,
         name: "LayoutIndex",

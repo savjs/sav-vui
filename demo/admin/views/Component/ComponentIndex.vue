@@ -1,14 +1,19 @@
 <template>
   <div class="component-index">
-    ComponentIndex
+    <sav-select v-model="current" :options="components"></sav-select>
+    <api :api="current"></api>
   </div>
 </template>
 <script>
   export default {
     name: 'ComponentIndex',
     getters: [
+      'components'
     ],
-    actions: [
-    ]
+    data () {
+      return {
+        current: 'SavTab'
+      }
+    }
   }
 </script>
