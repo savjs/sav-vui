@@ -11,6 +11,8 @@
       +block-col
 
 .sav-form
+  overflow: hidden
+
   &.is-horizontal
     display: flex
     flex-direction: row
@@ -26,17 +28,18 @@
         min-width: 4em
         margin-right: 1.5rem
         text-align: right
-  &.is-left
-    justify-content: flex-start
-  &.is-right
-    justify-content: flex-end
-  &.is-center
-    justify-content: center
+
+    @for $i from 1 through 12
+      &.has-grow-#{$i}
+        >.sav-field
+          >.sav-label
+            width: #{$i + 4}em
+
+  +make-flex-modify
+
   &.is-around
     flex: 1
     justify-content: space-around
-  &.is-between
-    justify-content: space-between
   &.is-fill
     flex: 1
     > .sav-field

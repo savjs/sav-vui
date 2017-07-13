@@ -4,8 +4,8 @@
 <script>
   import SavSelect from '../components/SavSelect.vue'
 
-  function makeCol (ensure, prefix) {
-    let ret = Array(13).fill(0).map((it, id) => {
+  function makeCol (ensure, prefix, size) {
+    let ret = Array(size + 1).fill(0).map((it, id) => {
       return {
         text: id ? `${prefix}-${id}` : '栅格',
         value: id
@@ -27,16 +27,15 @@
       prefix: {
         type: String,
         default: 'is'
-      }
-    },
-    data () {
-      return {
-
+      },
+      size: {
+        type: Number,
+        default: 12
       }
     },
     computed: {
       options () {
-        return makeCol(this.ensure, this.prefix)
+        return makeCol(this.ensure, this.prefix, this.size)
       }
     },
     components: {

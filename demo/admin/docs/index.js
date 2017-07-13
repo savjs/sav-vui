@@ -37,7 +37,8 @@ function applyGroups (state) {
     'SavTile'
   ])
   state.components = mapGroups([
-    'SavTab'
+    'SavTab',
+    'SavForm'
   ])
 
   state.lists = state.elements.concat(state.layouts).concat(state.components)

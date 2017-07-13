@@ -16,10 +16,10 @@
       return {
         options: [
           {
-            text: 'Flex对齐',
+            text: '水平对齐',
             value: ''
           },
-        ].concat(makeOptions(['left', 'center', 'right', 'around', 'between']))
+        ].concat(makeOptions(['left', 'center', 'right']))
       }
     },
     components: {

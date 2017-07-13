@@ -49,6 +49,10 @@ export default {
     type: {
       type: [Number, String],
       default: 0
+    },
+    align: {
+      type: String,
+      default: ''
     }
   },
   computed: {
@@ -72,6 +76,9 @@ export default {
     },
     typeModify () {
       return trust(this.type) ? `is-${this.type}` : ''
+    },
+    alignModify () {
+      return trust(this.align) ? `is-${this.align}` : ''
     }
   }
 }

@@ -19,6 +19,8 @@ import TabComponent from './tab/TabComponent.vue'
 
 import TileBasic from './tile/TileBasic.vue'
 
+import FormCol from './form/FormCol.vue'
+
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
@@ -43,6 +45,8 @@ let components = {
   TabComponent,
 
   TileBasic,
+
+  FormCol,
 
   Api,
   Example
