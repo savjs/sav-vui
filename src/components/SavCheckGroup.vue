@@ -3,12 +3,13 @@
     <sav-check :disabled="disabled" :color="color" :size="size" v-for="opt in options"
       v-bridge
       :value="value"
-      :option="opt[valueField]"
-      >{{opt[textField]}}</sav-check>
+      :option="isTiny ? opt : opt[valueField]"
+      >{{isTiny ? opt : opt[textField]}}</sav-check>
   </span>
 </template>
 <script>
   import {elements, options} from '../mixin'
+  import {trust} from '../utils/util.js'
   let incId = 0
   export default {
     mixins: [...elements, ...options],
@@ -16,6 +17,15 @@
       inputName: {
         type: String,
         default: ''
+      },
+      tiny: {
+        type: [Boolean, String, Number],
+        default: false
+      }
+    },
+    computed: {
+      isTiny () {
+        return trust(this.tiny)
       }
     },
     data () {

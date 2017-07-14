@@ -14,6 +14,7 @@ import RadioGroup from './radio/RadioGroup.vue'
 import CheckBasic from './check/CheckBasic.vue'
 import CheckBoolean from './check/CheckBoolean.vue'
 import CheckGroup from './check/CheckGroup.vue'
+import CheckGroupTiny from './check/CheckGroupTiny.vue'
 
 import TabModify from './tab/TabModify.vue'
 import TabComponent from './tab/TabComponent.vue'
@@ -42,6 +43,7 @@ let components = {
   CheckBasic,
   CheckBoolean,
   CheckGroup,
+  CheckGroupTiny,
 
   TabModify,
   TabComponent,
