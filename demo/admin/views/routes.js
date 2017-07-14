@@ -4,18 +4,10 @@
 import Component from './Component/Component.vue'
 import ComponentIndex from './Component/ComponentIndex.vue'
 import Element from './Element/Element.vue'
-import ElementTab from './Element/ElementTab.vue'
-import ElementBtn from './Element/ElementBtn.vue'
-import ElementInput from './Element/ElementInput.vue'
-import ElementRadio from './Element/ElementRadio.vue'
-import ElementCheck from './Element/ElementCheck.vue'
-import ElementSelect from './Element/ElementSelect.vue'
 import ElementIndex from './Element/ElementIndex.vue'
 import Home from './Home/Home.vue'
 import HomeIndex from './Home/HomeIndex.vue'
 import Layout from './Layout/Layout.vue'
-import LayoutTile from './Layout/LayoutTile.vue'
-import LayoutGrid from './Layout/LayoutGrid.vue'
 import LayoutIndex from './Layout/LayoutIndex.vue'
 import Page from './Page/Page.vue'
 import PageLogin from './Page/PageLogin.vue'
@@ -38,36 +30,6 @@ export default [
     path: "/element",
     children: [
       {
-        component: ElementTab,
-        name: "ElementTab",
-        path: "tab"
-      },
-      {
-        component: ElementBtn,
-        name: "ElementBtn",
-        path: "btn"
-      },
-      {
-        component: ElementInput,
-        name: "ElementInput",
-        path: "input"
-      },
-      {
-        component: ElementRadio,
-        name: "ElementRadio",
-        path: "radio"
-      },
-      {
-        component: ElementCheck,
-        name: "ElementCheck",
-        path: "check"
-      },
-      {
-        component: ElementSelect,
-        name: "ElementSelect",
-        path: "select"
-      },
-      {
         component: ElementIndex,
         name: "ElementIndex",
         path: ""
@@ -89,16 +51,6 @@ export default [
     component: Layout,
     path: "/layout",
     children: [
-      {
-        component: LayoutTile,
-        name: "LayoutTile",
-        path: "tile"
-      },
-      {
-        component: LayoutGrid,
-        name: "LayoutGrid",
-        path: "grid"
-      },
       {
         component: LayoutIndex,
         name: "LayoutIndex",

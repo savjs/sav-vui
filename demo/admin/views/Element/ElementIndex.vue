@@ -1,12 +1,7 @@
 <template>
   <div class="element-index">
-    ElementIndex
-    <api></api>
-    <example 
-      comment="comment: 样例的详细说明0" 
-      title="title: 样例的标题" 
-      component="BtnModify" 
-      content="var x = 10"></example>
+    <sav-select v-model="current" :options="elements"></sav-select>
+    <api :api="current"></api>
   </div>
 </template>
 
@@ -14,8 +9,12 @@
   export default {
     name: 'ElementIndex',
     getters: [
+      'elements'
     ],
-    actions: [
-    ]
+    data () {
+      return {
+        current: 'SavBtn'
+      }
+    }
   }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <label :class="['sav-radio', disabledModify, colorModify, sizeModify]">
+  <label :class="['sav-radio', disabledModify, colorModify, sizeModify, blockModify]">
     <input type="radio" :disabled="disabled"
       :checked="isOption ? value == option : value"
       :value="option"
@@ -10,9 +10,9 @@
   </label>
 </template>
 <script>
-  import {elements} from '../mixin'
+  import {elements, createMixins} from '../mixin'
   export default {
-    mixins: elements,
+    mixins: elements.concat(createMixins(['block'])),
     props: {
       value: {
         default: false

@@ -1,5 +1,5 @@
 <template>
-  <span class="sav-radio-group">
+  <span :class="['sav-radio-group', verticalModify]">
     <label :class="['sav-radio', disabledModify, colorModify, sizeModify]" v-for="opt in options">
       <input type="radio" :name="inputName || innerName" 
         :value="opt[valueField]"
@@ -11,10 +11,10 @@
   </span>
 </template>
 <script>
-  import {elements, options} from '../mixin'
+  import {elements, options, createMixins} from '../mixin'
   let incId = 0
   export default {
-    mixins: [...elements, ...options],
+    mixins: elements.concat(options, createMixins(['vertical'])),
     props: {
       inputName: {
         type: String,

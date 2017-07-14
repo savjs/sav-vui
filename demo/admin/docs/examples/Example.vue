@@ -12,7 +12,7 @@
       </div>
     </sav-col>
     <sav-col>
-      <example-code class="example-code">{{content}}</example-code>
+      <example-code class="example-code" :content="content"></example-code>
     </sav-col>
   </sav-row>
 </template>

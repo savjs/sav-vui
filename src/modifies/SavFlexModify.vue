@@ -16,7 +16,7 @@
       return {
         options: [
           {
-            text: '对齐',
+            text: 'Flex对齐',
             value: ''
           },
         ].concat(makeOptions(['left', 'center', 'right', 'around', 'between']))

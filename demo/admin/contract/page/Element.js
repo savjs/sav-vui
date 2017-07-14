@@ -3,30 +3,6 @@
 /* eslint quotes: ["off"] */
 module.exports = {
   routes: {
-    tab: {
-      method: "GET",
-      title: "标签页"
-    },
-    btn: {
-      method: "GET",
-      title: "按钮"
-    },
-    input: {
-      method: "GET",
-      title: "输入框"
-    },
-    radio: {
-      method: "GET",
-      title: "单选"
-    },
-    check: {
-      method: "GET",
-      title: "多选"
-    },
-    select: {
-      method: "GET",
-      title: "选择框"
-    },
     index: {
       method: "GET",
       title: "元素",

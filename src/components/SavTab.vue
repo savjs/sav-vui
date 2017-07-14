@@ -18,11 +18,13 @@
       <component
         v-for="option in options"
         :is="contentComponent"
+        :key="option[valueField]"
         :option="option"
         :contentField="contentField"
         :class="['as-item', {
           'is-active': option[valueField] == value
         }]"
+        v-show="option[valueField] == value"
         ></component>
     </div>
   </div>

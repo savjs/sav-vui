@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="as-control">
-      <sav-check v-model="float">浮动布局</sav-check>
+      <sav-check v-model="float">行浮动</sav-check>
       <sav-btn class="as-item" @click.native="count++">添加</sav-btn>
       <sav-btn class="as-item" @click.native="count--" :disabled="count<1">移除</sav-btn>
       <sav-col-modify v-model="colValue" :ensure="true" prefix="has"></sav-col-modify>

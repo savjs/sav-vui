@@ -27,7 +27,7 @@ export default {
       default: 0
     },
     value: {
-      type: [String, Number, Array],
+      type: [String, Number, Boolean, Object, Array],
       default: ''
     },
     textField: {
@@ -49,6 +49,18 @@ export default {
     type: {
       type: [Number, String],
       default: 0
+    },
+    align: {
+      type: String,
+      default: ''
+    },
+    block: {
+      type: Boolean,
+      default: false
+    },
+    vertical: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -58,17 +70,29 @@ export default {
     colModify () {
       return trust(this.col) ? `is-${this.col}` : ''
     },
+    offsetModify () {
+      return trust(this.offset) ? `is-offset-${this.offset}` : ''
+    },
     colorModify () {
       return trust(this.color) ? `is-${this.color}` : ''
     },
     disabledModify () {
-      return trust(this.disabled) ? `is-${this.disabled}` : ''
+      return trust(this.disabled) ? `is-disabled` : ''
     },
     flexModify () {
       return trust(this.flex) ? `is-${this.flex}` : ''
     },
     typeModify () {
       return trust(this.type) ? `is-${this.type}` : ''
+    },
+    alignModify () {
+      return trust(this.align) ? `is-${this.align}` : ''
+    },
+    blockModify () {
+      return trust(this.block) ? `is-block` : ''
+    },
+    verticalModify () {
+      return trust(this.vertical) ? `is-vertical` : ''
     }
   }
 }

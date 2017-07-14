@@ -1,17 +1,19 @@
 <template>
   <div class="layout-index">
-    LayoutIndex
-    <grid-row></grid-row>
-    <grid-col></grid-col>
-    <grid-col-offset></grid-col-offset>
+    <sav-select v-model="current" :options="layouts"></sav-select>
+    <api :api="current"></api>
   </div>
 </template>
 <script>
   export default {
     name: 'LayoutIndex',
     getters: [
+      'layouts'
     ],
-    actions: [
-    ]
+    data () {
+      return {
+        current: 'SavRow'
+      }
+    }
   }
 </script>
