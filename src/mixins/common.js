@@ -53,6 +53,14 @@ export default {
     align: {
       type: String,
       default: ''
+    },
+    block: {
+      type: Boolean,
+      default: false
+    },
+    vertical: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -69,7 +77,7 @@ export default {
       return trust(this.color) ? `is-${this.color}` : ''
     },
     disabledModify () {
-      return trust(this.disabled) ? `is-${this.disabled}` : ''
+      return trust(this.disabled) ? `is-disabled` : ''
     },
     flexModify () {
       return trust(this.flex) ? `is-${this.flex}` : ''
@@ -79,6 +87,12 @@ export default {
     },
     alignModify () {
       return trust(this.align) ? `is-${this.align}` : ''
+    },
+    blockModify () {
+      return trust(this.block) ? `is-block` : ''
+    },
+    verticalModify () {
+      return trust(this.vertical) ? `is-vertical` : ''
     }
   }
 }

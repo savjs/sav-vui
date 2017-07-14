@@ -5,6 +5,8 @@ $radio-disabled-bg-color: $element-disabled-bg-color !default
 .sav-radio
   +make-element-default
   cursor: $element-cursor
+  &.is-block
+    display: block
   > input
     margin: 0
     padding: 0
@@ -49,3 +51,9 @@ $radio-disabled-bg-color: $element-disabled-bg-color !default
     &::after
       -webkit-transform: scale(0)
       transform: scale(0)
+
+.sav-radio-group
+  &.is-vertical
+    display: block
+    .sav-radio
+      display: block

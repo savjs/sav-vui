@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="as-control">
-      <sav-col-modify v-model="growValue" prefix="has-grow"></sav-col-modify>
+      <sav-col-modify v-model="growValue" prefix="has-grow" text="标签宽度"></sav-col-modify>
       <sav-align-modify v-model="align"></sav-align-modify>
     </div>
     <div class="as-preview">
