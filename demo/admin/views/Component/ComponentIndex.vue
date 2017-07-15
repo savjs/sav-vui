@@ -1,6 +1,6 @@
 <template>
   <div class="component-index">
-    <sav-select v-model="current" :options="components"></sav-select>
+    <sav-select v-model="current" :options="components" @input="saveStorage"></sav-select>
     <api :api="current"></api>
   </div>
 </template>
@@ -12,7 +12,12 @@
     ],
     data () {
       return {
-        current: 'SavTab'
+        current: localStorage.currentSavComponent || 'SavTab'
+      }
+    },
+    methods: {
+      saveStorage (val) {
+        localStorage.currentSavComponent = val
       }
     }
   }
