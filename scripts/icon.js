@@ -14,6 +14,7 @@ var configs = {
 		prefixTo: 'pt',
 		name: 'photon',
 		sassFile : 'sass/elements/icons/_icons-photon.sass',
+		jsFile : 'src/icons/photon.js',
 		htmlFile : 'demo/src/DemoPhoton.vue',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
 	},
@@ -24,6 +25,7 @@ var configs = {
 		prefixFrom: 'fa',
 		prefixTo: 'fa',
 		name: 'font-awesome',
+		jsFile : 'src/icons/font-awesome.js',
 		sassFile : 'sass/elements/icons/_icons-font-awesome.sass',
 		htmlFile : 'demo/src/DemoFontAwesome.vue',
 		htmlFormat : '<label title="%content"><i class="%name"></i><span>%name</span></label>',
@@ -59,6 +61,11 @@ function resolveIcon (config) {
 				let sassText =  util.replaceIcon(mat, config.prefixTo);
 				sassText = '=make-icons-' + config.name + '\r\n' + sassText + '\r\n';
 				return file.writeFileAsync(config.sassFile, sassText).then(() => ret)
+			})
+			.then(({content, mat}) => {
+				let data = mat.map(it => `'${config.prefixTo}${it[0]}'`).join(',\n  ')
+				data = `export default [\n  ${data}\n]\n`
+				return file.writeFileAsync(config.jsFile, data)
 			})
 			// .then(({content, mat}) => {
 			// 	return file.readFileAsync(config.htmlFile).then((html) => {

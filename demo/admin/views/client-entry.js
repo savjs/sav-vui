@@ -14,6 +14,7 @@ import {resolveContract} from 'sav'
 // @TODO 这里替换为真正的contract
 import contract from '../contract'
 import docs from '../docs'
+import icons from '../../../src/icons.js'
 
 // 定义路由
 
@@ -46,6 +47,7 @@ let flux = new Flux({
 
 // flux服务在这里嵌入
 flux.declare(docs)
+flux.declare({state: icons})
 
 // #if IS_DEV
 // 打印一下未定义schema的接口

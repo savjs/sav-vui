@@ -1,6 +1,6 @@
 <template>
   <div :class="['sav-flex-block', alignModify]">
-    <form :class="['sav-form', alignModify, horizontal ? 'is-horizontal': 'is-vertical', growModify]">
+    <form :class="['sav-form', alignModify, horizontalModify, growModify]">
       <slot></slot>
     </form>
   </div>
@@ -15,7 +15,7 @@
         default: 'center'
       },
       horizontal: {
-        type: Boolean,
+        type: [Boolean, Number, String],
         default: false
       },
       grow: {
@@ -24,6 +24,9 @@
       }
     },
     computed: {
+      horizontalModify () {
+        return trust(this.horizontal) ? `is-horizontal` : 'is-vertical'
+      },
       growModify () {
         return trust(this.grow) ? `has-grow-${this.grow}` : ''
       }

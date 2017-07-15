@@ -1,5 +1,5 @@
 
-var RE_ICON = /.(?:prefix)([\-\w]+):(?:before|after)(?:[\w\-:\s{]+)(?:'|")([\\\w\d]+)(?:'|")/
+var RE_ICON = /.(?:prefix)([\-\w]+):(before|after)(?:[\w\-:\s{]+)(?:'|")([\\\w\d]+)(?:'|")/
 
 function getIconRe (prefix) {
 	return new RegExp(RE_ICON.source.replace('prefix', prefix), 'g');
@@ -10,7 +10,7 @@ function matchIcon(prefix, input) {
 	var ret = [];
 	var mat = re.exec(input);
 	while (mat) {
-	    ret.push([mat[1], mat[2]]);
+	    ret.push([mat[1], mat[3], mat[2]]);
 	    mat  = re.exec(input);
 	}
 	return ret;

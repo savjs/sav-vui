@@ -23,6 +23,9 @@ import TileBasic from './tile/TileBasic.vue'
 
 import FormCol from './form/FormCol.vue'
 
+import IconPhoton from './icon/IconPhoton.vue'
+import IconFontAwesome from './icon/IconFontAwesome.vue'
+
 
 import TipDirective from './tip/TipDirective.vue'
 
@@ -54,6 +57,9 @@ let components = {
   TileBasic,
 
   FormCol,
+
+  IconPhoton,
+  IconFontAwesome,
 
   TipDirective,
 
