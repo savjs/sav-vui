@@ -23,6 +23,9 @@ import TileBasic from './tile/TileBasic.vue'
 
 import FormCol from './form/FormCol.vue'
 
+
+import TipDirective from './tip/TipDirective.vue'
+
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
@@ -51,6 +54,8 @@ let components = {
   TileBasic,
 
   FormCol,
+
+  TipDirective,
 
   Api,
   Example

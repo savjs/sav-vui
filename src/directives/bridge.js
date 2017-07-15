@@ -1,4 +1,9 @@
-
+/**
+ * 组件事件桥接
+ *   可以省略掉 v-on 的 $emit
+ * v-bridge 默认桥接 input事件
+ * v-bridge.change='input' 将change事件转换为input并emit, 也就是 $emit('input', ..args)
+ */
 export default {
   bind (el, binding, {componentInstance, context}, newVNode) {
     if (!(componentInstance && context)) {

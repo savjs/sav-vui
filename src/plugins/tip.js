@@ -77,7 +77,7 @@ function move (event) {
 
 function getTipNode (node) {
   if (node.dataset) {
-    return node.closest('[data-tip]') || node.closest('[data-html]')
+    return node.closest('[data-tip]') || node.closest('[data-tip-html]')
   }
 }
 
