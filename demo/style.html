@@ -100,21 +100,21 @@
     </div>
     <div>
       <h4>按钮(button)</h4>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Sav-Btn</button>
-      <button :class="['sav-btn is-outline', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-square']"><i class="as-icon fa-plus"></i></button>
-      <button :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-circle']"><i class="as-icon fa-plus"></i></button>
+      <button  data-tip="这个是按钮1" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Sav-Btn</button>
+      <button  data-tip="按钮2" :class="['sav-btn is-outline', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></button>
+      <button  data-tip="这个是长长长长长长长长长长长长长长长按钮3" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></button>
+      <button  data-tip="按钮4" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></button>
+      <button  data-tip="这个是按钮5" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-square']"><i class="as-icon fa-plus"></i></button>
+      <button  data-tip="按钮6" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-circle']"><i class="as-icon fa-plus"></i></button>
     </div>
     <div>
       <h4>按钮(a)</h4>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Sav-Btn</a>
-      <a :class="['sav-btn is-outline', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-square']"><i class="as-icon fa-plus"></i></a>
-      <a :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-circle']"><i class="as-icon pt-note"></i></a>
+      <a data-tip="这个是超链接按钮1" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]">Sav-Btn</a>
+      <a data-tip="按钮2" :class="['sav-btn is-outline', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span></a>
+      <a data-tip="超链接3" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><span>Sav-Btn</span><i class="as-icon fa-plus"></i></a>
+      <a data-tip="这个是超链接按钮4" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive]"><i class="as-icon fa-plus"></i><span>Sav-Btn</span><i class="as-icon fa-github"></i></a>
+      <a data-tip="按钮5" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-square']"><i class="as-icon fa-plus"></i></a>
+      <a data-tip="链接" :class="['sav-btn', isColor, isLoading, isDisabled, isSize, isActive, 'is-circle']"><i class="as-icon pt-note"></i></a>
     </div>
     <div>
       <h4>css图标(icon)</h4>
@@ -422,7 +422,7 @@
         </div>
       </div>
     </div>
-
+    <div class="sav-tooltip" id="sav_tooltip" style="display: none; opacity: 0">大幅上升</div>
   </div>
   <footer class="footer"></footer>
   <script type="text/javascript" src="http://cdn.bootcss.com/vue/2.3.3/vue.js"></script>
@@ -460,6 +460,61 @@
       },
       methods: {
         noSubmit: function () {}
+      }
+    })
+    var tipTarget
+    var tipVisible = false
+    document.addEventListener('mousedown', function (e) {
+      if ((e.buttons === 1 || e.which === 1) && tipVisible) {
+        let tip = document.getElementById('sav_tooltip')
+          let style = tip.style
+          style.transition = 'opacity 150ms'
+          style.opacity = 0
+          setTimeout(() => {
+            if (!tipTarget) {
+              style.display = `none`
+            }
+          }, 100)
+          tipVisible = false
+      }
+    })
+    document.addEventListener('mousemove', function (e) {
+      if (tipTarget) {
+        if (e.target === tipTarget) {
+          return
+        }
+        if (tipTarget.contains(e.target)) {
+          if (!e.target.dataset.tip) {
+            return
+          }
+        }
+        tipTarget = null
+      }
+      let tip = document.getElementById('sav_tooltip')
+      if (e.target.dataset && e.target.dataset.tip) {
+        tipTarget = e.target
+        tip.innerText = e.target.dataset.tip
+        let rect = tipTarget.getBoundingClientRect()
+        let x = Math.round(rect.right + 4)
+        let y = Math.round((rect.bottom + rect.top) / 2)
+        let style = tip.style
+        style.transition = 'opacity 150ms, transform 150ms'
+        style.transform = `translate(${x}px, calc(-50% + ${y}px))`
+        style.display = `block`
+        style.opacity = 1
+        tipVisible = true
+      } else {
+        if (tipVisible) {
+          let style = tip.style
+          style.transition = 'opacity 150ms, transform 150ms'
+          style.opacity = 0
+          setTimeout(() => {
+            if (!tipTarget) {
+              style.display = `none`
+            }
+          }, 100)
+          tipVisible = false
+        }
       }
     })
   </script>

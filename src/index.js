@@ -19,7 +19,12 @@ import SavTable from './components/SavTable.vue'
 import directives from './directives/index.js'
 import {componentMixin} from './componentMixin.js'
 
+
+import initSavTip from './plugins/tip.js'
+
 export function install (Vue) {
+  initSavTip()
+
   componentMixin(Vue)
 
   Object.keys(directives).forEach((it) => {
