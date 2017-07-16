@@ -1,0 +1,83 @@
+
+.sav-tree
+  position: relative
+  display: block
+  margin: 0
+  padding: 0
+  list-style-type: none
+  list-style-image: none
+  border: 1px solid #ccddee
+
+  .tree-node,
+  .tree-child
+    display: block
+    margin: 0
+    padding: 0
+    list-style-type: none
+    list-style-image: none
+  .tree-node
+    margin-left: 12px
+  .tree-hold // 背景占位
+    width: 100%
+    position: absolute
+    left: 0
+    user-select: none
+    +make-line-height-default
+    +make-font-size-default
+    padding: $pad-padding-default 0
+    &.is-hold-hover
+      transition: background-color 0.35s
+      background-color: #eee
+
+  .as-item
+    position: relative
+    +make-line-height-default
+    +make-font-size-default
+    padding: $pad-padding-default 0
+    display: inline-block
+    cursor: default
+
+  .tree-node
+    &.is-open
+      > .tree-child
+        height: auto
+        display: block
+      > .tree-toggle
+        visibility: visible
+    &.is-closed
+      > .tree-child
+        height: 0
+        display: none
+      > .tree-toggle
+        visibility: visible
+        transform: rotate(-45deg)
+        &:before
+          top: -20%
+          left: 30%
+          border-bottom-color: #999
+    &.is-active
+      > .tree-hold
+        background-color: #dbeeff
+  
+  > .tree-node
+    margin-left: 0
+    margin-right: 0
+
+  .tree-toggle
+    position: relative
+    width: 1em
+    height: 1em
+    visibility: hidden
+    display: inline-block
+    vertical-align: middle
+    &::before
+      position: absolute
+      display: block
+      left: 40%
+      top: -40%
+      height: 0
+      content: ''
+      width: 0
+      border-left: 0.5em solid transparent
+      border-top: 0.5em solid transparent
+      border-bottom: 0.5em #1ba1e2 solid
