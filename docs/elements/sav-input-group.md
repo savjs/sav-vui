@@ -16,13 +16,13 @@
 
 ### 属性
 
-- [x] size
-- [x] color
-- [x] disabled
+- [x]  size         | 计数器尺寸           | string   | large, small | — |
+- [x] color     
+- [x] disabled      | 是否禁用计数器        | boolean | — | false |
 - [x] textField
 - [x] valueField
 - [x] options
-- [x] value
+- [x] value         | 绑定值         | number | — | — |
 - [x] inputName
 - [x] tiny
 
