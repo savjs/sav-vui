@@ -12,6 +12,7 @@
     <sav-btn :color="color" :size="size" :to="url">Link</sav-btn>
     <sav-btn :color="color" :size="size"><sav-icon :icon="value"></sav-icon> Book</sav-btn>
   </div>
+  
 </template>
 <script>
   export default {
