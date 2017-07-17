@@ -1,9 +1,9 @@
 
-$table-text-color: $element-text-color !default
-$table-bd-color: $element-bd-color !default
+$table-text-color: #495060 !default
+$table-bd-color: #e9eaec !default
 $table-bg-color: $element-bg-color !default
 
-$table-even-bg-color: darken($table-bg-color, 2) !default
+$table-even-bg-color: #f8f8f9 !default
 $table-hover-bg-color: darken($table-bg-color, 6) !default
 $table-active-bg-color: darken($table-bg-color, 8) !default
 
@@ -11,10 +11,11 @@ $table-active-bg-color: darken($table-bg-color, 8) !default
   +make-table
   border: 1px solid $table-bd-color
   background-color: $table-bg-color
-
+  color: $table-text-color
   th, td
     +make-size-default
-
+  th
+    background-color: $table-even-bg-color
   > thead
     tr
       border-bottom: 1px solid $table-bd-color
