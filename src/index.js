@@ -1,4 +1,5 @@
 import SavBtn from './components/SavBtn.vue'
+import SavBtnGroup from './components/SavBtnGroup.vue'
 import SavInput from './components/SavInput.vue'
 import SavText from './components/SavText.vue'
 import SavCheck from './components/SavCheck.vue'
@@ -37,6 +38,7 @@ export function install (Vue) {
 
 let components = {
   SavBtn,
+  SavBtnGroup,
   SavInput,
   SavText,
   SavCheck,

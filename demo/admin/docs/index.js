@@ -27,6 +27,7 @@ function mapGroups (groups) {
 function applyGroups (state) {
   state.elements = mapGroups([
     'SavBtn',
+    'SavBtnGroup',
     'SavIcon',
     'SavRadio',
     'SavRadioGroup',

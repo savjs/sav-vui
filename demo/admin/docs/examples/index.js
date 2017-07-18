@@ -2,6 +2,7 @@ import Example from './Example.vue'
 import Api from './Api.vue'
 
 import BtnModify from './button/BtnModify.vue'
+import BtnGroup from './button/BtnGroup.vue'
 
 import SelectBasic from './select/SelectBasic.vue'
 
@@ -39,6 +40,7 @@ export function install (Vue) {
 
 let components = {
   BtnModify,
+  BtnGroup,
 
   SelectBasic,
 
