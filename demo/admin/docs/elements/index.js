@@ -1,6 +1,7 @@
 export * from './SavBtn.js'
 export * from './SavRow.js'
 export * from './SavCol.js'
+export * from './SavSelect.js'
 export * from './SavRadio.js'
 export * from './SavRadioGroup.js'
 export * from './SavTab.js'

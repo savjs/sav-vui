@@ -9,10 +9,10 @@
     <sav-btn :color="color" :size="size">一般按钮</sav-btn>
     <sav-btn :color="color" :size="size" :disabled="true">一般按钮</sav-btn>
     <sav-btn :color="color" :size="size" :loading="true">加载中</sav-btn>
-    <sav-btn :color="color" :size="size" :to="url">Link</sav-btn>
+    <sav-btn :color="color" :size="size" :to="{path:'/'}">Link</sav-btn>
     <sav-btn :color="color" :size="size"><sav-icon :icon="value"></sav-icon> Book</sav-btn>
   </div>
-  
+
 </template>
 <script>
   export default {
@@ -20,7 +20,6 @@
       return {
         color: false,
         size: false,
-        url: '/',
         value: '',
         options: [
           {text: '字体', value: false},

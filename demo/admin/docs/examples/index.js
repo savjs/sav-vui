@@ -3,6 +3,8 @@ import Api from './Api.vue'
 
 import BtnModify from './button/BtnModify.vue'
 
+import SelectBasic from './select/SelectBasic.vue'
+
 import GridRow from './grid/GridRow.vue'
 import GridCol from './grid/GridCol.vue'
 import GridColOffset from './grid/GridColOffset.vue'
@@ -37,6 +39,8 @@ export function install (Vue) {
 
 let components = {
   BtnModify,
+
+  SelectBasic,
 
   GridRow,
   GridCol,
