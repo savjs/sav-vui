@@ -1,5 +1,5 @@
 <template>
-  <sav-dropdown :open="innerOpen"
+  <sav-dropdown :open="innerOpen" :fill="fill"
     @mouseenter.native="disabled || hover && (innerOpen = true)"
     @mouseleave.native="disabled || (innerOpen = false)"
     >
@@ -55,6 +55,14 @@
         default: '请选择'
       },
       hover: {
+        type: [Boolean, String],
+        default: false
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      fill: {
         type: [Boolean, String],
         default: false
       }

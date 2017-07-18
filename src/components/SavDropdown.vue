@@ -1,5 +1,5 @@
 <template>
-  <div :class="['sav-dropdown', openModify, hoverModify]">
+  <div :class="['sav-dropdown', openModify, hoverModify, {'is-fill': fill}]">
     <slot></slot>
     <div class="as-dropview">
       <slot name="dropview"></slot>
@@ -15,6 +15,10 @@
         default: false
       },
       hover: {
+        type: [Boolean, String],
+        default: false
+      },
+      fill: {
         type: [Boolean, String],
         default: false
       }
