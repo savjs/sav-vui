@@ -5,10 +5,14 @@
     </div>
     <div class="as-preview">
       <sav-modal
-        @close="close()"
-        v-show="isShowModal"
-      >444</sav-modal>
-      <sav-btn  @click="ShowModal">一般按钮</sav-btn>
+        :show="isShowModal"
+        @close="close(true)"
+      >
+        对话框内容 </br>
+        对话框内容 </br>
+        对话框内容 </br>
+      </sav-modal>
+      <sav-btn  @click.native="ShowModal">一般按111钮</sav-btn>
     </div>
   </div>
 </template>
@@ -23,6 +27,9 @@
       ShowModal () {
         this.isShowModal = true
       },
+      close(){
+        this.isShowModal = false
+      }
     }
   }
 </script>
