@@ -34,7 +34,8 @@ function applyGroups (state) {
     'SavCheck',
     'SavCheckGroup',
     'SavTip',
-    'SavSelect'
+    'SavSelect',
+    'SavTree'
   ])
   state.layouts = mapGroups([
     'SavRow',
@@ -52,7 +53,7 @@ let arrKeys = [
   'props',
   'slots',
   'events',
-  'examples',
+  'examples'
 ]
 
 function applyMixin (it, name, Vue) {
