@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="as-control">
-      <sav-color-modify v-model="color"></sav-color-modify>
       <sav-size-modify v-model="size"></sav-size-modify>
+      <sav-select v-model="value" :options="options"></sav-select>
     </div>
-    <sav-flip :color="color" :size="size" :item="item"></sav-flip>
+    <sav-flip :color="color" :size="size" :item="item" :type="value"></sav-flip>
   </div>
 </template>
 <script>
@@ -13,7 +13,12 @@
       return {
         color: false,
         size: false,
-        item: 10
+        value: 'FlipGroup',
+        item: 10,
+        options: [
+          {text:'FlipGroup', value:'FlipGroup'},
+          {text:'SingleFlip', value:'SingleFlip'}
+        ]
       }
     }
   }

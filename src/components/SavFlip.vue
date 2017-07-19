@@ -1,28 +1,40 @@
 <template>
   <div>
-    <div :class="['sav-pagination', colorModify, sizeModify]">
+    <div :class="['sav-pagination', sizeModify]" v-if="type=='FlipGroup'">
       <ul class="u-item">
-        <li class="item-list" @click="switchFlip(0)"><sav-icon icon="fa-angle-double-left"></sav-icon></li>
+        <li class="item-list" @click="switchFlip('left')"><sav-icon icon="fa-angle-double-left"></sav-icon></li>
         <li :class="['item-list', {'is-active': opt.type}]" v-for="opt in options" @click="checkNum(opt.num)"><a>{{opt.num}}</a></li>
-        <li class="item-list" @click="switchFlip(1)"><sav-icon icon="fa-angle-double-right"></sav-icon></li>
+        <li class="item-list" @click="switchFlip('next')"><sav-icon icon="fa-angle-double-right"></sav-icon></li>
       </ul>
     </div>
-    <div>第{{flip}}页</div>
+
+    <div :class="['sav-pagination', colorModify, sizeModify]" v-if="type=='SingleFlip'">
+      <sav-btn @click.native="flip > 1 ? flip-- : flip=1">上一页</sav-btn>
+      <sav-btn @click.native="flip++">下一页</sav-btn>
+    </div>
+
+    <div class="page-cont">第{{flip}}页</div>
   </div>
 
 </template>
 <script>
   import {elements} from '../mixin.js'
   import SavIcon from './SavIcon.vue'
+  import SavBtn from './SavBtn.vue'
   export default {
     mixins: elements,
     components: {
-      SavIcon
+      SavIcon,
+      SavBtn
     },
     props: {
       item: {
         type: Number,
         default: 5
+      },
+      type: {
+        type: String,
+        default: 'FlipGroup'
       }
     },
     data (){
@@ -59,7 +71,7 @@
           if(res.type === true)
             tm = +res.num
         })
-        if(ty === 1){
+        if(ty === 'next'){
           tm += 1
           this.options.map((res) => {
             if(res.num === tm || tm > this.item && res.num === this.item){
@@ -69,7 +81,7 @@
               res.type = false
             }
           })
-        }else if(ty === 0){
+        }else if(ty === 'left'){
           tm -= 1
           this.options.map((res) => {
             if(res.num === tm || tm < 1 && res.num === 1){
