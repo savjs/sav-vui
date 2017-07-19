@@ -55,39 +55,40 @@ $button-text-color: $is-text-darken-color !default
       +make-icon-loader
       +make-spin-around
       +center(1.2em)
-.sav-btn-group:not(.is-vertical)
-  display: inline-block
-  vertical-align: middle
-  .sav-btn
-    float: left
-    margin-left: -1px
-    &:not(:first-child):not(:last-child)
-      border-radius: 0
-    &:first-child
-      margin-left: 0
-      &:not(:last-child)
-        border-bottom-right-radius: 0
-        border-top-right-radius: 0
-    &:last-child:not(:first-child)
-      border-bottom-left-radius: 0
-      border-top-left-radius: 0
-.is-vertical
-  display: inline-block
-  vertical-align: middle
-  .sav-btn
-    display: block
-    width: 100%
-    max-width: 100%
-    float: none
-    margin-top: -1px
-    margin-left: 0
-    &:not(:first-child):not(:last-child)
-      border-radius: 0
-    &:first-child
-      margin-top: 0
-      &:not(:last-child)
+
+.sav-btn-group
+  &.is-horizontal
+    display: inline-block
+    vertical-align: middle
+    +clearfix
+    .sav-btn
+      float: left
+      margin-left: -1px
+      &:not(:first-child):not(:last-child)
+        border-radius: 0
+      &:first-child
+        margin-left: 0
+        &:not(:last-child)
+          border-bottom-right-radius: 0
+          border-top-right-radius: 0
+      &:last-child:not(:first-child)
         border-bottom-left-radius: 0
-        border-bottom-right-radius: 0
-    &:last-child:not(:first-child)
-      border-top-left-radius: 0
-      border-top-right-radius: 0
+        border-top-left-radius: 0
+  &.is-vertical
+    display: inline-block
+    vertical-align: middle
+    .sav-btn
+      display: block
+      margin-top: -1px
+      width: 100%
+      max-width: 100%
+      &:not(:first-child):not(:last-child)
+        border-radius: 0
+      &:first-child
+        margin-top: 0
+        &:not(:last-child)
+          border-bottom-left-radius: 0
+          border-bottom-right-radius: 0
+      &:last-child:not(:first-child)
+        border-top-left-radius: 0
+        border-top-right-radius: 0

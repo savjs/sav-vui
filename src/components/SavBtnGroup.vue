@@ -1,13 +1,16 @@
-
 <template>
-  <span :class="['sav-btn-group', verticalModify]">
+  <span :class="['sav-btn-group', dirModify]">
      <slot></slot>
   </span>
 </template>
 <script>
-  import {elements , createMixins} from '../mixin'
+  import {createMixins} from '../mixin'
   export default {
-    mixins: elements.concat(createMixins(['vertical']))
-
+    mixins: createMixins(['vertical']),
+    computed: {
+      dirModify () {
+        return this.verticalModify || 'is-horizontal'
+      }
+    }
   }
 </script>
