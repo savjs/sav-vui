@@ -6,6 +6,8 @@ import BtnGroup from './button/BtnGroup.vue'
 
 import SelectBasic from './select/SelectBasic.vue'
 
+import FlipBasic from './flip/FlipBasic.vue'
+
 import GridRow from './grid/GridRow.vue'
 import GridCol from './grid/GridCol.vue'
 import GridColOffset from './grid/GridColOffset.vue'
@@ -45,6 +47,8 @@ let components = {
   BtnGroup,
 
   SelectBasic,
+
+  FlipBasic,
 
   GridRow,
   GridCol,

@@ -1,0 +1,36 @@
+
+.sav-pagination
+  position: relative
+  display: block
+  margin: 0
+  padding: 0
+
+  &.is-small
+    > *
+      font-size: 10px
+
+  &.is-large
+    > *
+      font-size: 18px
+
+  > .u-item
+    width: 100%
+    padding: 0
+
+    > .as-icon
+      +make-icon-addon
+
+    > .item-list
+      border: 1px solid #cccccc
+      cursor: pointer
+      padding: 5px 10px 5px 10px
+      margin: 0
+      list-style: none
+      float: left
+      
+      &:hover
+        background: #ddd
+
+    .item-list.is-active
+      background: #0e729f
+      border: 1px solid #0e729f
