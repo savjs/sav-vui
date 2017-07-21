@@ -6,9 +6,7 @@
     </div>
     <div class="as-preview">
       <div class="tree-menu">
-        <ul v-for="menuItem in theModel">
-          <sav-tree :model="menuItem"></sav-tree>
-        </ul>
+        <sav-tree :options="data" :size="size"></sav-tree>
       </div>
     </div>
   </div>
@@ -17,6 +15,7 @@
   export default {
     data () {
       return {
+        size: false,
         data: [
           {
             value: '0',
