@@ -4,7 +4,7 @@
       <sav-size-modify v-model="size"></sav-size-modify>
       <sav-select v-model="value" :options="options"></sav-select>
     </div>
-    <sav-flip :color="color" :size="size" :item="item" :type="value"></sav-flip>
+    <sav-flip :color="color" :size="size" :item="item" :AllItem="allpages" :type="value"></sav-flip>
   </div>
 </template>
 <script>
@@ -14,7 +14,8 @@
         color: false,
         size: false,
         value: 'FlipGroup',
-        item: 10,
+        item: 4,
+        allpages: 10,
         options: [
           {text:'FlipGroup', value:'FlipGroup'},
           {text:'SingleFlip', value:'SingleFlip'}
