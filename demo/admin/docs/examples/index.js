@@ -36,6 +36,9 @@ import TipDirective from './tip/TipDirective.vue'
 import TreeModify from './tree/TreeModify.vue'
 import ModalModify from './modal/ModalModify.vue'
 
+import InputModify from './input/InputModify.vue'
+
+
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
     Vue.component(it, components[it])
@@ -76,6 +79,7 @@ let components = {
   TipDirective,
   TreeModify,
   ModalModify,
+  InputModify,
 
   Api,
   Example

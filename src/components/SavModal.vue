@@ -1,5 +1,5 @@
 <template>
-  <div :class="classes" v-if="isShow">
+  <div class="sav-modal is-active" v-if="isShow">
     <div class="modal-mask" @click="mask"></div>
     <div class="modal-card" :style="w">
       <a class="modal-close"  @click="close"><sav-icon icon="is-icon-close"></sav-icon></a>
@@ -80,13 +80,6 @@
             this.addScrollEffect()
           }
         }
-      },
-      scrollable (val) {
-        if (!val) {
-          this.addScrollEffect()
-        } else {
-          this.removeScrollEffect()
-        }
       }
     },
     data () {
@@ -113,8 +106,7 @@
         this.$emit('close')
       },
       ok () {
-        this.isShow = false
-        this.$emit('onok')
+        this.$emit('onok', this.close)
       },
       cancel () {
         this.close()
@@ -162,9 +154,6 @@
     computed: {
       w () {
         return (this.width === null) ? '' : 'width:' + this.width + 'px;'
-      },
-      classes () {
-        return ['modal', 'is-active']
       }
     }
   }

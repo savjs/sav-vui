@@ -7,6 +7,7 @@
       <sav-modal
         :show="isShowModal"
         @close="close(true)"
+        @onok="ok"
       >
         对话框内容 </br>
         对话框内容 </br>
@@ -29,6 +30,9 @@
       },
       close(){
         this.isShowModal = false
+      },
+      ok (cb) {
+        cb()
       }
     }
   }
