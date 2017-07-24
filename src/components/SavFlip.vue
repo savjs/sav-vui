@@ -1,13 +1,27 @@
 <template>
   <div>
     <div :class="['sav-pagination', sizeModify]" v-if="type=='FlipGroup'">
-      <div :class="['page-list', {'borderRight': options[0].num === 1}]" @click="switchFlip('left')"><sav-icon icon="fa-angle-double-left"></sav-icon></div>
-      <div class="page-list page-list-more" id="morePage" @click="showBeforePage" v-if="options[0].num !== 1"><span>...</span></div>
+      <div :class="['page-list', {'borderRight': options[0].num === 1}]"
+           @click="switchFlip('left')">
+        <sav-icon icon="fa-angle-double-left"></sav-icon>
+      </div>
+      <div class="page-list page-list-more"
+           @click="showBeforePage"
+           v-if="options[0].num !== 1"><span>...</span></div>
       <ul class="page-item">
-        <li :class="['page-list', {'is-active': opt.type}]" v-for="opt in options" @click="checkNum(opt.num)"><a>{{opt.num}}</a></li>
+        <li :class="['page-list', {'is-active': opt.type}]"
+            v-for="opt in options"
+            @click="checkNum(opt.num)">
+          <a>{{opt.num}}</a>
+        </li>
       </ul>
-      <div class="page-list page-list-more" @click="showAllPage" v-if="AllItem > limitPage && options[options.length-1].num < AllItem"><span>...</span></div>
-      <div :class="['page-list', {'pageBorder': options[options.length - 1].num == AllItem}]" @click="switchFlip('next')"><sav-icon icon="fa-angle-double-right"></sav-icon></div>
+      <div class="page-list page-list-more"
+           @click="showAllPage"
+           v-if="AllItem > limitPage && options[options.length-1].num < AllItem"><span>...</span></div>
+      <div :class="['page-list', {'pageBorder': options[options.length - 1].num == AllItem}]"
+           @click="switchFlip('next')">
+        <sav-icon icon="fa-angle-double-right"></sav-icon>
+      </div>
     </div>
 
     <div :class="['sav-pagination', colorModify, sizeModify]" v-if="type=='SingleFlip'">
@@ -71,6 +85,7 @@
           if(key.num === it){
             key.type = true
             this.flip = it
+            this.$emit('pages',this.flip)
           }else{
             key.type = false
           }
