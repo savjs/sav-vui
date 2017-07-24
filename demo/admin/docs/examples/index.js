@@ -26,6 +26,8 @@ import TabComponent from './tab/TabComponent.vue'
 
 import TileBasic from './tile/TileBasic.vue'
 
+import TextArea from './text/TextArea.vue'
+
 import FormCol from './form/FormCol.vue'
 
 import IconPhoton from './icon/IconPhoton.vue'
@@ -70,6 +72,8 @@ let components = {
   TabComponent,
 
   TileBasic,
+
+  TextArea,
 
   FormCol,
 
