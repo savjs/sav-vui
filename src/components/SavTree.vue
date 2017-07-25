@@ -50,9 +50,6 @@
       changeHandler (value) {
         this.value = value
         this.$emit('input', value)
-      },
-      hoverHandler () {
-
       }
     },
     components: {
@@ -79,8 +76,6 @@
           isFolder () {
             return this.option[this.childrenField] && this.option[this.childrenField].length
           }
-        },
-        created () {
         },
         methods: {
           toggle (newValue) {

@@ -39,6 +39,7 @@ import TreeModify from './tree/TreeModify.vue'
 import ModalModify from './modal/ModalModify.vue'
 
 import InputModify from './input/InputModify.vue'
+import DatepickerModify from './datepicker/DatepickerModify.vue'
 
 
 export function install (Vue) {
@@ -86,7 +87,8 @@ let components = {
   InputModify,
 
   Api,
-  Example
+  Example,
+  DatepickerModify
 }
 
 Object.defineProperty(components, 'install', {
