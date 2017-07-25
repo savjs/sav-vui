@@ -1,8 +1,8 @@
 <template>
-  <div :class="classes" v-if="show">
-    <div class="modal-mask" @click="mask"></div>
+  <div class="sav-modal is-active" v-show="visible">
+    <div class="modal-mask" @click="mask" v-show="visible"></div>
     <div class="modal-card" :style="w">
-      <a class="modal-close"  @click="close"><sav-icon icon="is-icon-close"></sav-icon></a>
+      <a class="modal-close"  @click="close" v-if="closable"><sav-icon icon="is-icon-close"></sav-icon></a>
       <header class="modal-card-head" v-if="header">
         <slot name="header">
           <p class="modal-card-title">{{title}}</p>
@@ -13,8 +13,8 @@
       </section>
       <footer class="modal-card-foot" v-if="footer">
         <slot name="footer">
-          <sav-btn @click="ok">{{okText}}</sav-btn>
-          <sav-btn @click="cancel">{{cancelText}}</sav-btn>
+          <sav-btn  @click.native ="ok" class="is-success">{{okText}}</sav-btn>
+          <sav-btn @click.native="cancel">{{cancelText}}</sav-btn>
         </slot>
       </footer>
     </div>
@@ -23,19 +23,28 @@
 <script>
   import SavIcon from './SavIcon.vue'
   import SavBtn from './SavBtn.vue'
+  import {getScrollBarSize} from '../utils/util.js'
   export default {
     components: {
       SavIcon,
       SavBtn
     },
     props: {
+      value: {
+        type: Boolean,
+        default: false
+      },
+      closable: {
+        type: Boolean,
+        default: true
+      },
+      maskClosable: {
+        type: Boolean,
+        default: true
+      },
       title: {
         type: String,
         default: '提示框'
-      },
-      show: {
-        type: Boolean,
-        default: false
       },
       footer: {
         type: Boolean,
@@ -62,60 +71,108 @@
         default: false
       }
     },
-    watch: {
-      show (val) {
-        this.isShow = val
-      }
-    },
+
     data () {
       return {
-        isShow: this.show
+        wrapShow: false,
+        visible: this.value
       }
     },
-    mounted () {
-      document.addEventListener('keydown', this.EscClose)
-    },
+
     beforeDestroy () {
       document.removeEventListener('keydown', this.EscClose)
     },
     methods: {
-      open () {
-        this._show()
-      },
-      _show () {
-        this.isShow = true
-        this.$emit('show')
-      },
       close () {
-        this.isShow = false
-        this.$emit('close')
+        this.visible = false
+        this.$emit('input', false)
+        this.$emit('on-cancel')
       },
       ok () {
-        this.isShow = false
-        this.$emit('onok')
+        this.visible = false
+        this.$emit('input', false)
+        this.$emit('on-ok')
       },
       cancel () {
         this.close()
-        this.$emit('oncancel')
       },
       mask () {
-        this.close()
+        if (this.maskClosable) {
+          this.close()
+        }
       },
-
       EscClose (e) {
-        if (this.isShow) {
+        if (this.visible && this.closable) {
           if (e.keyCode === 27) {
             this.close()
           }
         }
+      },
+      checkScrollBar () {
+        let fullWindowWidth = window.innerWidth
+        if (!fullWindowWidth) {
+          const documentElementRect = document.documentElement.getBoundingClientRect()
+          fullWindowWidth = documentElementRect.right - Math.abs(documentElementRect.left)
+        }
+        this.bodyIsOverflowing = document.body.clientWidth < fullWindowWidth
+        if (this.bodyIsOverflowing) {
+          this.scrollBarWidth = getScrollBarSize()
+        }
+      },
+      setScrollBar () {
+        if (this.bodyIsOverflowing && this.scrollBarWidth !== undefined) {
+          document.body.style.paddingRight = `${this.scrollBarWidth}px`
+        }
+      },
+      resetScrollBar () {
+        document.body.style.paddingRight = ''
+      },
+      addScrollEffect () {
+        this.checkScrollBar()
+        this.setScrollBar()
+        document.body.style.overflow = 'hidden'
+      },
+      removeScrollEffect() {
+        document.body.style.overflow = ''
+        this.resetScrollBar()
       }
     },
     computed: {
       w () {
         return (this.width === null) ? '' : 'width:' + this.width + 'px;'
+      }
+    },
+    mounted () {
+      if (this.visible) {
+        this.wrapShow = true
+      }
+      // ESC close
+      document.addEventListener('keydown', this.EscClose)
+    },
+    watch: {
+      value (val) {
+        this.visible = val
       },
-      classes () {
-        return ['modal', 'is-active']
+      visible (val) {
+        if (val === false) {
+          this.timer = setTimeout(() => {
+            this.wrapShow = false
+          this.removeScrollEffect()
+        }, 300)
+        } else {
+          if (this.timer) clearTimeout(this.timer)
+          this.wrapShow = true
+          if (!this.scrollable) {
+            this.addScrollEffect()
+          }
+        }
+      },
+      scrollable (val) {
+        if (!val) {
+          this.addScrollEffect();
+        } else {
+          this.removeScrollEffect();
+        }
       }
     }
   }

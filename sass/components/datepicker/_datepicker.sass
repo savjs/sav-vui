@@ -1,0 +1,85 @@
+.sav-datetime-picker 
+  position: relative
+  display: inline-block
+  font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei"
+  -webkit-font-smoothing: antialiased
+  color: #333
+
+  input 
+    width: 100%
+    padding: 5px 10px
+    height: 30px
+    outline: 0 none
+    border: 1px solid #ccc
+    font-size: 13px
+
+  .picker-wrap
+    position: absolute
+    z-index: 1000
+    width: 238px
+    height: 280px
+    margin-top: 2px
+    background-color: #fff
+    box-shadow: 0 0 6px #ccc
+
+  table 
+    width: 100%
+    border-collapse: collapse
+    border-spacing: 0
+    text-align: center
+    font-size: 13px
+
+  tr 
+    height: 34px
+    border: 0 none
+
+  th, td 
+    user-select: none
+    width: 34px
+    height: 34px
+    padding: 0
+    border: 0 none
+    line-height: 34px
+    text-align: center
+
+  td 
+    cursor: pointer
+
+  td:hover 
+    background-color: #f0f0f0
+
+  td.date-pass, td.date-future 
+    color: #aaa
+
+  td.date-active 
+    background-color: #ececec
+    color: #3bb4f2
+
+  .date-head 
+    background-color: #fff
+    text-align: center
+    color: #333
+    font-size: 14px
+
+  .date-days 
+    color: #3bb4f2
+    font-size: 14px
+
+  .show-year 
+    display: inline-block
+    min-width: 62px
+    vertical-align: middle
+
+  .show-month 
+    display: inline-block
+    min-width: 28px
+    vertical-align: middle
+
+  .btn-prev, .btn-next 
+    cursor: pointer
+    display: inline-block
+    padding: 0 10px
+    vertical-align: middle
+
+  .btn-prev:hover, .btn-next:hover 
+    background: rgba(16, 160, 234, 0.5)

@@ -1,0 +1,68 @@
+
+.sav-pagination
+  position: relative
+  display: block
+  margin: 0
+  padding: 0
+
+  &.is-small
+    +make-size-sm
+
+  &.is-large
+    +make-size-lg
+
+  &:last-child
+    border-left: 1px solid #cccccc
+
+  .page-list
+    border-top: 1px solid #cccccc
+    border-bottom: 1px solid #cccccc
+    border-right: 1px solid #cccccc
+    cursor: pointer
+    padding: 0.3em 0.7em 0.3em 0.7em
+    margin: 0
+    list-style: none
+    float: left
+
+    &:first-child, &:last-child
+      border-left: 1px solid #cccccc
+
+    &:hover:not(.page-list-more)
+      background: #ddd
+
+  .page-list-more
+    border: none
+    text-align: center
+    vertical-align: middle
+    margin-top: 1px
+
+    > span
+      display: block
+      line-height: 0.9em
+
+  > .page-item
+    width: 100%
+    padding: 0
+    margin: 0
+
+    > .as-icon
+      +make-icon-addon
+
+    > .page-list
+      &:last-child
+        border-left: none
+
+    .page-list.is-active
+      background: #0e729f
+      border: 1px solid #0e729f
+
+  > .borderRight
+    border-right: none
+
+  > .pageBorder
+    border-left: none !important
+
+.page-cont
+  position: absolute
+  margin-left: 5em
+  margin-top: 5em
