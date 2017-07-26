@@ -26,7 +26,7 @@ import TileBasic from './tile/TileBasic.vue'
 
 import MessagePrompt from './message/MessagePrompt.vue'
 
-import SwitchBasic from './switch/SwitchBasic.vue
+import SwitchBasic from './switch/SwitchBasic.vue'
 
 import FormCol from './form/FormCol.vue'
 

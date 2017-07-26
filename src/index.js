@@ -59,10 +59,12 @@ let components = {
   SavTab,
   SavTabNav,
   SavTable,
+  SavModal,
   SavTree,
   SavDatepicker,
   SavMessage,
-  SavSwitch,
+  SavSwitch
+}
 
 Object.defineProperty(components, 'install', {
   value: install,
