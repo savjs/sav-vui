@@ -5,6 +5,7 @@
     <sav-btn @click.native="isOpen1">失败</sav-btn>
     <sav-btn @click.native="isOpen2">提示</sav-btn>
     <sav-btn @click.native="isOpen3">警告</sav-btn>
+    <sav-btn @click.native="isOpen4">默认提示</sav-btn>
   </div>
 </template>
 <script>
@@ -34,6 +35,10 @@
       isOpen3 (){
         this.open = true
         this.type = 'notice'
+      },
+      isOpen4 (){
+        this.open = true
+        this.type = 'default'
       },
       changeType (text){
         this.open = text
