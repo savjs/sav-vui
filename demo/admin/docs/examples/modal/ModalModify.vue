@@ -7,6 +7,7 @@
       <sav-modal
               title="禁用遮罩层关闭"
               v-model="modal1"
+              :align="align"
               :mask-closable="false"
       >
         <p>对话框内容</p>
@@ -45,7 +46,8 @@
       return {
         modal1: false,
         modal2: false,
-        modal3: false
+        modal3: false,
+        align: 'right'
       }
     },
     methods: {

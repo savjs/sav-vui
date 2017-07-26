@@ -17,27 +17,30 @@
     background-color: #FFFFFF
     border-radius: 3px
     overflow: hidden
+    border-color: transparent
+    box-shadow: 0 1px 5px 0 rgba(84, 98, 105, 0.5)
     .as-close
       position: absolute
       right: 16px
-      top: 16px
+      top: 11px
+      font-size: 20px
       z-index: 9999
       cursor: pointer
     .as-header,
     .as-footer
-      padding: 14px 16px
-      line-height: 1
+      padding: 10px 20px
     .as-header
-      border-bottom: 1px solid #e9eaec
+      background-color: #f5f6f5
+      border-bottom: 1px solid #e5e5e5
       .as-header-title
         display: inline-block
         width: 100%
-        height: 20px
-        line-height: 20px
-        font-size: 14px
-        color: #1c2438
-        font-weight: 700
-        margin: 0
+        height: 21px
+        line-height: 21px
+        font-size: 16px
+        color: #232323
+        font-weight: 400
+        margin: 0        
         overflow: hidden
         text-overflow: ellipsis
         white-space: nowrap
@@ -47,9 +50,11 @@
       line-height: 1.5
       color: #495060
     .as-footer
-      border-top: 1px solid #e9eaec
+      border-top: 1px solid #e5e5e5
       padding: 12px 18px
-      text-align: right
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap
       button
         &:not(:last-child)
           margin-right: 10px

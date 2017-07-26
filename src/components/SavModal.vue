@@ -1,7 +1,7 @@
 <template>
   <div class="sav-modal is-active" v-show="visible">
     <div class="as-mask" @click="mask" v-show="visible"></div>
-    <div class="as-card" :style="w">
+    <div class="as-card" :style="savModalW">
       <a class="as-close"  @click="close" v-if="closable"><sav-icon icon="is-icon-close"></sav-icon></a>
       <header class="as-header" v-if="header">
         <slot name="header">
@@ -11,7 +11,7 @@
       <section class="as-body">
         <slot></slot>
       </section>
-      <footer class="as-footer" v-if="footer">
+      <footer  v-if="footer" :class="['sav-flex-block as-footer', alignModify]">
         <slot name="footer">
           <sav-btn  @click.native ="ok" class="is-success">{{okText}}</sav-btn>
           <sav-btn @click.native="cancel">{{cancelText}}</sav-btn>
@@ -23,8 +23,10 @@
 <script>
   import SavIcon from './SavIcon.vue'
   import SavBtn from './SavBtn.vue'
+  import {createMixins} from '../mixin'
   import {getScrollBarSize} from '../utils/util.js'
   export default {
+    mixins: createMixins(['align']),
     components: {
       SavIcon,
       SavBtn
@@ -80,7 +82,7 @@
     },
 
     beforeDestroy () {
-      document.removeEventListener('keydown', this.EscClose)
+      document.removeEventListener('keydown', this.escClose)
     },
     methods: {
       close () {
@@ -101,7 +103,7 @@
           this.close()
         }
       },
-      EscClose (e) {
+      escClose (e) {
         if (this.visible && this.closable) {
           if (e.keyCode === 27) {
             this.close()
@@ -138,7 +140,7 @@
       }
     },
     computed: {
-      w () {
+      savModalW () {
         return (this.width === null) ? '' : 'width:' + this.width + 'px;'
       }
     },
@@ -147,7 +149,7 @@
         this.wrapShow = true
       }
       // ESC close
-      document.addEventListener('keydown', this.EscClose)
+      document.addEventListener('keydown', this.escClose)
     },
     watch: {
       value (val) {
