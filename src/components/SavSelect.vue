@@ -15,7 +15,7 @@
           'is-active': opt[valueField] == value
         }]">
           <span>{{opt[textField]}}</span>
-          <sav-icon :class="[colorModify]" icon="is-icon-right" v-if="opt[valueField] == value"></sav-icon>
+          <sav-icon :class="[colorModify]" :icon="iconTag" v-if="opt[valueField] == value"></sav-icon>
         </li>
     </ul>
   </sav-dropdown>
@@ -65,6 +65,10 @@
       fill: {
         type: [Boolean, String],
         default: false
+      },
+      iconTag: {
+        type: [String, Number],
+        default: 'is-icon-right'
       }
     },
     methods: {

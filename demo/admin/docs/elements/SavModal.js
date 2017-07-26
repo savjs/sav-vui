@@ -3,8 +3,8 @@ export let SavModal = {
   examples: [
     {
       name: 'ModalModify',
-      title: `tooltip指令`,
-      comment: `哦, 还是有点必要的`,
+      title: '简单的按钮例子',
+      comment: `最简单的使用方法，通过控制属性visible来显示/隐藏对话框。默认按键盘ESC键也可以关闭。`,
       file: '@$examples/modal/ModalModify.vue$@'
     }
   ]

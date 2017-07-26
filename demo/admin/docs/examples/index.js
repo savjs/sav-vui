@@ -6,6 +6,8 @@ import BtnGroup from './button/BtnGroup.vue'
 
 import SelectBasic from './select/SelectBasic.vue'
 
+import FlipBasic from './flip/FlipBasic.vue'
+
 import GridRow from './grid/GridRow.vue'
 import GridCol from './grid/GridCol.vue'
 import GridColOffset from './grid/GridColOffset.vue'
@@ -24,10 +26,7 @@ import TabComponent from './tab/TabComponent.vue'
 
 import TileBasic from './tile/TileBasic.vue'
 
-import MessagePrompt from './message/MessagePrompt.vue'
-
-import SwitchBasic from './switch/SwitchBasic.vue'
-
+import TextArea from './text/TextArea.vue'import MessagePrompt from './message/MessagePrompt.vue'import SwitchBasic from './switch/SwitchBasic.vue'
 import FormCol from './form/FormCol.vue'
 
 import IconPhoton from './icon/IconPhoton.vue'
@@ -37,6 +36,10 @@ import IconFontAwesome from './icon/IconFontAwesome.vue'
 import TipDirective from './tip/TipDirective.vue'
 import TreeModify from './tree/TreeModify.vue'
 import ModalModify from './modal/ModalModify.vue'
+
+import InputModify from './input/InputModify.vue'
+import DatepickerModify from './datepicker/DatepickerModify.vue'
+
 
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
@@ -49,6 +52,8 @@ let components = {
   BtnGroup,
 
   SelectBasic,
+
+  FlipBasic,
 
   GridRow,
   GridCol,
@@ -70,6 +75,8 @@ let components = {
   MessagePrompt,
   SwitchBasic,
 
+  TextArea,
+
   FormCol,
 
   IconPhoton,
@@ -78,9 +85,11 @@ let components = {
   TipDirective,
   TreeModify,
   ModalModify,
+  InputModify,
 
   Api,
-  Example
+  Example,
+  DatepickerModify
 }
 
 Object.defineProperty(components, 'install', {

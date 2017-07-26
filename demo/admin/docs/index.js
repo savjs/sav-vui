@@ -35,10 +35,11 @@ function applyGroups (state) {
     'SavCheckGroup',
     'SavTip',
     'SavSelect',
+    'SavFlip',
+    'SavText',
     'SavInput',
     'SavMessagePrompt',
     'SavSwitch'
-])
   state.layouts = mapGroups([
     'SavRow',
     'SavCol',
@@ -47,7 +48,8 @@ function applyGroups (state) {
   state.components = mapGroups([
     'SavTab',
     'SavForm',
-    'SavModal'
+    'SavModal',
+    'SavDatepicker'
   ])
   state.lists = state.elements.concat(state.layouts).concat(state.components)
 }
