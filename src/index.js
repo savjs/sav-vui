@@ -23,6 +23,8 @@ import SavTree from './components/SavTree.vue'
 import SavModal from './components/SavModal.vue'
 import SavDatepicker from './components/SavDatepicker.vue'
 import SavPoptip from './components/SavPoptip.vue'
+import SavBadge from './components/SavBadge.vue'
+
 import directives from './directives/index.js'
 import {componentMixin} from './componentMixin.js'
 
@@ -67,7 +69,8 @@ let components = {
   SavModal,
   SavDatepicker,
   SavSwitch,
-  SavPoptip
+  SavPoptip,
+  SavBadge
 }
 
 Object.defineProperty(components, 'install', {
