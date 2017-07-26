@@ -16,7 +16,10 @@ import SavCol from './components/SavCol.vue'
 import SavTab from './components/SavTab.vue'
 import SavTabNav from './components/SavTabNav.vue'
 import SavTable from './components/SavTable.vue'
-import SavSwitch from './components/SavSwitch.vue'import SavFlip from './components/SavFlip.vue'import SavMessage from './components/SavMessage.vue'import SavTree from './components/SavTree.vue'
+import SavSwitch from './components/SavSwitch.vue'
+import SavFlip from './components/SavFlip.vue'
+import SavMessage from './components/SavMessage.vue'
+import SavTree from './components/SavTree.vue'
 import SavModal from './components/SavModal.vue'
 import SavDatepicker from './components/SavDatepicker.vue'
 import directives from './directives/index.js'
@@ -57,10 +60,13 @@ let components = {
   SavTab,
   SavTabNav,
   SavTable,
-  SavMessage,  SavFlip,  SavTree,
+  SavMessage,
+  SavFlip,
+  SavTree,
   SavModal,
   SavSwitch,
-  SavDatepicker}
+  SavDatepicker
+}
 
 Object.defineProperty(components, 'install', {
   value: install,

@@ -1,7 +1,8 @@
 <template>
  <div>
       <textarea :class="['sav-textarea']" :placeholder="placeholder" :cols="cols" rows="rows"></textarea>
-  </div></template>
+  </div>
+</template>
 <script>
   export default {
     data (){

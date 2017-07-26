@@ -17,7 +17,13 @@
         <sav-icon icon="fa-exclamation-circle"></sav-icon>
         <slot></slot>
       </div>
+
+      <div v-if="type === 'default" :class="['message-default']">
+        <sav-icon class="message-icon-close" icon="pt-cancel"></sav-icon>
+      </div>
     </div>
+
+
   </transition>
 </template>
 <script>
