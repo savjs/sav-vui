@@ -50,6 +50,7 @@ function applyGroups (state) {
     'SavTab',
     'SavForm',
     'SavModal',
+    'SavPoptip',
     'SavDatepicker'
   ])
   state.lists = state.elements.concat(state.layouts).concat(state.components)

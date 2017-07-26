@@ -1,17 +1,17 @@
 <template>
   <div class="sav-modal is-active" v-show="visible">
-    <div class="modal-mask" @click="mask" v-show="visible"></div>
-    <div class="modal-card" :style="w">
-      <a class="modal-close"  @click="close" v-if="closable"><sav-icon icon="is-icon-close"></sav-icon></a>
-      <header class="modal-card-head" v-if="header">
+    <div class="as-mask" @click="mask" v-show="visible"></div>
+    <div class="as-card" :style="w">
+      <a class="as-close"  @click="close" v-if="closable"><sav-icon icon="is-icon-close"></sav-icon></a>
+      <header class="as-header" v-if="header">
         <slot name="header">
-          <p class="modal-card-title">{{title}}</p>
+          <p class="as-header-title">{{title}}</p>
         </slot>
       </header>
-      <section class="modal-card-body">
+      <section class="as-body">
         <slot></slot>
       </section>
-      <footer class="modal-card-foot" v-if="footer">
+      <footer class="as-footer" v-if="footer">
         <slot name="footer">
           <sav-btn  @click.native ="ok" class="is-success">{{okText}}</sav-btn>
           <sav-btn @click.native="cancel">{{cancelText}}</sav-btn>
@@ -169,9 +169,9 @@
       },
       scrollable (val) {
         if (!val) {
-          this.addScrollEffect();
+          this.addScrollEffect()
         } else {
-          this.removeScrollEffect();
+          this.removeScrollEffect()
         }
       }
     }

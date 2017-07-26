@@ -42,7 +42,7 @@ import ModalModify from './modal/ModalModify.vue'
 
 import InputModify from './input/InputModify.vue'
 import DatepickerModify from './datepicker/DatepickerModify.vue'
-
+import PoptipModify from './Poptip/PoptipModify.vue'
 
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
@@ -89,7 +89,8 @@ let components = {
   TreeModify,
   ModalModify,
   InputModify,
-
+  PoptipModify,
+  
   Api,
   Example,
   DatepickerModify
