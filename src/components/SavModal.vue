@@ -11,7 +11,7 @@
       <section class="as-body">
         <slot></slot>
       </section>
-      <footer  v-if="footer" :class="['sav-flex-block as-footer', alignModify]">
+      <footer  v-if="footer" :class="['sav-flex-block', 'as-footer', alignModify]">
         <slot name="footer">
           <sav-btn  @click.native ="ok" class="is-success">{{okText}}</sav-btn>
           <sav-btn @click.native="cancel">{{cancelText}}</sav-btn>
