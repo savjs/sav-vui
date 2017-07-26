@@ -4,6 +4,7 @@
 
     </div>
     <div class="as-preview">
+
       <sav-modal
         @close="close()"
         v-show="isShowModal"
@@ -16,13 +17,14 @@
   export default {
     data () {
       return {
+        modal3: false,
         isShowModal: false
       }
     },
-    methods:{
-      ShowModal () {
+    methods: {
+      ShowModal (){
         this.isShowModal = true
-      },
+      }
     }
   }
 </script>

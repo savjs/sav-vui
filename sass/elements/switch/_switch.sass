@@ -1,0 +1,75 @@
+$def-width: 35px
+=make-animate($def-width)
+  from
+    left: 0
+  to
+    left: $def-width
+
+.sav-switch
+  width: 64px
+  height: 34px
+  border-radius: 100px
+  border: 2px solid #cccccc
+  box-sizing: border-box
+  padding: 5px 2px 5px 2px
+  background: #d63805
+  cursor: pointer
+  font-size: 10px
+
+  > .roll-boll
+    width: 20px
+    height: 20px
+    position: relative
+    left: 1px
+    border-radius: 100px
+    background: #FFFFFF
+    display: block
+    float: left
+
+  > .sw-cont-off
+    display: block
+    position: absolute
+    left: 37px
+    margin-top: 2px
+    color: #fff
+
+  > .sw-cont-on
+    display: block
+    position: relative
+    left: -12px
+    margin-top: 2px
+    color: #fff
+
+.sav-switch.is-small
+  height: 27.4px
+  padding: 1.5px 2px 1px 2px
+
+.sav-switch.is-large
+  height: 45px
+  width: 70px
+  padding: 7px 2px 8px 2px
+  font-size: 16px
+
+  > .roll-boll
+    width: 25px
+    height: 25px
+    $def-width: 41px
+
+  > .sw-cont-on
+    left: -20px
+
+  > .sw-cont-off
+    left: 41px
+
+.sw-disabled
+  background: #cccccc
+
+.sw-on
+  background: #25ba49
+
+  > .roll-boll
+    animation: roll .5s
+    animation-fill-mode: forwards
+
+@keyframes roll
+  +make-animate($def-width)

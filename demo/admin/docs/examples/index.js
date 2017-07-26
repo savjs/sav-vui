@@ -24,6 +24,10 @@ import TabComponent from './tab/TabComponent.vue'
 
 import TileBasic from './tile/TileBasic.vue'
 
+import MessagePrompt from './message/MessagePrompt.vue'
+
+import SwitchBasic from './switch/SwitchBasic.vue
+
 import FormCol from './form/FormCol.vue'
 
 import IconPhoton from './icon/IconPhoton.vue'
@@ -63,6 +67,8 @@ let components = {
   TabComponent,
 
   TileBasic,
+  MessagePrompt,
+  SwitchBasic,
 
   FormCol,
 

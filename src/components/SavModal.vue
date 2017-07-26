@@ -2,7 +2,7 @@
   <div :class="classes" v-if="show">
     <div class="modal-mask" @click="mask"></div>
     <div class="modal-card" :style="w">
-      <a class="modal-close"  @click="close"><sav-icon icon="is-icon-close"></sav-icon></a>
+      <a class="modal-close"  @click="close" v-if="closable"><sav-icon icon="is-icon-close"></sav-icon></a>
       <header class="modal-card-head" v-if="header">
         <slot name="header">
           <p class="modal-card-title">{{title}}</p>
@@ -13,8 +13,8 @@
       </section>
       <footer class="modal-card-foot" v-if="footer">
         <slot name="footer">
-          <sav-btn @click="ok">{{okText}}</sav-btn>
-          <sav-btn @click="cancel">{{cancelText}}</sav-btn>
+          <sav-btn  @click.native ="ok" class="is-success">{{okText}}</sav-btn>
+          <sav-btn @click.native="cancel">{{cancelText}}</sav-btn>
         </slot>
       </footer>
     </div>

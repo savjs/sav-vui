@@ -1,0 +1,37 @@
+
+.sav-message
+  position: fixed
+  top: 10px
+  left: 50%
+  z-index: 10000
+  display: block
+
+  > .message-tip
+    border-radius: 5px
+    color: #FFFFFF
+    font-size: 14px
+    padding: 7px 10px 7px 10px
+
+.is-success
+  background: #25ba49
+
+.is-fail
+  background: #c23305
+  
+.is-info
+  background: #1aacda
+
+.is-notice
+  background: #dc8408
+
+.effect-enter-active
+  animation: fadeEnter 1s
+
+.effect-leave-active
+  animation: fadeEnter 1s reverse
+
+@keyframes fadeEnter
+  0%
+    opacity: 0
+  100%
+    opacity: 1
