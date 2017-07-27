@@ -1,0 +1,40 @@
+$slider-bg-color: #ffffff
+.sav-slider
+  padding: 17px 30px 17px 20px
+  background: #23a7f5
+  display: block
+  position: absolute
+
+  .slider-prog-value
+    display: inline-block
+    position: relative
+    left: 15px
+    font-size: 13px
+    color: $slider-bg-color
+
+  > .slider-default
+    border-radius: 5px
+    background: rgba(255, 255, 255, 0.3)
+    height: 2px
+    width: 100%
+    vertical-align: middle
+    display: inline-block
+
+    > .slider-progress
+      width: 0
+      height: 2px
+      background: $slider-bg-color
+
+    > .slider-boll
+      width: 10px
+      height: 10px
+      position: relative
+      top: -6px
+      cursor: -webkit-grab
+      border-radius: 100px
+      background: $slider-bg-color
+
+      &:hover
+        width: 12px
+        height: 12px
+        cursor: -webkit-grabbing
