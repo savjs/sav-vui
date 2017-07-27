@@ -29,6 +29,8 @@ import TileBasic from './tile/TileBasic.vue'
 import TextArea from './text/TextArea.vue'
 import MessagePrompt from './message/MessagePrompt.vue'
 import SwitchBasic from './switch/SwitchBasic.vue'
+import RateEvaluate from './rate/RateEvaluate.vue'
+import SliderBasic from './slider/SliderBasic.vue'
 
 import FormCol from './form/FormCol.vue'
 
@@ -78,6 +80,8 @@ let components = {
   TileBasic,
   MessagePrompt,
   SwitchBasic,
+  RateEvaluate,
+  SliderBasic,
 
   TextArea,
 

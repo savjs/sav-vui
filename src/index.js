@@ -19,6 +19,8 @@ import SavTable from './components/SavTable.vue'
 import SavSwitch from './components/SavSwitch.vue'
 import SavFlip from './components/SavFlip.vue'
 import SavMessage from './components/SavMessage.vue'
+import SavRate from './components/SavRate.vue'
+import SavSlider from './components/SavSlider.vue'
 import SavTree from './components/SavTree.vue'
 import SavModal from './components/SavModal.vue'
 import SavDatepicker from './components/SavDatepicker.vue'
@@ -69,9 +71,8 @@ let components = {
   SavModal,
   SavDatepicker,
   SavSwitch,
-  SavPoptip,
-  SavBadge
-}
+  SavRate,
+  SavSlider,  SavBadge}
 
 Object.defineProperty(components, 'install', {
   value: install,

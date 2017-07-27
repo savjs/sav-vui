@@ -39,9 +39,8 @@ function applyGroups (state) {
     'SavText',
     'SavInput',
     'SavMessagePrompt',
-    'SavSwitch',
-    'SavBadge'
-    ])
+    'SavRate',
+    'SavSlider',    'SavBadge'    ])
   state.layouts = mapGroups([
     'SavRow',
     'SavCol',

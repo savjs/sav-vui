@@ -35,5 +35,8 @@
     "vue-router": "^2.5.3",
     "watch-cli": "^0.2.1"
   },
-  "homepage": "https://github.com/savjs/sav-vui#readme"
+  "homepage": "https://github.com/savjs/sav-vui#readme",
+  "dependencies": {
+    "popper.js": "^1.10.8"
+  }
 }

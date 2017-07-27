@@ -1,5 +1,5 @@
 export let SavSwitch = {
-  shortName: '滑块',
+  shortName: '开关',
   mixins: ['size'],
   examples: [
     {

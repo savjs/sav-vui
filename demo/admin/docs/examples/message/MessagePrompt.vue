@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sav-message :type="type" :opens="open" @change="changeType">通知消息</sav-message>
+    <sav-message :type="type" :opens="open" @change="changeType">通知消息 </sav-message>
     <sav-btn @click.native="isOpen">成功</sav-btn>
     <sav-btn @click.native="isOpen1">失败</sav-btn>
     <sav-btn @click.native="isOpen2">提示</sav-btn>

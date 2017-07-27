@@ -19,7 +19,7 @@
       </div>
 
       <div v-if="type === 'default'" class="message-default">
-        <sav-icon class="message-icon-close" icon="pt-cancel"></sav-icon>
+        <sav-icon class="message-icon-close" icon="pt-cancel" @click.native="closeMessage"></sav-icon>
         <slot></slot>
       </div>
     </div>
@@ -53,11 +53,18 @@
         let it = this
         if(newValue === true){
           this.showMess = newValue
-          setTimeout(() => {
-            it.showMess = false
-            it.$emit('change', it.showMess)
-          }, 3000)
+          if(this.type !== 'default'){
+            setTimeout(() => {
+              it.showMess = false
+            }, 3000)
+          }
+          this.$emit('change', false)
         }
+      }
+    },
+    methods: {
+      closeMessage (){
+        this.showMess = false
       }
     }
   }
