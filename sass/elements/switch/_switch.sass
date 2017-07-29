@@ -1,3 +1,8 @@
+$switch-bd-color: $element-bd-color !default
+$switch-off-bg-color: $is-error-color !default
+$switch-on-bg-color: $is-success-color !default
+$switch-bd-radius: $element-bd-radius !default
+
 $def-width: 35px
 =make-animate($def-width)
   from
@@ -8,20 +13,20 @@ $def-width: 35px
 .sav-switch
   width: 64px
   height: 34px
-  border-radius: 100px
-  border: 2px solid #cccccc
+  border-radius: $switch-bd-radius * 50
+  border: 2px solid $switch-bd-color
   box-sizing: border-box
   padding: 5px 2px 5px 2px
-  background: #d63805
-  cursor: pointer
-  font-size: 10px
+  background: $switch-off-bg-color
+  cursor: $element-cursor
+  font-size: $font-size-sm - 2
 
   > .roll-boll
     width: 20px
     height: 20px
     position: relative
     left: 1px
-    border-radius: 100px
+    border-radius: $switch-bd-radius * 50
     background: #FFFFFF
     display: block
     float: left
@@ -31,41 +36,23 @@ $def-width: 35px
     position: absolute
     left: 37px
     margin-top: 2px
-    color: #fff
+    color: $is-text-light-color
 
   > .sw-cont-on
-    display: block
+    @extend .sw-cont-off
     position: relative
     left: -12px
-    margin-top: 2px
-    color: #fff
-
-.sav-switch.is-small
-  height: 27.4px
-  padding: 1.5px 2px 1px 2px
-
-.sav-switch.is-large
-  height: 45px
-  width: 70px
-  padding: 7px 2px 8px 2px
-  font-size: 16px
 
   > .roll-boll
     width: 25px
     height: 25px
     $def-width: 41px
 
-  > .sw-cont-on
-    left: -20px
-
-  > .sw-cont-off
-    left: 41px
-
 .sw-disabled
-  background: #cccccc
+  background: $switch-bd-color
 
 .sw-on
-  background: #25ba49
+  background: $switch-on-bg-color
 
   > .roll-boll
     animation: roll .5s

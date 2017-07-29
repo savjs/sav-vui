@@ -7,7 +7,6 @@
     </div>
     <div>
       <sav-select v-model="value" :color="color" :size="size" :options="options" :fill="fill"></sav-select>
-      <sav-select v-model="value" :color="color" :size="size" :options="options" :fill="fill"></sav-select>
       <sav-select v-model="value" :color="color" :size="size" :options="options" :disabled="true"></sav-select>
       <sav-select v-model="value1" :color="color" :size="size" :options="options" :hover="true" placeholder="dropdown-select" :fill="fill" iconTag="pt-record"></sav-select>
     </div>

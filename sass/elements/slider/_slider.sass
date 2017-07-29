@@ -1,7 +1,10 @@
-$slider-bg-color: #ffffff
+$slider-bg-color: $element-bg-color !default
+$slider-bd-radius: $element-bd-radius !default
+$slider-primary-bg-color: $is-primary-color !default
+
 .sav-slider
-  padding: 17px 30px 17px 20px
-  background: #23a7f5
+  padding: $pad-padding-default 1.75rem $pad-padding-default $pad-padding-lg
+  background: $slider-primary-bg-color
   display: block
   position: absolute
 
@@ -9,12 +12,12 @@ $slider-bg-color: #ffffff
     display: inline-block
     position: relative
     left: 15px
-    font-size: 13px
+    font-size: $font-size-default
     color: $slider-bg-color
 
   > .slider-default
-    border-radius: 5px
-    background: rgba(255, 255, 255, 0.3)
+    border-radius: $slider-bd-radius
+    background: rgba($slider-bg-color, 0.3)
     height: 2px
     width: 100%
     vertical-align: middle
@@ -31,7 +34,7 @@ $slider-bg-color: #ffffff
       position: relative
       top: -6px
       cursor: -webkit-grab
-      border-radius: 100px
+      border-radius: $slider-bd-radius * 50
       background: $slider-bg-color
 
       &:hover

@@ -1,16 +1,14 @@
 <template>
-  <div :class="['sav-switch', {'sw-on': on, 'sw-disabled': disabled,
-      'is-small': size == 'small',
-      'is-large': size == 'large'}
-      ]"
-       @click="swit">
+  <div :class="['sav-switch', sizeModify, {'sw-on': on, 'sw-disabled': disabled}]" @click="swit">
     <div class="roll-boll"></div>
     <span class="sw-cont-off" v-if="swType">OFF</span>
     <span class="sw-cont-on" v-else>ON</span>
   </div>
 </template>
 <script>
+  import {createMixins} from '../mixin.js'
   export default {
+    mixins: createMixins(['size']),
     data (){
       return {
         on: false,

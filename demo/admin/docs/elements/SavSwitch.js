@@ -4,7 +4,7 @@ export let SavSwitch = {
   examples: [
     {
       name: 'SwitchBasic',
-      title: `开关`,
+      title: `@@@@@`,
       comment: `······`,
       file: '@$examples/switch/SwitchBasic.vue$@'
     }

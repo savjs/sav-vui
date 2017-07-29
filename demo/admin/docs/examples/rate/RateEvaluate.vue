@@ -1,6 +1,7 @@
 <template>
   <div>
     <sav-rate :stars="starNumber" :evaluate="evaluate" icon="fa-github-alt"></sav-rate>
+    <sav-rate></sav-rate>
   </div>
 </template>
 <script>

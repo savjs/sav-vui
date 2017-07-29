@@ -1,35 +1,24 @@
 <template>
-  <transition name="effect">
-    <div class="sav-message" v-show="showMess">
-      <div v-if="type === 'success'" :class="['message-tip', {'is-success': type === 'success'}]">
-        <sav-icon icon="fa-check-circle"></sav-icon>
-        <slot></slot>
-      </div>
-      <div v-if="type === 'fail'" :class="['message-tip', {'is-fail': type === 'fail'}]">
-        <sav-icon icon="fa-times-circle"></sav-icon>
-        <slot></slot>
-      </div>
-      <div v-if="type === 'info'" :class="['message-tip', {'is-info': type === 'info'}]">
-        <sav-icon icon="fa-info-circle"></sav-icon>
-        <slot></slot>
-      </div>
-      <div v-if="type === 'notice'" :class="['message-tip', {'is-notice': type === 'notice'}]">
-        <sav-icon icon="fa-exclamation-circle"></sav-icon>
-        <slot></slot>
-      </div>
-
-      <div v-if="type === 'default'" class="message-default">
-        <sav-icon class="message-icon-close" icon="pt-cancel" @click.native="closeMessage"></sav-icon>
-        <slot></slot>
-      </div>
+  <div :class="['sav-message', colorModify]" v-show="showMess">
+    <div v-if="type === 'default'" class="message-default">
+      <sav-icon class="message-icon-close" icon="pt-cancel" @click.native="closeMessage"></sav-icon>
+      <slot></slot>
     </div>
+    <div class="message-tip" v-else>
+      <sav-icon v-if="type==='success'" icon="fa-check-circle"></sav-icon>
+      <sav-icon v-else-if="type==='error'" icon="fa-times-circle"></sav-icon>
+      <sav-icon v-else-if="type==='warn'" icon="fa-exclamation-circle"></sav-icon>
+      <sav-icon v-else-if="type==='info'" icon="fa-info-circle"></sav-icon>
+      <slot></slot>
+    </div>
+  </div>
 
-
-  </transition>
 </template>
 <script>
   import SavIcon from './SavIcon.vue'
+  import {elements} from '../mixin'
   export default {
+    mixins: elements,
     components: {
       SavIcon
     },
@@ -40,7 +29,7 @@
       },
       type: {
         type: String,
-        default: 'info'
+        default: ''
       }
     },
     data (){

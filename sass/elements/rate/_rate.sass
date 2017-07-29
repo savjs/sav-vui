@@ -1,0 +1,18 @@
+$rate-checked-type: $is-warn-color !default
+$rate-bg-color: $element-bd-color !default
+
+.sav-rate
+  > .rate-item
+    +resetul
+    display: inline-block
+
+    > .rate-list
+      +stripa
+      display: inline-block
+      padding: 0px 2px 0px 2px
+      font-size: $font-size-lg + 7
+      cursor: $element-cursor
+      color: $rate-bg-color
+
+    .rate-list.is-check
+      color: $rate-checked-type

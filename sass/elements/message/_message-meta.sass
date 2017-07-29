@@ -1,0 +1,13 @@
+// 颜色
+=make-message-variant($text-color, $color)
+  color: $text-color
+  border-color: darken($color, 2)
+  background-color: $color
+  &:hover,
+  &:focus
+    background-color: darken($color, 6)
+
+
+@each $theme-type, $theme-color in $is-theme-colors
+  .sav-message.#{$theme-type}
+    +make-message-variant($is-text-light-color, $theme-color)

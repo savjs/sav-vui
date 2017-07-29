@@ -1,9 +1,9 @@
+$flip-bd-color: $element-bd-color !default
+$flip-bg-color: $is-primary-color !default
 
 .sav-pagination
   position: relative
   display: block
-  margin: 0
-  padding: 0
 
   &.is-small
     +make-size-sm
@@ -12,20 +12,19 @@
     +make-size-lg
 
   &:last-child
-    border-left: 1px solid #cccccc
+    border-left: 1px solid $flip-bd-color
 
   .page-list
-    border-top: 1px solid #cccccc
-    border-bottom: 1px solid #cccccc
-    border-right: 1px solid #cccccc
-    cursor: pointer
+    +resetul
+    border-top: 1px solid $flip-bd-color
+    border-bottom: 1px solid $flip-bd-color
+    border-right: 1px solid $flip-bd-color
+    cursor: $element-cursor
     padding: 0.3em 0.7em 0.3em 0.7em
-    margin: 0
-    list-style: none
     float: left
 
     &:first-child, &:last-child
-      border-left: 1px solid #cccccc
+      border-left: 1px solid $flip-bd-color
 
     &:hover:not(.page-list-more)
       background: #ddd
@@ -42,8 +41,7 @@
 
   > .page-item
     width: 100%
-    padding: 0
-    margin: 0
+    +resetul
 
     > .as-icon
       +make-icon-addon
@@ -53,9 +51,9 @@
         border-left: none
 
     .page-list.is-active
-      background: #0e729f
-      color: #ffffff
-      border: 1px solid #0e729f
+      background: $flip-bg-color
+      color: $is-text-light-color
+      border: 1px solid $flip-bg-color
 
   > .borderRight
     border-right: none
