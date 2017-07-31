@@ -72,7 +72,9 @@ let components = {
   SavDatepicker,
   SavSwitch,
   SavRate,
-  SavSlider,  SavBadge}
+  SavSlider,
+  SavBadge
+}
 
 Object.defineProperty(components, 'install', {
   value: install,

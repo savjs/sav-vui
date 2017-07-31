@@ -1,6 +1,5 @@
 export let SavSlider = {
   shortName: '滑块',
-  mixins: ['size'],
   examples: [
     {
       name: 'SliderBasic',
