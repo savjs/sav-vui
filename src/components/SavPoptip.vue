@@ -30,7 +30,7 @@
                 default: 'click',
             },
             width: {
-                type: Number,
+                type: Number
             }
         },
 

@@ -69,6 +69,7 @@ let components = {
   SavFlip,
   SavTree,
   SavModal,
+  SavPoptip,
   SavDatepicker,
   SavSwitch,
   SavRate,

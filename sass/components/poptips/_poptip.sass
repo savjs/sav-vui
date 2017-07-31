@@ -57,7 +57,7 @@ $poptip-arrow-outer-width: ($poptip-arrow-width+1)  !default
       top: 3px
       border-width: 0 5px 5px
       border-bottom-color: $border-top-color
-      &:after      
+      &:after
         content: " "
         top: 1px
         margin-left: -$poptip-arrow-width
@@ -66,12 +66,12 @@ $poptip-arrow-outer-width: ($poptip-arrow-width+1)  !default
   &[x-placement^="left"]
     padding: 0 8px 0 5px
     .as-arrow
-      left: 50%
-      margin-left: -$poptip-arrow-width
+      top: 50%
+      margin-top: -$poptip-arrow-width
       right: 3px
       border-width: 5px 0 5px 5px
       border-left-color: $border-top-color
-      &:after   
+      &:after
         content: " "
         right: 1px
         border-right-width: 0
@@ -90,7 +90,7 @@ $poptip-arrow-outer-width: ($poptip-arrow-width+1)  !default
       position: relative
       color: #1c2438
       font-size: 14px
-      &:after 
+      &:after
         content: ""
         display: block
         height: 1px
@@ -102,6 +102,6 @@ $poptip-arrow-outer-width: ($poptip-arrow-width+1)  !default
   .as-poptip-body
     padding: 16px 16px 8px
     .as-body-content
-       overflow: auto
-       color: #495060
+      overflow: auto
+      color: #495060
 
