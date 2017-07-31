@@ -2,7 +2,7 @@
   <div class="sav-slider">
     <div class="slider-default" :style="{width: swidth}">
       <div class="slider-progress"></div>
-      <div class="slider-boll" @mouseenter="sliderPos"></div>
+      <div class="slider-boll" @mousedown="sliderPos"></div>
     </div>
     <div class="slider-prog-value">{{parcent}}</div>
   </div>
@@ -25,6 +25,11 @@
         e.stopPropagation()
         e.preventDefault()
         let it = this
+        window.addEventListener('mousemove', it.moveslider)
+        window.addEventListener('mouseup', it.sliderup)
+      },
+      moveslider (e){
+        e.preventDefault()
         let lf = document.getElementsByClassName('slider-boll')[0]
         let prog = document.getElementsByClassName('slider-progress')[0]
         let offsetW = lf.offsetWidth / 2
@@ -32,31 +37,27 @@
         let ProgOffsetW = 0
         while (obj){
           if(obj.offsetLeft !== undefined)
-          ProgOffsetW += obj.offsetLeft
+            ProgOffsetW += obj.offsetLeft
           obj = obj.parentNode
         }
-        document.onmousedown = function () {
-          document.onmousemove = function (e) {
-            e.preventDefault()
-            let slideLeft = e.clientX - ProgOffsetW + offsetW
-            let maxLeft = parseInt(it.swidth.replace(/px/g,''))
-            if(slideLeft > 0 && slideLeft < maxLeft){
-              lf.style.left = slideLeft + 'px'
-              prog.style.width = slideLeft + 'px'
-              it.parcent = Math.round(slideLeft / parseInt(maxLeft) * 100)
-            }else if(slideLeft <= 0){
-              slideLeft = 0
-              lf.style.left = 0
-              prog.style.width = 0
-              it.parcent = 0
-            }
-          }
-          document.onmouseup = function () {
-            document.onmousemove = null
-            document.onmousedown = null
-          }
+        let slideLeft = e.clientX - ProgOffsetW + offsetW
+        let maxLeft = parseInt(this.swidth.replace(/px/g,''))
+        if(slideLeft > 0 && slideLeft < maxLeft){
+          lf.style.left = slideLeft + 'px'
+          prog.style.width = slideLeft + 'px'
+          this.parcent = Math.round(slideLeft / parseInt(maxLeft) * 100)
+        }else if(slideLeft <= 0){
+          slideLeft = 0
+          lf.style.left = 0
+          prog.style.width = 0
+          this.parcent = 0
         }
-
+        this.$emit('movingpoint', this.parcent)
+      },
+      sliderup (){
+        let it = this
+        window.removeEventListener('mousedown', it.sliderPos)
+        window.removeEventListener('mousemove', it.moveslider)
       }
     }
   }
