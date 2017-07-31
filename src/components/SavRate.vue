@@ -86,6 +86,7 @@
         })
         this.checkNum = res
         this.isCheck = true
+        this.$emit('input', this.checkNum)
       }
     }
   }

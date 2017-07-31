@@ -52,7 +52,7 @@
           prog.style.width = 0
           this.parcent = 0
         }
-        this.$emit('movingpoint', this.parcent)
+        this.$emit('input', this.parcent)
       },
       sliderup (){
         let it = this

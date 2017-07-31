@@ -85,7 +85,7 @@
           if(key.num === it){
             key.type = true
             this.flip = it
-            this.$emit('pages',this.flip)
+            this.$emit('input',this.flip)
           }else{
             key.type = false
           }

@@ -36,10 +36,10 @@
           this.on = !this.on
           if(this.on == true){
             this.swType = false
-            this.$emit('notice', true)
+            this.$emit('input', true)
           }else{
             this.swType = true
-            this.$emit('notice', false)
+            this.$emit('input', false)
           }
         }
       }
