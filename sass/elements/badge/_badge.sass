@@ -1,3 +1,4 @@
+$badge-bd-color: #ed3f14 !default
 .sav-badge
   position: relative
   display: inline-block
@@ -18,20 +19,20 @@
     height: 8px
     width: 8px
     border-radius: 100%
-    background: #ed3f14
+    background: $badge-bd-color
     z-index: 10
-    box-shadow: 0 0 0 1px #fff
+    box-shadow: 0 0 0 1px $is-text-light-color
   .as-badge-count
-    position: absolute
+    @extend .as-badge-dot
     transform: translateX(50%)
     top: -10px
     right: 0
     height: 20px
     border-radius: 10px
     min-width: 20px
-    background: #ed3f14
+    background: $badge-bd-color
     border: 1px solid transparent
-    color: #fff
+    color: $is-text-light-color
     line-height: 18px
     text-align: center
     padding: 0 6px
@@ -40,5 +41,5 @@
     transform-origin: -10% center
     z-index: 10
     box-sizing: border-box 
-    box-shadow: 0 0 0 1px #fff
+    box-shadow: 0 0 0 1px $is-text-light-color
   
