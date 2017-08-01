@@ -1,25 +1,21 @@
 <template>
     <div class="sav-datetime-picker" :style="{ width: width }">
-        <input
-            type="text"
-            name="{{name}}"
-            :style="styleObj"
-            :readonly="readonly"
-            :value="value"
-            @click="show = !show">
+        
+        <sav-input 
+            :value="trueValue"
+            @click.native="show = !show" :size="size"></sav-input>
+            
         <div class="picker-wrap" v-show="show">
             <table class="date-picker">
                 <thead>
                     <tr class="date-head">
-                        <th colspan="4">
-                            <span class="btn-prev" @click="yearClick(-1)">&lt;</span>
-                            <span class="show-year">{{now.getFullYear()}}</span>
-                            <span class="btn-next" @click="yearClick(1)">&gt;</span>
-                        </th>
-                        <th colspan="3">
+                        <th colspan="7">
+                            <span class="btn-prev" @click="yearClick(-1)">&lt;&lt;</span>
                             <span class="btn-prev" @click="monthClick(-1)">&lt;</span>
+                            <span class="show-year">{{now.getFullYear()}}年</span>
                             <span class="show-month">{{months[now.getMonth()]}}</span>
                             <span class="btn-next" @click="monthClick(1)">&gt;</span>
+                            <span class="btn-next" @click="yearClick(1)">&gt;&gt;</span>
                         </th>
                     </tr>
                     <tr class="date-days">
@@ -29,9 +25,9 @@
                 <tbody>
                     <tr v-for="i in 6">
                         <td v-for="j in 7"
-                            :class="date[i * 7 + j] && date[i * 7 + j].status"
-                            :date="date[i * 7 + j] && date[i * 7 + j].date"
-                            @click="pickDate(i * 7 + j)">{{date[i * 7 + j] && date[i * 7 + j].text}}</td>
+                            :class="date[(i-1) * 7 + (j-1)] && date[(i-1) * 7 + (j-1)].status"
+                            :date="date[(i-1) * 7 + (j-1)] && date[(i-1) * 7 + (j-1)].date"
+                            @click="pickDate((i-1) * 7 + (j-1))">{{date[(i-1) * 7 + (j-1)] && date[(i-1)* 7 + (j-1)].text}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -39,13 +35,20 @@
     </div>
 </template>
 <script>
+  import {elements} from '../mixin'
+  import SavInput from './SavInput.vue'
     export default {
+        mixins: elements,
         props: {
             width: { type: String, default: '238px' },
             readonly: { type: Boolean, default: false },
             value: { type: String, default: '' },
             format: { type: String, default: 'YYYY-MM-DD' },
-            name: { type: String, default: '' }
+            name: { type: String, default: '' },
+            size: { type: [String, Boolean], default: '' },
+        },
+        components:{
+            SavInput
         },
         data () {
             return {
@@ -53,7 +56,8 @@
                 days: ['日', '一', '二', '三', '四', '五', '六'],
                 months: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
                 date: [],
-                now: new Date()
+                now: new Date(),
+                trueValue: this.value || ''
             };
         },
         watch: {
@@ -72,10 +76,14 @@
                 var arr = [];
                 var time = new Date(this.now);
                 time.setMonth(time.getMonth(), 1);           // the first day
+                                                         
                 var curFirstDay = time.getDay();
-                curFirstDay === 0 && (curFirstDay = 7);
-                time.setDate(0);                             // the last day
+               
+                curFirstDay == 0 && (curFirstDay = 7);
+                time.setDate(0);                             // the last day of last month
+                                                             
                 var lastDayCount = time.getDate();
+                
                 for (let i = curFirstDay; i > 0; i--) {
                     arr.push({
                         text: lastDayCount - i + 1,
@@ -83,10 +91,14 @@
                         status: 'date-pass'
                     });
                 }
+
                 time.setMonth(time.getMonth() + 2, 0);       // the last day of this month
                 var curDayCount = time.getDate();
-                time.setDate(1);                             // fix bug when month change
-                var value = this.value || this.stringify(new Date());
+                time.setDate(1);                             // fix bug when month change ,the first day of this month
+                                                             
+                // var value = this.value || this.stringify(new Date());
+                var value = this.trueValue || this.stringify(new Date());
+
                 for (let i = 0; i < curDayCount; i++) {
                     let tmpTime = new Date(time.getFullYear(), time.getMonth(), i + 1);
                     let status = '';
@@ -107,24 +119,10 @@
                     j++;
                 }
                 this.date = arr;
+                
             },
-            yearClick (flag) {
-                this.now.setFullYear(this.now.getFullYear() + flag);
-                this.now = new Date(this.now);
-            },
-            monthClick (flag) {
-                this.now.setMonth(this.now.getMonth() + flag);
-                this.now = new Date(this.now);
-            },
-            pickDate (index) {
-                this.show = false;
-                this.now = new Date(this.date[index].time);
-                this.value = this.stringify();
-            },
-            parse (str) {
-                var time = new Date(str);
-                return isNaN(time.getTime()) ? null : time;
-            },
+            
+            
             stringify (time = this.now, format = this.format) {
                 var year = time.getFullYear();
                 var month = time.getMonth() + 1;
@@ -142,13 +140,35 @@
                     return map[str];
                 });
             },
+
+            pickDate (index) {
+                this.show = false;
+                this.now = new Date(this.date[index].time);
+                // this.value = this.stringify();
+                this.trueValue = this.stringify();
+                this.$emit('input', this.trueValue)
+                
+            },
+            parse (str) {
+                var time = new Date(str);
+                return isNaN(time.getTime()) ? null : time;
+            },
+            yearClick (flag) {
+                this.now.setFullYear(this.now.getFullYear() + flag);
+                this.now = new Date(this.now);
+            },
+            monthClick (flag) {
+                this.now.setMonth(this.now.getMonth() + flag);
+                this.now = new Date(this.now);
+            },
             leave (e) {
                 if (!this.$el.contains(e.target)) {
                     this.close();
                 }
             }
         },
-        ready () {
+        created () {
+            // this.trueValue = this.value
             this.now = this.parse(this.value) || new Date();
             document.addEventListener('click', this.leave, false);
         },

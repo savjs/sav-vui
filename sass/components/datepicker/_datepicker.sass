@@ -4,14 +4,10 @@
   font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei"
   -webkit-font-smoothing: antialiased
   color: #333
+  *
+    -webkit-user-select:​ none
+    user-select:​ none
 
-  input 
-    width: 100%
-    padding: 5px 10px
-    height: 30px
-    outline: 0 none
-    border: 1px solid #ccc
-    font-size: 13px
 
   .picker-wrap
     position: absolute
@@ -45,15 +41,15 @@
   td 
     cursor: pointer
 
-  td:hover 
-    background-color: #f0f0f0
+    &:hover 
+      background-color: #f0f0f0
 
-  td.date-pass, td.date-future 
-    color: #aaa
+    &.date-pass, &.date-future 
+      color: #aaa
 
-  td.date-active 
-    background-color: #ececec
-    color: #3bb4f2
+    &.date-active 
+      background-color: #ececec
+      color: #3bb4f2
 
   .date-head 
     background-color: #fff
@@ -78,8 +74,8 @@
   .btn-prev, .btn-next 
     cursor: pointer
     display: inline-block
-    padding: 0 10px
+    padding: 0 5px
     vertical-align: middle
 
   .btn-prev:hover, .btn-next:hover 
-    background: rgba(16, 160, 234, 0.5)
+    background: #f0f0f0
