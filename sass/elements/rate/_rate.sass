@@ -2,9 +2,16 @@ $rate-checked-type: $is-warn-color !default
 $rate-bg-color: $element-bd-color !default
 
 .sav-rate
+  display: flex
+  flex-direction: row
+  align-items: center
+
   > .rate-item
     +resetul
     display: inline-block
+
+    > .rate-text
+      display: inline-block
 
     > .rate-list
       +stripa

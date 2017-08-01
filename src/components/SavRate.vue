@@ -1,16 +1,18 @@
 <template>
-  <div class="sav-rate">
+  <div class="sav-rate" @mouseleave="clearType">
      <ul class="rate-item">
        <li :class="['rate-list', {'is-check': opt.type}]"
            v-for="opt in starArr"
            @mouseenter="changeRateCol(opt.num)"
-           @mouseleave="clearType"
            @click="checkRate(opt.num)"
        >
          <sav-icon :icon="icon"></sav-icon>
        </li>
      </ul>
-    <span>{{evaluateCont}}</span>
+    <div class="rate-text">
+      <span v-if="showtext">{{evaluateCont}}</span>
+    </div>
+
   </div>
 </template>
 <script>
@@ -18,14 +20,6 @@
   export default {
     components: {
       SavIcon
-    },
-    data (){
-      return {
-        starArr: [],
-        checkNum: '',
-        isCheck: false,
-        evaluateCont: ''
-      }
     },
     props: {
       stars: {
@@ -42,7 +36,37 @@
       icon: {
         type: String,
         default: 'fa-star'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      showtext: {
+        type: Boolean,
+        default: true
+      },
+      value: {
+        type: Number,
+        default: 0
       }
+    },
+    data (){
+      return {
+        starArr: [],
+        checkNum: '',
+        isCheck: false,
+        evaluateCont: ''
+      }
+    },
+    created (){
+      for(let i = 1; i <= this.stars; i++){
+        if(i <= this.value){
+          this.starArr.push({'num': i, 'type': true})
+        }else{
+          this.starArr.push({'num': i, 'type': false})
+        }
+      }
+      console.log(this.value)
     },
     watch: {
       checkNum (newValue){
@@ -51,13 +75,9 @@
         }
       }
     },
-    created (){
-      for(let i = 1; i <= this.stars; i++){
-        this.starArr.push({'num': i, 'type': false})
-      }
-    },
     methods: {
       changeRateCol (it){
+        if(this.disabled) return
         this.evaluateCont = this.evaluate[it - 1]
         this.isCheck = false
         this.starArr.map((value, index) => {
@@ -69,16 +89,18 @@
         })
       },
       clearType (){
-          this.starArr.map((value, index) => {
-            if(value.num > this.checkNum){
-              value.type = false
-            }else{
-              value.type = true
-            }
-          })
-          this.evaluateCont = this.evaluate[this.checkNum - 1]
+        if(this.disabled) return
+        this.starArr.map((value, index) => {
+          if(value.num > this.checkNum){
+            value.type = false
+          }else{
+            value.type = true
+          }
+        })
+        this.evaluateCont = this.evaluate[this.checkNum - 1]
       },
       checkRate (res){
+        if(this.disabled) return
         this.starArr.map((value, index) => {
           if(value.num <= res){
             value.type = true
@@ -87,6 +109,7 @@
         this.checkNum = res
         this.isCheck = true
         this.$emit('input', this.checkNum)
+        this.$emit('onchange', this.evaluateCont)
       }
     }
   }

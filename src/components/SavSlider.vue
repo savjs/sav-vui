@@ -1,6 +1,6 @@
 <template>
   <div class="sav-slider">
-    <div class="slider-default" :style="{width: swidth}">
+    <div class="slider-default" :style="{width: swidth}" @click="changeslider">
       <div class="slider-progress"></div>
       <div class="slider-boll" @mousedown="sliderPos"></div>
     </div>
@@ -58,6 +58,26 @@
         let it = this
         window.removeEventListener('mousedown', it.sliderPos)
         window.removeEventListener('mousemove', it.moveslider)
+      },
+      changeslider (e){
+        let checkPoint = e.clientX
+        let slidePoint = document.getElementsByClassName('slider-boll')[0]
+        let realProgress = document.getElementsByClassName('slider-progress')[0]
+        let defaultProgress = document.getElementsByClassName('slider-default')[0]
+        let parent = defaultProgress.parentNode
+        let realWidth = parseInt(this.swidth.replace(/px/g,''))
+        let allOffset = 0
+        while(parent){
+          if(parent.offsetLeft !== undefined)
+            allOffset += parent.offsetLeft
+          parent = parent.parentNode
+
+        }
+        let checkOffset = checkPoint - allOffset - slidePoint.offsetWidth / 2
+        slidePoint.style.left = checkOffset + 'px'
+        realProgress.style.width = checkOffset + 'px'
+        this.parcent = Math.round(checkOffset / realWidth * 100)
+        console.log(checkPoint - allOffset)
       }
     }
   }
