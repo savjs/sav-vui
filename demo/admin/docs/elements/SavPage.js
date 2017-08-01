@@ -1,4 +1,4 @@
-export let SavFlip = {
+export let SavPage = {
   shortName: '分页',
   mixins: ['size', 'color', 'defaultSlot'],
   examples: [

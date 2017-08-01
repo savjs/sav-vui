@@ -17,14 +17,14 @@ import SavTab from './components/SavTab.vue'
 import SavTabNav from './components/SavTabNav.vue'
 import SavTable from './components/SavTable.vue'
 import SavSwitch from './components/SavSwitch.vue'
-import SavFlip from './components/SavFlip.vue'
+import SavPage from './components/SavPage.vue'
 import SavMessage from './components/SavMessage.vue'
 import SavRate from './components/SavRate.vue'
 import SavSlider from './components/SavSlider.vue'
 import SavTree from './components/SavTree.vue'
 import SavModal from './components/SavModal.vue'
 import SavDatepicker from './components/SavDatepicker.vue'
-import SavPoptip from './components/SavPoptip.vue'
+import SavPopupOver from './components/SavPopupOver.vue'
 import SavBadge from './components/SavBadge.vue'
 
 import directives from './directives/index.js'
@@ -66,10 +66,10 @@ let components = {
   SavTabNav,
   SavTable,
   SavMessage,
-  SavFlip,
+  SavPage,
   SavTree,
   SavModal,
-  SavPoptip,
+  SavPopupOver,
   SavDatepicker,
   SavSwitch,
   SavRate,

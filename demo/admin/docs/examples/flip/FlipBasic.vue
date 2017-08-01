@@ -4,7 +4,7 @@
       <sav-size-modify v-model="size"></sav-size-modify>
       <sav-select v-model="value" :options="options"></sav-select>
     </div>
-    <sav-flip :color="color" :size="size" :item="item" :AllItem="allpages" :type="value"></sav-flip>
+    <sav-page :color="color" :size="size" :item="item" :AllItem="allpages" :type="value"></sav-page>
   </div>
 </template>
 <script>

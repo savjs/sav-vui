@@ -1,6 +1,5 @@
 import Popper from 'popper.js/dist/esm/popper.js'
-
-const PoptipMixin = {
+const PopperMixin = {
     props: {
         always: {
             type: Boolean,
@@ -8,7 +7,7 @@ const PoptipMixin = {
         },
         trigger: {
             type: String,
-            default: 'hover'
+            default: 'click'
         },
         appendToBody: {
             type: Boolean,
@@ -25,19 +24,19 @@ const PoptipMixin = {
         disabled: {
             type: Boolean,
             default: false
-        }
+        },
     },
 
-    data () {
+    data() {
         return {
             reference: null,
             popper: null,
             isShow: false
-        }
+        };
     },
 
     watch: {
-        disabled (val) {
+        disabled(val) {
             if (!val) {
                 this.runPopper()
             } else {
@@ -47,7 +46,7 @@ const PoptipMixin = {
     },
 
     methods: {
-        toggle () {
+        toggle() {
             this.isShow = !this.isShow
             if (!this.isShow) {
                 this.timer = setTimeout(() => {
@@ -57,21 +56,21 @@ const PoptipMixin = {
             }
         },
         // add delay
-        hidePopper () {
+        hidePopper() {
             this.isShow = false
             this.timer = setTimeout(() => {
                 this.popper.destroy() // destroy popper when hide
                 this.popper = null
             }, 300)
         },
-        showPopper () {
+        showPopper() {
             this.isShow = true
             if (this.timer) clearTimeout(this.timer)
             if (this.popperTimer) clearTimeout(this.popperTimer)
         },
 
-        createInstance () {
-            // this.isShow = true
+        createInstance() {
+            // this.isShow = true;
             this.showPopper()
             if (this.popper) {
                 this.popper.update()
@@ -89,33 +88,33 @@ const PoptipMixin = {
                 bottomLeft: 'bottom-end',
                 bottomRight: 'bottom-start',
                 rightTop: 'right-end',
-                rightBottom: 'right-start'
-            }
+                rightBottom: 'right-start',
+            };
             const placement = placementMapper[this.placement] ? placementMapper[this.placement] : 'bottom'
 
             const reference = this.reference = this.reference || this.$el.children[0]
             const popperEl = this.$refs.popper
             const options = {
                 placement
-            }
+            };
             if (this.appendToBody) document.body.appendChild(popperEl)
             this.popper = new Popper(reference, popperEl, options)
         },
 
-        handleClick (e) {
+        handleClick(e) {
             e.stopPropagation()
             if (this.$el.contains(e.target)) {
                 if (this.isShow) {
-                    // this.isShow = false
+                    this.isShow = false
                     this.hidePopper()
                 } else {
                     this.createInstance()
                 }
             } else if (this.$refs.popper.contains(e.target)) {
-                // this.isShow = true
+               this.isShow = true
                 this.showPopper()
             } else {
-                // this.isShow = false
+               this.isShow = false
                 /*eslint-disable */
                 if (this.isShow) this.hidePopper()
                 /*eslint-disable */
@@ -169,7 +168,7 @@ const PoptipMixin = {
                 this.reference.removeEventListener('mouseenter', this.createInstance)
                 this.reference.removeEventListener('mouseleave', this.toggle)
             }
-        },
+        }
 
     },
 
@@ -186,4 +185,5 @@ const PoptipMixin = {
 
 }
 
-export default PoptipMixin
+export default PopperMixin
+

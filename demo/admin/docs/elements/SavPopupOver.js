@@ -1,4 +1,4 @@
-export let SavPoptip = {
+export let SavPopupOver = {
   shortName: '气泡提示',
   mixins: ['size', 'color', 'defaultSlot'],
   props: [
