@@ -28,8 +28,9 @@
       <sav-popup-over  title="提示标题" content="提示内容" placement="right">
         <sav-btn>右</sav-btn>
       </sav-popup-over>
-      <sav-popup-over  title="提示标题" content="提示内容" placement="rightTop">
+      <sav-popup-over placement="rightTop" trigger="hover" :width="400" >
         <sav-btn>右下</sav-btn>
+        <div slot="content"> 自定义</div>
       </sav-popup-over>
 
     </div>
