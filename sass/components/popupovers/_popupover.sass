@@ -1,0 +1,107 @@
+$border-top-color: #e9eaec !default
+$poptip-arrow-width: 5px  !default
+$poptip-arrow-outer-width: ($poptip-arrow-width+1)  !default
+
+.sav-poptip
+  display: block
+  visibility: visible
+  font-size: 12px
+  line-height: 1.5
+  position: absolute
+  z-index: 1060
+  .as-arrow
+    display: block
+    width: 0
+    height: 0
+    position: absolute
+    border-width: $poptip-arrow-outer-width
+    border-color: transparent
+    border-style: solid
+    &:after
+      content: ""
+      @extend  .as-arrow
+      border-width: $poptip-arrow-width
+  &[x-placement^="top"]
+    padding: 5px 0 8px
+    .as-arrow
+      left: 50%
+      margin-left: -$poptip-arrow-width
+      bottom: 3px
+      border-width: 5px 5px 0
+      border-top-color: $border-top-color
+      &:after
+        content: " "
+        bottom: 1px
+        margin-left: -$poptip-arrow-width
+        border-bottom-width: 0
+        border-top-color: $is-text-light-color
+  &[x-placement^="right"]
+    padding: 0 5px 0 8px
+    .as-arrow
+      top: 50%
+      margin-top: -$poptip-arrow-width
+      left: 3px
+      border-width: 5px 5px 5px 0
+      border-right-color: $border-top-color
+      &:after
+        content: " "
+        left: 1px
+        bottom: -$poptip-arrow-width
+        border-left-width: 0
+        border-right-color: $is-text-light-color
+  &[x-placement^="bottom"]
+    padding: 8px 0 5px
+    .as-arrow
+      left: 50%
+      margin-left: -$poptip-arrow-width
+      top: 3px
+      border-width: 0 5px 5px
+      border-bottom-color: $border-top-color
+      &:after
+        content: " "
+        top: 1px
+        margin-left: -$poptip-arrow-width
+        border-top-width: 0
+        border-bottom-color: $is-text-light-color
+  &[x-placement^="left"]
+    padding: 0 8px 0 5px
+    .as-arrow
+      top: 50%
+      margin-top: -$poptip-arrow-width
+      right: 3px
+      border-width: 5px 0 5px 5px
+      border-left-color: $border-top-color
+      &:after
+        content: " "
+        right: 1px
+        border-right-width: 0
+        border-left-color: $is-text-light-color
+        bottom: -$poptip-arrow-width
+
+  .as-poptip-inner
+    width: 100%
+    background-color: $is-text-light-color
+    background-clip: padding-box
+    border-radius: 4px
+    box-shadow: 0 1px 6px rgba(0,0,0,.2)
+    white-space: nowrap
+    .as-title
+      padding: 8px 16px
+      position: relative
+      color: #1c2438
+      font-size: 14px
+      &:after
+        content: ""
+        display: block
+        height: 1px
+        position: absolute
+        left: 8px
+        right: 8px
+        bottom: 0
+        background-color: #e9eaec
+  .as-poptip-body
+    padding: 16px 16px 8px
+    .as-body-content
+      overflow: auto
+      color: #495060
+
