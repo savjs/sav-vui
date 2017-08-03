@@ -44,7 +44,8 @@ function applyGroups (state) {
   ])
   state.components = mapGroups([
     'SavTab',
-    'SavForm'
+    'SavForm',
+    'SavPopupOver'
   ])
   state.lists = state.elements.concat(state.layouts).concat(state.components)
 }

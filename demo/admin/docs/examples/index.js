@@ -32,7 +32,7 @@ import IconFontAwesome from './icon/IconFontAwesome.vue'
 
 import TipDirective from './tip/TipDirective.vue'
 import TreeModify from './tree/TreeModify.vue'
-
+import PoptipModify from './poptip/PoptipModify.vue'
 
 export function install (Vue) {
   Object.keys(components).forEach((it) => {
@@ -71,7 +71,7 @@ let components = {
 
   TipDirective,
   TreeModify,
-
+  PoptipModify,
   Api,
   Example
 }
