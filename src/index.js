@@ -17,7 +17,8 @@ import SavTab from './components/SavTab.vue'
 import SavTabNav from './components/SavTabNav.vue'
 import SavTable from './components/SavTable.vue'
 import SavTree from './components/SavTree.vue'
-
+import SavModal from './components/SavModal.vue'
+import SavPopupOver from './components/SavPopupOver.vue'
 
 import directives from './directives/index.js'
 import {componentMixin} from './componentMixin.js'
@@ -57,7 +58,9 @@ let components = {
   SavTab,
   SavTabNav,
   SavTable,
-  SavTree
+  SavTree,
+  SavModal,
+  SavPopupOver
 }
 
 Object.defineProperty(components, 'install', {
