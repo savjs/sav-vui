@@ -17,7 +17,7 @@ function getTip () {
     tip = document.createElement('div')
     tip.className = 'sav-tooltip'
     tip.id = 'tip'
-    document.body.append(tip)
+    document.body.appendChild(tip)
   }
   return tip
 }
