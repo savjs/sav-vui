@@ -4,7 +4,7 @@
     @mouseleave.native="disabled || (innerOpen = false)"
     >
     <sav-btn :class="[colorModify, sizeModify]" :disabled="disabled"
-      @click.native="innerOpen = !innerOpen; return false;">
+      @click.native.stop.prevent="innerOpen = !innerOpen">
       <span>{{textSelected || placeholder}}</span>
       <sav-icon icon="is-icon-caret"></sav-icon>
     </sav-btn>
