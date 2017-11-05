@@ -23,7 +23,7 @@ fse.ensureDir(distCssDir).then(() => {
       includePaths
     }),
   ]).then(() => {
-    console.log('Done')
+    console.log('Build Sass Done.')
   })
 }).catch((err) => {
   console.error(err)
