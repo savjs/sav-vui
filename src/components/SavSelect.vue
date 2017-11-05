@@ -10,7 +10,7 @@
     </sav-btn>
     <ul class="is-drop-select" slot="dropview">
       <li v-for="opt in options" key="valueField"
-        @click="selectItem(opt)"
+        @click="selectItem($event, opt)"
         :class="['as-item', {
           'is-active': opt[valueField] == value
         }]">
@@ -68,7 +68,8 @@
       }
     },
     methods: {
-      selectItem (item) {
+      selectItem ($event, item) {
+        $event.preventDefault()
         this.innerOpen = false
         this.$emit('input', item.value)
       }
