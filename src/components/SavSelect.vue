@@ -4,13 +4,13 @@
     @mouseleave.native="disabled || (innerOpen = false)"
     >
     <sav-btn :class="[colorModify, sizeModify]" :disabled="disabled"
-      @click.native="innerOpen = !innerOpen">
+      @click.native="innerOpen = !innerOpen; return false;">
       <span>{{textSelected || placeholder}}</span>
       <sav-icon icon="is-icon-caret"></sav-icon>
     </sav-btn>
     <ul class="is-drop-select" slot="dropview">
       <li v-for="opt in options" key="valueField"
-        @click="selectItem($event, opt)"
+        @click="selectItem($event, opt);"
         :class="['as-item', {
           'is-active': opt[valueField] == value
         }]">
