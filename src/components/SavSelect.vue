@@ -71,7 +71,8 @@
       selectItem ($event, item) {
         $event.preventDefault()
         this.innerOpen = false
-        this.$emit('input', item.value)
+        this.$emit('input', item[this.valueField])
+        this.$emit('select', item)
       }
     }
   }
