@@ -15,7 +15,7 @@
     mixins: elements,
     props: {
       value: {
-        type: [Array, Boolean],
+        type: [Array, Boolean, String],
         default: false
       },
       option: {
@@ -29,6 +29,11 @@
       isChecked () {
         if (this.isOption) {
           return this.value.indexOf(this.option) >= 0
+        }
+        if (this.value === 'true') {
+          return true
+        } else if (this.value === 'false') {
+          return false
         }
         return !!this.value
       }
@@ -44,7 +49,7 @@
           }
           this.$emit('input', arr)
         } else {
-          this.$emit('input', !this.value)
+          this.$emit('input', val.target.checked)
         }
       }
     }
