@@ -9,7 +9,7 @@
       <sav-icon icon="is-icon-caret"></sav-icon>
     </sav-btn>
     <ul class="is-drop-select" slot="dropview">
-      <li v-for="opt in options" :key="valueField"
+      <li v-for="opt in options" :key="opt[valueField]"
         @click="selectItem($event, opt);"
         :class="['as-item', {
           'is-active': opt[valueField] == value
